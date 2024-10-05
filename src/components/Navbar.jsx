@@ -1,18 +1,20 @@
-import { useState } from "react";
-import PropTypes from 'prop-types';
+import { useState, useEffect, useRef } from "react";
 import Button from "./Button";
 
-const Navbar = ({ className }) => {
+const Navbar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentItem, setCurrentItem] = useState(2);
+  const wrapperRef = useRef(null);
 
   const listItems = [
     {
       name: "Inicio",
-      link: "#",
+      link: "/",
     },
     {
       name: "¿Quienes somos?",
-      link: "#",
+      link: "/about",
     },
     {
       name: "¿Qué hacemos?",
@@ -22,18 +24,52 @@ const Navbar = ({ className }) => {
       name: "Voluntariado",
       link: "#",
     },
-  ]
+  ];
+
+  const areasItems = [
+    {
+      name: "Area 1",
+      link: "#",
+    },
+    {
+      name: "Area 2",
+      link: "#",
+    },
+    {
+      name: "Area 3",
+      link: "#",
+    },
+    {
+      name: "Area 4",
+      link: "#",
+    },
+  ];
+
+  //funcion para cuando sale del ref se cierre 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
 
   return (
     <>
-      <header className={`border-b-1 relative z-20 w-full border-b border-slate-200 bg-white/90 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden ${className}`}>
+      <header
+        className={`border-b-1 relative z-20 w-full border-b border-slate-200 bg-white/90 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden`}
+      >
         <div className="relative mx-auto max-w-full px-6">
           <nav
             aria-label="main navigation"
             className="flex h-[5.5rem] items-stretch justify-between font-medium text-slate-700"
             role="navigation"
           >
-            {/*      <!-- Brand logo --> */}
+            {/*      <!-- Logo --> */}
             <a
               id="WindUI"
               aria-label="WindUI logo"
@@ -83,17 +119,79 @@ const Navbar = ({ className }) => {
             >
               {listItems.map((item, index) => (
                 <li key={index} role="none" className="flex items-stretch">
+                  <a
+                    role="menuitem"
+                    aria-haspopup="false"
+                    className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600 focus:outline-none focus-visible:outline-none lg:px-8"
+                    href={item.link}
+                  >
+                    <span>{item.name}</span>
+                  </a>
+                </li>
+              ))}
+              <li role="none" className="flex items-stretch">
                 <a
                   role="menuitem"
-                  aria-haspopup="false"
-                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href={item.link}
+                  aria-haspopup="true"
+                  className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600 focus:outline-none focus-visible:outline-none lg:px-8 cursor-pointer"
+                  onClick={() => setIsOpen(!isOpen)}
+                  aria-expanded={isOpen ? " true" : "false"}
                 >
-                  <span>{item.name}</span>
+                  <span>Áreas de trabajo</span>
+                  <span className="relative only:-mx-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      aria-labelledby="t-01 d-01"
+                      role="graphics-symbol"
+                    >
+                      <title id="t-01">Button icon</title>
+                      <desc id="d-01">
+                        An icon describing the buttons usage
+                      </desc>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </span>
                 </a>
+                {/*  <!-- Start Menu list --> */}
+                <ul
+                  className={`${
+                    isOpen ? "flex" : "hidden"
+                  } absolute top-full z-10 mt-1 flex w-72 list-none flex-col rounded bg-white py-2 shadow-md shadow-slate-500/10 `}
+                  ref={wrapperRef}
+                >
+                  {areasItems.map((item, index) => {
+                    return (
+                      <li key={index}
+                      >
+                        <a
+                          className={`${
+                            index === currentItem
+                              ? "bg-blue-50 text-blue-500"
+                              : "bg-none text-slate-500"
+                          } flex items-start justify-start gap-2 p-2 px-5 transition-colors duration-300 hover:bg-neutral-50 hover:text-neutral-500 focus:bg-neutral-50 focus:text-neutral-600 focus:outline-none focus-visible:outline-none`}
+                          href={item.link}
+                          onClick={() => {setCurrentItem(index), setIsOpen(false)}}
+                        >
+                          <span className="flex flex-col gap-1 overflow-hidden whitespace-nowrap">
+                            <span className="truncate leading-5">
+                              {item.name}
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
               </li>
-              ))  
-              }
             </ul>
             <div className="ml-auto flex items-center px-6 lg:ml-0 lg:p-0">
               <Button text="Quiero ayudar" />
@@ -104,13 +202,6 @@ const Navbar = ({ className }) => {
       {/*<!-- End Basic Navbar--> */}
     </>
   );
-};
-Navbar.propTypes = {
-  className: PropTypes.string,
-};
-
-Navbar.defaultProps = {
-  className: "",
 };
 
 export default Navbar;
