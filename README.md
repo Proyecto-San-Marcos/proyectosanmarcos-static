@@ -1,8 +1,19 @@
-# React + Vite
+# Proyecto San Marcos - Web Estática
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene el código fuente de la página web estática del Proyecto San Marcos.
 
-Currently, two official plugins are available:
+## Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La página web estática del Proyecto San Marcos proporciona información pública sobre el voluntariado, incluyendo su misión, visión, objetivos y actividades. Está diseñada para ser rápida, segura y fácil de mantener.
+
+
+## Tecnologías Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Librerias Utilizadas
+
+- React
+- Tailwind CSS

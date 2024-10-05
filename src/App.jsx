@@ -1,11 +1,13 @@
-import "./App.css";
-import Button from "./components/Button";
-import CarouselCard from "./components/CarouselCard";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Navbar from './components/Navbar';
+import AppRoutes from './router/routes';
 
-function App() {
-  
-}
+const App = () => {
+    return (
+        <div>
+            <Navbar />
+            <AppRoutes />
+        </div>
+    );
+};
 
 export default App;
