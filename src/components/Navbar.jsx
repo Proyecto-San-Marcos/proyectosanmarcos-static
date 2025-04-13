@@ -4,7 +4,6 @@ import Button from "./Button";
 const Navbar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [currentItem, setCurrentItem] = useState(2);
   const wrapperRef = useRef(null);
 
   const listItems = [
@@ -28,20 +27,20 @@ const Navbar = () => {
 
   const areasItems = [
     {
-      name: "Area 1",
-      link: "#",
+      name: "Capacitaciones",
+      link: "/talento-humano/capacitaciones",
     },
     {
-      name: "Area 2",
-      link: "#",
+      name: "Clima",
+      link: "/talento-humano/clima",
     },
     {
-      name: "Area 3",
-      link: "#",
+      name: "Control",
+      link: "/talento-humano/control",
     },
     {
-      name: "Area 4",
-      link: "#",
+      name: "Reclutamiento",
+      link: "/talento-humano/reclutamiento",
     },
   ];
 
@@ -77,7 +76,7 @@ const Navbar = () => {
               className="flex items-center gap-2 whitespace-nowrap py-3 text-lg focus:outline-none lg:flex-1"
               href="javascript:void(0)"
             >
-              <img src="src\assets\logo.png" alt="" className="w-20" />
+              <img src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo.png" alt="" className="w-20" />
             </a>
             {/*      <!-- Mobile trigger --> */}
             <button
@@ -173,13 +172,8 @@ const Navbar = () => {
                       <li key={index}
                       >
                         <a
-                          className={`${
-                            index === currentItem
-                              ? "bg-blue-50 text-blue-500"
-                              : "bg-none text-slate-500"
-                          } flex items-start justify-start gap-2 p-2 px-5 transition-colors duration-300 hover:bg-neutral-50 hover:text-neutral-500 focus:bg-neutral-50 focus:text-neutral-600 focus:outline-none focus-visible:outline-none`}
+                          className={` flex items-start justify-start gap-2 p-2 px-5 transition-colors duration-300 hover:bg-neutral-50 hover:text-neutral-500 focus:bg-neutral-50 focus:text-neutral-600 focus:outline-none focus-visible:outline-none`}
                           href={item.link}
-                          onClick={() => {setCurrentItem(index), setIsOpen(false)}}
                         >
                           <span className="flex flex-col gap-1 overflow-hidden whitespace-nowrap">
                             <span className="truncate leading-5">

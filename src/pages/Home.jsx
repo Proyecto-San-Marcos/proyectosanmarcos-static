@@ -13,6 +13,7 @@ const Home = () => {
               quis consectetur. Morbi neque ex, condimentum dapibus congue et,
               vulputate ut ligula.
             </p>
+            <button className="btn btn-xs">Xsmall</button>
           </section>
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
