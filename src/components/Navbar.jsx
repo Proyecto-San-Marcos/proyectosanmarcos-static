@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Button from "./Button";
 
 const Navbar = () => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -60,7 +59,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`border-b-1 relative z-20 w-full border-b border-slate-200 bg-white/90 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden`}
+        className={`border-b-1 relative z-20 w-full border-slate-200 bg-white/90 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden`}
       >
         <div className="relative mx-auto max-w-full px-6">
           <nav
@@ -76,7 +75,7 @@ const Navbar = () => {
               className="flex items-center gap-2 whitespace-nowrap py-3 text-lg focus:outline-none lg:flex-1"
               href="javascript:void(0)"
             >
-              <img src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo.png" alt="" className="w-20" />
+              <img src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo-nobg.png" alt="" className="w-20" />
             </a>
             {/*      <!-- Mobile trigger --> */}
             <button
