@@ -165,7 +165,7 @@ const Home = () => {
               {/* Proyecto 2 */}
               <CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//sembrando_sonrisas.jpeg" title="Sembrando sonrisas" description="Iniciativa de reforestación y educación ambiental en comunidades vulnerables. Voluntarios trabajando para preservar el medio ambiente y crear conciencia." buttonText="Ver más" onButtonClick={() => alert('Ver más sobre Sembrando sonrisas')} />
               {/* Proyecto 3 */}
-              <CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//educacion.jpeg" title="Educación para todos" description="Iniciativa de educación y capacitación en comunidades vulnerables. Voluntarios trabajando para brindar acceso a la educación y mejorar la calidad de vida." buttonText="Ver más" onButtonClick={() => alert('Ver más sobre Educación para todos')} />
+              <CardProject imageUrl="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/489021256_993751569526700_6819386970412414846_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=NYtkeS14_iQQ7kNvwHZySp2&_nc_oc=Admxy9g71g14xxoUjVuTyLuixpUHHAURZFXBBT31gNlgo1PnggCHdSwzhAuoZj1Sc4K5LAA-llvoWEwQaO_ehQnI&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=1BJKbHL3TtV7bgkrCl80KQ&oh=00_AfHCZ9MJGyk1gHm_2NgQIYdfPDbXPlxsJC332V3BrMyZMA&oe=6801DCB4" title="Educación para todos" description="Iniciativa de educación y capacitación en comunidades vulnerables. Voluntarios trabajando para brindar acceso a la educación y mejorar la calidad de vida." buttonText="Ver más" onButtonClick={() => alert('Ver más sobre Educación para todos')} />
             </div>
           </div>
         </section>
