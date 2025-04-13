@@ -188,7 +188,7 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="ml-auto flex items-center px-6 lg:ml-0 lg:p-0">
-              <Button text="Quiero ayudar" />
+              <button className="btn btn-primary">Quiero unirme</button>
             </div>
           </nav>
         </div>
