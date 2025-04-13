@@ -6,7 +6,7 @@
   name: "winter";
   default: true;
   --color-primary: #1c3a5e;
-  --color-secondary: teal;
+  --color-primary-content: #FFFFFF;
 }
 
 :root {
