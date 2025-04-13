@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
+import CardProject from "../components/CardProject";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,7 +20,7 @@ const Home = () => {
             alt="Estudiantes voluntarios de UNMSM" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="absolute inset-0 bg-blue-950/80"></div>
         </div>
         
         <div className="absolute z-10 container mx-auto px-6 flex flex-col h-full justify-center items-center">
@@ -29,7 +30,7 @@ const Home = () => {
               Estudiantes voluntarios impulsando el cambio social a través de la gestión de proyectos de alto impacto.
             </p>
             <div className="flex gap-4 justify-center">
-              <button className="btn btn-primary px-8 py-3">Únete al Equipo</button>
+              <button className="btn btn-{white} px-8 py-3">Únete al Equipo</button>
               <button className="btn bg-transparent border border-white text-white hover:bg-white hover:text-primary px-8 py-3">Conoce Más</button>
             </div>
           </div>
@@ -38,8 +39,8 @@ const Home = () => {
 
       <main className="flex-1">
         {/* Quiénes Somos */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
+        <section className="py-20 bg-white" id="about">
+          <div className="container mx-auto px-6 xl:px-20">
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="md:w-1/3">
                 {/* imgn de equipo: Recomendado 600x400px */}
@@ -68,8 +69,8 @@ const Home = () => {
         </section>
 
         {/* Nuestro Impacto */}
-        <section className="py-20 bg-neutral-100">
-          <div className="container mx-auto px-6">
+        <section className="py-20 bg-neutral-100" id="impact">
+          <div className="container mx-auto px-6 xl:px-20">
             <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Nuestro Impacto</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -91,7 +92,7 @@ const Home = () => {
 
         {/* Nuestros Servicios */}
         <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6 xl:px-20">
             <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Nuestros Servicios</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -100,10 +101,11 @@ const Home = () => {
                 {/* Icono: Recomendado 64x64px */}
                 <div className="mb-4 flex justify-center">
                   <img 
-                    src="https://placehold.co/64x64/007bff/FFFFFF/png?text=1" 
+                    src="https://placehold.co/64x64/1c3a5e/FFFFFF/png?text=1" 
                     alt="Gestión de Proyectos" 
                     width={64} 
-                    height={64} 
+                    height={64}
+                    className="rounded-full" 
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-center">Gestión de Proyectos</h3>
@@ -117,10 +119,11 @@ const Home = () => {
               <div className="bg-neutral-50 rounded-lg p-8 shadow-md">
                 <div className="mb-4 flex justify-center">
                   <img 
-                    src="https://placehold.co/64x64/007bff/FFFFFF/png?text=2" 
+                    src="https://placehold.co/64x64/1c3a5e/FFFFFF/png?text=2" 
                     alt="Capacitación" 
                     width={64} 
-                    height={64} 
+                    height={64}
+                    className="rounded-full"
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-center">Capacitación y Desarrollo</h3>
@@ -134,10 +137,11 @@ const Home = () => {
               <div className="bg-neutral-50 rounded-lg p-8 shadow-md">
                 <div className="mb-4 flex justify-center">
                   <img 
-                    src="https://placehold.co/64x64/007bff/FFFFFF/png?text=3" 
+                    src="https://placehold.co/64x64/1c3a5e/FFFFFF/png?text=3" 
                     alt="Responsabilidad Social" 
                     width={64} 
                     height={64} 
+                    className="rounded-full"
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-center">Responsabilidad Social</h3>
@@ -151,57 +155,24 @@ const Home = () => {
         </section>
 
         {/* Proyectos Destacados */}
-        <section className="py-20 bg-neutral-100">
-          <div className="container mx-auto px-6">
+        <section className="py-20 bg-neutral-100" id="projects">
+          <div className="container mx-auto px-6 xl:px-20">
             <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Proyectos Destacados</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Proyecto 1 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                {/* imgn proyecto: Recomendado 600x400px */}
-                <div className="aspect-[3/2]">
-                <img 
-                  src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//rescatando.jpeg" 
-                  alt="Proyecto de Voluntariado" 
-                    className="w-full h-full object-cover"
-                />
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Rescatando playas</h3>
-                  <p className="text-gray-700 mb-4">
-                    Iniciativa de limpieza y educación ambiental en playas locales. 
-                    Voluntarios trabajando para preservar la belleza natural y la vida marina.
-                  </p>
-                  <button className="btn btn-sm btn-primary">Ver más</button>
-                </div>
-              </div>
-              
+              <CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//rescatando.jpeg" title="Rescatando playas" description="Iniciativa de limpieza y educación ambiental en playas locales. Voluntarios trabajando para preservar la belleza natural y la vida marina." buttonText="Ver más" onButtonClick={() => alert('Ver más sobre Rescatando playas')} />              
               {/* Proyecto 2 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                <div className="aspect-[3/2]">
-                <img 
-                  src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//sembrando_sonrisas.jpeg" 
-                  alt="Proyecto de Voluntariado" 
-                    className="w-full h-full object-cover" 
-                />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">Sembrando sonrisas</h3>
-                  <p className="text-gray-700 mb-4">
-                    Esta iniciativa lleva alegría y regalos a niños en diversas comunidades de escasos recursos 
-                    durante la época navideña, buscando dibujar una sonrisa en sus rostros y compartir el espíritu de la Navidad.
-                  </p>
-                  <button className="btn btn-sm btn-primary">Ver más</button>
-                </div>
-              </div>
+              <CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//sembrando_sonrisas.jpeg" title="Sembrando sonrisas" description="Iniciativa de reforestación y educación ambiental en comunidades vulnerables. Voluntarios trabajando para preservar el medio ambiente y crear conciencia." buttonText="Ver más" onButtonClick={() => alert('Ver más sobre Sembrando sonrisas')} />
+              {/* Proyecto 3 */}
+              <CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//educacion.jpeg" title="Educación para todos" description="Iniciativa de educación y capacitación en comunidades vulnerables. Voluntarios trabajando para brindar acceso a la educación y mejorar la calidad de vida." buttonText="Ver más" onButtonClick={() => alert('Ver más sobre Educación para todos')} />
             </div>
           </div>
         </section>
 
         {/* Testimonios */}
         <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6 xl:px-20">
             <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Testimonios</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -277,7 +248,7 @@ const Home = () => {
 
         {/* Contacto */}
         <section className="py-20 bg-neutral-100">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6 xl:px-20">
             <h2 className="text-3xl font-bold mb-12 text-center text-gray-800">Contáctanos</h2>
             
             <div className="flex flex-col md:flex-row gap-12">

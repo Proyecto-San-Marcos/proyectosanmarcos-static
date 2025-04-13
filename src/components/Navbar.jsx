@@ -12,15 +12,15 @@ const Navbar = () => {
     },
     {
       name: "¿Quienes somos?",
-      link: "/about",
+      link: "#about",
     },
     {
       name: "¿Qué hacemos?",
-      link: "#",
+      link: "#impact",
     },
     {
-      name: "Voluntariado",
-      link: "#",
+      name: "Proyectos",
+      link: "#projects",
     },
   ];
 
