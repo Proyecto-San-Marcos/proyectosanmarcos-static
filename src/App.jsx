@@ -4,7 +4,7 @@ import AppRoutes from "./router/routes";
 const App = () => {
   return (
     <div className="w-screen">
-      <div className="sticky top-0">
+      <div className="sticky top-0 z-50">
         <Navbar />
       </div>
       <AppRoutes />
