@@ -1,5 +1,13 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, winter;
+}
+@plugin "daisyui/theme" {
+  name: "winter";
+  default: true;
+  --color-primary: #1c3a5e;
+  --color-secondary: teal;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
