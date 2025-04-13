@@ -19,7 +19,7 @@ const Home = () => {
             alt="Estudiantes voluntarios de UNMSM" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+          <div className="absolute inset-0 bg-black/70"></div>
         </div>
         
         <div className="absolute z-10 container mx-auto px-6 flex flex-col h-full justify-center items-center">
@@ -36,7 +36,7 @@ const Home = () => {
         </div>
       </div>
 
-      <main className="flex-1 px-10">
+      <main className="flex-1">
         {/* Quiénes Somos */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
@@ -223,8 +223,8 @@ const Home = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 italic">
-                  "Participar en este voluntariado ha sido una de las mejores decisiones de mi vida universitaria. 
-                  He adquirido habilidades que ninguna clase podría enseñarme y he formado parte de proyectos que realmente hacen la diferencia."
+                  Participar en este voluntariado ha sido una de las mejores decisiones de mi vida universitaria. 
+                  He adquirido habilidades que ninguna clase podría enseñarme y he formado parte de proyectos que realmente hacen la diferencia.
                 </p>
               </div>
               
@@ -245,8 +245,8 @@ const Home = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 italic">
-                  "El ambiente colaborativo y enfocado en resultados me ha permitido aplicar lo que aprendo en clase en contextos reales. 
-                  Ahora me siento más preparada para mi futuro profesional."
+                  El ambiente colaborativo y enfocado en resultados me ha permitido aplicar lo que aprendo en clase en contextos reales. 
+                  Ahora me siento más preparada para mi futuro profesional.
                 </p>
               </div>
               
@@ -267,8 +267,8 @@ const Home = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 italic">
-                  "Como docente, he visto cómo esta iniciativa transforma a los estudiantes, desarrollando su liderazgo y compromiso social. 
-                  La universidad necesita más espacios como este."
+                  Como docente, he visto cómo esta iniciativa transforma a los estudiantes, desarrollando su liderazgo y compromiso social. 
+                  La universidad necesita más espacios como este.
                 </p>
               </div>
             </div>
