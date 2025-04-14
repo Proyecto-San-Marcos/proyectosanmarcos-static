@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import CardProject from "../components/CardProject";
+import Counter from "../components/Counter";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,6 +44,7 @@ const Home = () => {
               <button className="btn bg-transparent border border-white text-white hover:bg-white hover:text-primary px-8 py-3">
                 Conoce Más
               </button>
+              
             </div>
           </div>
         </div>
@@ -96,15 +98,15 @@ const Home = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-lg shadow-md text-center">
-                <div className="text-primary text-4xl font-bold mb-4">500+</div>
+                <Counter target={400} textLeft={'+'} className="text-primary text-4xl font-bold mb-4" />
                 <p className="text-gray-700">Estudiantes beneficiados</p>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-md text-center">
-                <div className="text-primary text-4xl font-bold mb-4">25+</div>
+                <Counter target={25} textLeft={'+'} className="text-primary text-4xl font-bold mb-4" />
                 <p className="text-gray-700">Proyectos completados</p>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-md text-center">
-                <div className="text-primary text-4xl font-bold mb-4">10+</div>
+              <Counter target={10} textLeft={'+'} className="text-primary text-4xl font-bold mb-4" />
                 <p className="text-gray-700">Alianzas institucionales</p>
               </div>
             </div>
