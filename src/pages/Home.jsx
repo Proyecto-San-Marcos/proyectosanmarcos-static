@@ -23,7 +23,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-blue-950/80"></div>
         </div>
 
-        <div className="absolute z-10 container mx-auto px-6 flex flex-col h-full justify-center items-center">
+        <div className=" z-10 container mx-auto px-6 flex flex-col h-full justify-center items-center">
           <div
             className={`transition-all duration-1000 ${
               isVisible ? "opacity-100" : "opacity-0"
