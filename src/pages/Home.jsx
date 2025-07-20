@@ -157,7 +157,7 @@ const Home = () => {
       {/* Hero Section - Mejorado con parallax y animaciones */}
       <section 
         ref={heroRef} 
-        className="relative h-screen flex items-center justify-center"
+        className="relative h-[calc(100vh-80px)] flex items-center justify-center"
       >
         <div className="absolute inset-0 hero-bg">
           <img
