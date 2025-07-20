@@ -1,41 +1,58 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const Counter = ({ target, className, textLeft }) => {
+const Counter = ({ target, textLeft = '', textRight = '', className, duration = 2000 }) => {
   const [count, setCount] = useState(0);
-  const ref = useRef();
-  const started = useRef(false);
-
+  const [isVisible, setIsVisible] = useState(false);
+  
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !started.current) {
-        started.current = true;
-        let current = 0;
-
-        const duration = 2000; // duración total en ms
-        const steps = Math.min(target, 100); // máximo 100 pasos para suavidad
-        const stepTime = duration / steps;
-        const stepValue = target / steps;
-
-        const interval = setInterval(() => {
-          current += stepValue;
-          if (current >= target) {
-            clearInterval(interval);
-            setCount(target);
-          } else {
-            setCount(Math.round(current));
-          }
-        }, stepTime);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true);
       }
-    }, { threshold: 0.5 });
-
-    observer.observe(ref.current);
-
-    return () => observer.disconnect();
+    }, { threshold: 0.1 });
+    
+    const currentElement = document.getElementById(`counter-${target}`);
+    if (currentElement) {
+      observer.observe(currentElement);
+    }
+    
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
+    };
   }, [target]);
-
+  
+  useEffect(() => {
+    let startTime;
+    let animationFrame;
+    
+    if (isVisible) {
+      const startAnimation = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = timestamp - startTime;
+        const progressRate = Math.min(progress / duration, 1);
+        
+        setCount(Math.floor(progressRate * target));
+        
+        if (progressRate < 1) {
+          animationFrame = requestAnimationFrame(startAnimation);
+        }
+      };
+      
+      animationFrame = requestAnimationFrame(startAnimation);
+    }
+    
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [isVisible, target, duration]);
+  
   return (
-    <div ref={ref} className={className}>
-      {count}{textLeft}
+    <div id={`counter-${target}`} className={className}>
+      {textLeft}{count}{textRight}
     </div>
   );
 };
