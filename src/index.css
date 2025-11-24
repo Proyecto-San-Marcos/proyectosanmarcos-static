@@ -1,14 +1,8 @@
-@import "tailwindcss";
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark, winter;
-}
-@plugin "daisyui/theme" {
-  name: "winter";
-  default: true;
-  --color-primary: #1c3a5e;
-  --color-primary-content: #FFFFFF;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* tus estilos globales */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -17,7 +11,6 @@
   color: black;
   background-color: white;
 
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,7 +19,8 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*, *::before, *::after {
   box-sizing: inherit;
 }
 
@@ -35,4 +29,3 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-
