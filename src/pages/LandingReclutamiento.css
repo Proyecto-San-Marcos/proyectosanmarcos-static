@@ -1,0 +1,407 @@
+/* =============================
+   Landing Reclutamiento (aislado)
+   Paleta teal / green
+   ============================= */
+
+:root {
+    --rec-primary: #0F766E;
+    --rec-primary-soft: #5EEAD4;
+    --rec-accent: #22C55E;
+    --rec-bg: #F0FDFA;
+    --rec-card: #FFFFFF;
+    --rec-text: #0F172A;
+    --rec-muted: #475569;
+    --rec-border: #E2E8F0;
+}
+
+.rec-page {
+    width: 100%;
+}
+
+.rec-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* HERO */
+.rec-hero {
+    position: relative;
+    height: 52vh;
+    min-height: 440px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.rec-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    transform: scale(1.06);
+}
+
+.rec-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15, 118, 110, 0.62), rgba(15, 23, 42, 0.35));
+}
+
+.rec-hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.rec-hero__titleBox {
+    width: min(820px, 100%);
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    padding: 24px 26px;
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+.rec-hero__title {
+    margin: 0;
+    color: white;
+    font-weight: 950;
+    font-size: clamp(28px, 3.2vw, 44px);
+    line-height: 1.1;
+    letter-spacing: 0.2px;
+}
+
+.rec-hero__subtitle {
+    margin: 14px auto 0;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 720px;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.rec-hero__actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* barra de color */
+.rec-colorbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--rec-primary), var(--rec-accent));
+    z-index: 3;
+}
+
+/* SECTIONS */
+.rec-section {
+    padding: 72px 0;
+}
+
+.rec-funciones {
+    background: var(--rec-bg);
+}
+
+.rec-proceso {
+    background: #fff;
+}
+
+.rec-servicios {
+    background: var(--rec-bg);
+}
+
+.rec-h2 {
+    margin: 0;
+    font-weight: 950;
+    color: var(--rec-text);
+    font-size: clamp(22px, 2.3vw, 34px);
+    line-height: 1.15;
+}
+
+.rec-h2__accent {
+    color: var(--rec-primary);
+}
+
+.rec-h2--center {
+    text-align: center;
+}
+
+.rec-p {
+    margin: 10px 0 0;
+    color: var(--rec-muted);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.rec-p--center {
+    text-align: center;
+}
+
+/* mini cards */
+.rec-funciones__head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 24px;
+}
+
+.rec-miniGrid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.rec-miniCard {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--rec-card);
+    border: 1px solid var(--rec-border);
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.rec-miniCard__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--rec-border);
+    flex: 0 0 auto;
+}
+
+.rec-miniCard__icon--mint {
+    background: #CCFBF1;
+    color: var(--rec-primary);
+}
+
+.rec-miniCard__icon--teal {
+    background: #99F6E4;
+    color: #115E59;
+}
+
+.rec-miniCard__icon--green {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+.rec-miniCard__icon--slate {
+    background: #F1F5F9;
+    color: #334155;
+}
+
+.rec-miniCard__title {
+    margin: 0;
+    font-weight: 900;
+    color: var(--rec-text);
+    font-size: 14px;
+}
+
+.rec-miniCard__desc {
+    margin: 8px 0 0;
+    color: var(--rec-muted);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* Proceso */
+.rec-proceso__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.rec-steps {
+    margin-top: 18px;
+    display: grid;
+    gap: 12px;
+}
+
+.rec-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--rec-border);
+    border-radius: 18px;
+    padding: 14px 16px;
+}
+
+.rec-step__num {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #CCFBF1;
+    color: var(--rec-primary);
+    font-weight: 950;
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    flex: 0 0 auto;
+}
+
+.rec-step__title {
+    font-weight: 950;
+    color: var(--rec-text);
+    font-size: 14px;
+}
+
+.rec-step__desc {
+    margin-top: 6px;
+    color: var(--rec-muted);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* panel derecho */
+.rec-proceso__panel {
+    background: linear-gradient(180deg, #FFFFFF, #F0FDFA);
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    border-radius: 22px;
+    padding: 18px;
+}
+
+.rec-panel__badge {
+    width: fit-content;
+    background: #CCFBF1;
+    color: var(--rec-primary);
+    border: 1px solid rgba(15, 118, 110, 0.18);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 900;
+    font-size: 12px;
+}
+
+.rec-panel__title {
+    margin-top: 10px;
+    font-size: 26px;
+    font-weight: 950;
+    color: var(--rec-text);
+}
+
+.rec-panel__desc {
+    margin-top: 8px;
+    color: var(--rec-muted);
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.rec-panel__btn {
+    margin-top: 14px;
+    width: 100%;
+    justify-content: center;
+}
+
+.rec-panel__note {
+    margin-top: 12px;
+    color: rgba(71, 85, 105, 0.9);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Servicios */
+.rec-servicesGrid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+}
+
+.rec-serviceCard {
+    background: #fff;
+    border: 1px solid var(--rec-border);
+    border-radius: 22px;
+    padding: 18px;
+}
+
+.rec-serviceCard__title {
+    margin: 0;
+    font-weight: 950;
+    color: var(--rec-text);
+    font-size: 14px;
+}
+
+.rec-serviceCard__desc {
+    margin: 10px 0 0;
+    color: var(--rec-muted);
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.rec-serviceCard__btn {
+    margin-top: 14px;
+}
+
+/* Buttons (pill, sin sombra) */
+.rec-btn {
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-weight: 950;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.rec-btn--primary {
+    background: var(--rec-primary);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.10);
+}
+
+.rec-btn--primary:hover {
+    background: #0B625C;
+}
+
+.rec-btn--ghost {
+    background: rgba(255, 255, 255, 0.16);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.20);
+}
+
+.rec-btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.rec-btn--outline {
+    background: #fff;
+    color: var(--rec-primary);
+    border-color: rgba(15, 118, 110, 0.22);
+}
+
+.rec-btn--outline:hover {
+    background: #F0FDFA;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .rec-miniGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .rec-proceso__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rec-servicesGrid {
+        grid-template-columns: 1fr;
+    }
+}

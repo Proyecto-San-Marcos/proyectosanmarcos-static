@@ -1,7 +1,9 @@
 @import "tailwindcss";
+
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, winter;
 }
+
 @plugin "daisyui/theme" {
   name: "winter";
   default: true;
@@ -26,7 +28,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -36,3 +41,58 @@ body {
   overflow-x: hidden;
 }
 
+/* ===== Swiper PSM (limpio, sin sombras, sin dots, sin cortes feos) ===== */
+.psm-swiper {
+  position: relative;
+}
+
+/* Flechas: estilo limpio */
+.psm-swiper .swiper-button-prev,
+.psm-swiper .swiper-button-next {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  border: 1px solid rgba(148, 163, 184, 0.55) !important;
+  /* slate-300/55 */
+  box-shadow: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease !important;
+}
+
+.psm-swiper .swiper-button-prev:hover,
+.psm-swiper .swiper-button-next:hover {
+  background: #eff6ff !important;
+  /* blue-50 */
+  border-color: #3b82f6 !important;
+}
+
+.psm-swiper .swiper-button-prev::after,
+.psm-swiper .swiper-button-next::after {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #1d4ed8 !important;
+  /* blue-700 */
+}
+
+/* Posición: un poquito afuera pero SIN salirse del contenedor visual */
+.psm-swiper .swiper-button-prev {
+  left: 10px !important;
+}
+
+.psm-swiper .swiper-button-next {
+  right: 10px !important;
+}
+
+/* Ocultar dots */
+.psm-swiper .swiper-pagination {
+  display: none !important;
+}
+
+/* Mobile: ocultar flechas y dejar swipe */
+@media (max-width: 768px) {
+
+  .psm-swiper .swiper-button-prev,
+  .psm-swiper .swiper-button-next {
+    display: none !important;
+  }
+}

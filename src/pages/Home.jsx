@@ -27,7 +27,7 @@ const Home = () => {
     threshold: 0.3,
     triggerOnce: true,
   });
-  
+
   // Inicializar AOS para animaciones de scroll
   useEffect(() => {
     AOS.init({
@@ -35,27 +35,27 @@ const Home = () => {
       once: true,
       easing: 'ease-out',
     });
-    
+
     setIsVisible(true);
-    
+
     // Animación del hero con GSAP
     const heroElement = heroRef.current;
     if (heroElement) {
       gsap.fromTo(
         heroElement.querySelector('.hero-content'),
-        { 
+        {
           y: 100,
-          opacity: 0 
+          opacity: 0
         },
-        { 
-          y: 0, 
-          opacity: 1, 
+        {
+          y: 0,
+          opacity: 1,
           duration: 1.2,
           ease: "power3.out"
         }
       );
     }
-    
+
     // Timeline para animación de parallax en hero
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -65,18 +65,18 @@ const Home = () => {
         scrub: true
       }
     });
-    
+
     tl.to(heroElement.querySelector('.hero-bg'), {
       y: 100,
       scale: 1.1,
     });
-    
+
     return () => {
       // Limpieza de ScrollTriggers al desmontar
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
-  
+
   // Sección de Testimonios - datos
   const testimonials = [
     {
@@ -155,9 +155,9 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section - Mejorado con parallax y animaciones */}
-      <section 
-        ref={heroRef} 
-        className="relative h-[calc(100vh-80px)] flex items-center justify-center"
+      <section
+        ref={heroRef}
+        className="relative h-[calc(100dvh-64px)] md:h-[calc(100dvh-60px)] flex items-center justify-center overflow-hidden"
       >
         <div className="absolute inset-0 hero-bg">
           <img
@@ -167,7 +167,7 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 to-blue-800/90"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10 hero-content">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -175,7 +175,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <motion.h1 
+            <motion.h1
               className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -183,8 +183,8 @@ const Home = () => {
             >
               Proyectos San Marcos
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -193,21 +193,21 @@ const Home = () => {
               Estudiantes voluntarios impulsando el cambio social a través de la
               gestión de proyectos de alto impacto en nuestra comunidad.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-wrap gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <a 
-                href="#join" 
+              <a
+                href="#join"
                 className="px-8 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1"
               >
                 Únete al Equipo
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700 transition-all duration-300 rounded-full group flex items-center gap-2"
               >
                 Conoce Más
@@ -216,7 +216,7 @@ const Home = () => {
             </motion.div>
           </motion.div>
         </div>
-        
+
         {/* Indicador de scroll */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
           <motion.div
@@ -252,7 +252,7 @@ const Home = () => {
         {/* Quiénes Somos - Mejorado con mejor layout y efecto de aparición */}
         <section className="py-24 bg-white" id="about">
           <div className="container mx-auto px-6 xl:px-20">
-            <div 
+            <div
               className="flex flex-col lg:flex-row items-center gap-16"
               data-aos="fade-up"
             >
@@ -269,7 +269,7 @@ const Home = () => {
                   <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-50 rounded-lg z-0"></div>
                 </div>
               </div>
-              
+
               <div className="lg:w-3/5" data-aos="fade-left" data-aos-delay="200">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 relative">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
@@ -277,21 +277,21 @@ const Home = () => {
                   </span>
                   <div className="w-20 h-1 bg-blue-600 mt-2"></div>
                 </h2>
-                
+
                 <p className="text-gray-700 text-lg mb-6 leading-relaxed">
                   Somos una organización liderada por estudiantes voluntarios de
                   la Universidad Nacional Mayor de San Marcos, comprometidos con
                   la excelencia y el desarrollo social a través de la gestión de
                   proyectos innovadores y sostenibles.
                 </p>
-                
+
                 <p className="text-gray-700 text-lg mb-8 leading-relaxed">
                   Promovemos y aplicamos las buenas prácticas de dirección de
                   proyectos con el objetivo de contribuir al desarrollo de
                   nuestra universidad y sociedad, mediante la ejecución de
                   iniciativas de alto impacto que generan cambios positivos y duraderos.
                 </p>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                   <div className="flex items-start">
                     <div className="bg-blue-100 p-3 rounded-full mr-4">
@@ -304,7 +304,7 @@ const Home = () => {
                       <p className="text-gray-600">Enfocados en generar cambios positivos</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <div className="bg-blue-100 p-3 rounded-full mr-4">
                       <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -317,7 +317,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <button className="bg-white border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
                   Conoce Nuestra Historia
                   <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -330,8 +330,8 @@ const Home = () => {
         </section>
 
         {/* Nuestro Impacto - Mejorado con contador animado */}
-        <section 
-          className="py-24 bg-gradient-to-b from-blue-50 to-white" 
+        <section
+          className="py-24 bg-gradient-to-b from-blue-50 to-white"
           id="impact"
           ref={statsRef}
         >
@@ -341,13 +341,13 @@ const Home = () => {
                 Nuestro Impacto
               </h2>
               <p className="max-w-2xl mx-auto text-lg text-gray-600">
-                Los números reflejan el alcance de nuestras iniciativas y el impacto 
+                Los números reflejan el alcance de nuestras iniciativas y el impacto
                 que generamos en nuestra comunidad
               </p>
               <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
             </div>
-            
-            <div 
+
+            <div
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
               data-aos="fade-up"
               data-aos-delay="200"
@@ -377,12 +377,12 @@ const Home = () => {
               </p>
               <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {services.map((service, index) => (
-                <div 
+                <div
                   key={service.id}
-                  data-aos="fade-up" 
+                  data-aos="fade-up"
                   data-aos-delay={index * 100}
                   className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-100 group"
                 >
@@ -404,7 +404,7 @@ const Home = () => {
         </section>
 
         {/* Proyectos Destacados - Mejorado con Swiper */}
-        <section className="py-24 bg-gray-50" id="projects">
+        <section className="py-20 bg-gray-50" id="projects">
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
@@ -415,7 +415,7 @@ const Home = () => {
               </p>
               <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
             </div>
-            
+
             <div className="mt-12" data-aos="fade-up" data-aos-delay="200">
               <Swiper
                 modules={[Pagination, Autoplay, Navigation]}
@@ -429,7 +429,7 @@ const Home = () => {
                 pagination={{ clickable: true }}
                 navigation
                 autoplay={{ delay: 5000 }}
-                className="px-4 py-8"
+                className="w-full !pt-6 !pb-10 !px-6"
               >
                 <SwiperSlide>
                   <div className="h-full">
@@ -496,7 +496,7 @@ const Home = () => {
               </p>
               <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
             </div>
-            
+
             <div data-aos="fade-up" data-aos-delay="200">
               <Swiper
                 modules={[Pagination, Autoplay, EffectFade]}
@@ -521,16 +521,16 @@ const Home = () => {
                             />
                           </div>
                         </div>
-                        
+
                         <div>
                           <svg className="w-10 h-10 text-blue-200 mb-4" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10 8c-2.209 0-4 1.791-4 4v10c0 2.209 1.791 4 4 4h12c2.209 0 4-1.791 4-4v-10c0-2.209-1.791-4-4-4h-12zM8.5 15c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5zM20.5 15c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5z"></path>
                           </svg>
-                          
+
                           <p className="text-xl italic text-gray-700 mb-6 leading-relaxed">
                             "{testimonial.text}"
                           </p>
-                          
+
                           <div>
                             <h4 className="font-bold text-lg">{testimonial.name}</h4>
                             <p className="text-blue-600">{testimonial.role}</p>
@@ -544,7 +544,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        
+
         {/* CTA Section */}
         <section className="py-28 bg-gradient-to-r from-blue-600 to-blue-800 relative overflow-hidden" id="join">
           <div className="absolute inset-0 opacity-10">
@@ -552,25 +552,25 @@ const Home = () => {
               <path fill="#ffffff" d="M37.9,-68.5C47.1,-60.5,51.1,-45.7,59.1,-33.5C67.1,-21.3,79.1,-10.7,81.6,1.4C84.1,13.5,77.1,27,67.7,38.5C58.3,50,46.6,59.4,33.8,64.6C21,69.8,7.1,70.7,-6.9,70.3C-20.9,69.9,-41.8,68.2,-52.9,58.3C-64,48.4,-65.2,30.4,-68.6,13.7C-72,-3,-77.5,-18.3,-73.1,-31C-68.6,-43.6,-54.2,-53.5,-40.1,-59.9C-26.1,-66.2,-12.3,-68.9,1.4,-71.3C15.1,-73.7,28.7,-76,37.9,-68.5Z" transform="translate(100 100)" />
             </svg>
           </div>
-          
+
           <div className="container mx-auto px-6 xl:px-20 relative z-10">
             <div className="max-w-3xl mx-auto text-center text-white" data-aos="fade-up">
               <h2 className="text-3xl md:text-5xl font-bold mb-6">
                 ¿Listo para marcar la diferencia?
               </h2>
               <p className="text-xl mb-10 text-white/90">
-                Únete a nuestro equipo de voluntarios y forma parte del cambio que quieres ver en el mundo. 
+                Únete a nuestro equipo de voluntarios y forma parte del cambio que quieres ver en el mundo.
                 Desarrolla habilidades profesionales mientras generas un impacto real en la sociedad.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a 
-                  href="#apply" 
+                <a
+                  href="#apply"
                   className="px-8 py-4 bg-white text-blue-700 font-medium rounded-full hover:bg-blue-50 transition-colors duration-300 shadow-lg text-lg"
                 >
                   Postula ahora
                 </a>
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 transition-all duration-300 rounded-full text-lg"
                 >
                   Contáctanos
@@ -580,7 +580,7 @@ const Home = () => {
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   );

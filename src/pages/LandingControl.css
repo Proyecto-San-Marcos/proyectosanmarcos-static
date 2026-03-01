@@ -1,0 +1,292 @@
+/* =============================
+   Landing Control (CSS aislado)
+   Paleta coral (como tu mockup)
+   ============================= */
+
+.ctrl-page {
+    width: 100%;
+}
+
+/* container */
+.ctrl-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ================= HERO ================= */
+.ctrl-hero {
+    position: relative;
+    height: 52vh;
+    min-height: 440px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.ctrl-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c");
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    transform: scale(1.06);
+}
+
+.ctrl-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.35));
+}
+
+.ctrl-hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ctrl-hero__titleBox {
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    padding: 22px 28px;
+    backdrop-filter: blur(6px);
+}
+
+.ctrl-hero__title {
+    margin: 0;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.12;
+    letter-spacing: 0.2px;
+    font-size: clamp(28px, 3.4vw, 44px);
+}
+
+/* ✅ Barra coral (tu paleta) */
+.ctrl-colorbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #ff6b6b, #ff8a8a);
+    z-index: 3;
+}
+
+/* ================= SECTIONS ================= */
+.ctrl-section {
+    padding: 72px 0;
+}
+
+/* Fondo general como tu mockup (gris claro) */
+.ctrl-funciones {
+    background: #f3f4f6;
+}
+
+/* Headings */
+.ctrl-h2 {
+    font-size: clamp(22px, 2.3vw, 34px);
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0 0 18px;
+    line-height: 1.2;
+}
+
+.ctrl-h2__accent {
+    color: #ff6b6b;
+    /* coral */
+}
+
+.ctrl-h2--center {
+    text-align: center;
+}
+
+/* ================= FUNCIONES ================= */
+.ctrl-funciones__grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 34px;
+    align-items: start;
+}
+
+.ctrl-illustration {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ctrl-illustration__img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+}
+
+/* mini cards (limpias, sin sombras) */
+.ctrl-miniCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.ctrl-miniCard {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.ctrl-miniCard__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #e2e8f0;
+    flex: 0 0 auto;
+}
+
+/* tonos pastel (tu estilo de iconos, pero en paleta coral/gris) */
+.ctrl-miniCard__icon--coral {
+    background: #ffe3e3;
+    color: #e11d48;
+}
+
+.ctrl-miniCard__icon--slate {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.ctrl-miniCard__icon--lav {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+.ctrl-miniCard__title {
+    margin: 0;
+    font-weight: 900;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+.ctrl-miniCard__desc {
+    margin: 8px 0 0;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* ================= SERVICIOS ================= */
+.ctrl-servicios {
+    background: #ffffff;
+}
+
+.ctrl-servicesGrid {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+}
+
+/* cards coral como tu mockup pero pro */
+.ctrl-serviceCard {
+    background: #ff7a7a;
+    /* coral card */
+    border-radius: 16px;
+    padding: 18px;
+    color: #1f2937;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ctrl-serviceCard__body {
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.ctrl-serviceCard__title {
+    margin: 0;
+    font-weight: 900;
+    font-size: 13px;
+    color: #111827;
+}
+
+.ctrl-serviceCard__desc {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(17, 24, 39, 0.85);
+}
+
+.ctrl-serviceCard__imgWrap {
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 14px;
+    padding: 12px;
+    display: grid;
+    place-items: center;
+    min-height: 110px;
+}
+
+.ctrl-serviceCard__img {
+    max-width: 100%;
+    max-height: 96px;
+    object-fit: contain;
+}
+
+.ctrl-serviceCard__placeholder {
+    width: 100%;
+    height: 96px;
+    border-radius: 12px;
+    background: rgba(17, 24, 39, 0.10);
+}
+
+/* botón pill */
+.ctrl-btn {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 900;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.22);
+    color: #111827;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ctrl-btn:hover {
+    background: rgba(255, 255, 255, 0.32);
+    border-color: rgba(255, 255, 255, 0.75);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .ctrl-funciones__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctrl-miniCards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ctrl-servicesGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .ctrl-miniCards {
+        grid-template-columns: 1fr;
+    }
+}

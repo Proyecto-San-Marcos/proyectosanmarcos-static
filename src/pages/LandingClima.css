@@ -1,0 +1,343 @@
+/* =============================
+   Landing Clima (CSS aislado)
+   Respeta barra de color
+   ============================= */
+
+.clima-page {
+    width: 100%;
+}
+
+/* container */
+.clima-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Hero */
+.clima-hero {
+    position: relative;
+    height: 56vh;
+    min-height: 460px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.clima-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d");
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    transform: scale(1.05);
+}
+
+.clima-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.45));
+}
+
+.clima-hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.clima-hero__titleBox {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    padding: 22px 26px;
+    backdrop-filter: blur(6px);
+}
+
+.clima-hero__title {
+    margin: 0;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.12;
+    letter-spacing: 0.5px;
+    font-size: clamp(28px, 3.4vw, 44px);
+}
+
+/* ✅ barra de colores (línea fina como en tu diseño) */
+.clima-colorbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #6d28d9, #2563eb);
+    z-index: 3;
+}
+
+/* Sections */
+.clima-section {
+    padding: 72px 0;
+}
+
+/* Headings */
+.clima-h2 {
+    font-size: clamp(22px, 2.3vw, 34px);
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0 0 18px;
+    line-height: 1.2;
+}
+
+.clima-h2__accent {
+    color: #1d4ed8;
+}
+
+.clima-h2--center {
+    text-align: center;
+}
+
+.clima-h2--white {
+    color: #fff;
+}
+
+/* Commitment */
+.clima-commitment {
+    background: #fff;
+}
+
+.clima-commitment__grid {
+    display: grid;
+    gap: 36px;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: start;
+}
+
+.clima-illustration {
+    margin-top: 22px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.clima-illustration__img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+}
+
+/* mini cards (sin sombras, estilo limpio) */
+.clima-commitmentCards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.clima-miniCard {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px;
+}
+
+.clima-miniCard__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #e2e8f0;
+    flex: 0 0 auto;
+}
+
+.clima-miniCard__icon--gold {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.clima-miniCard__icon--slate {
+    background: #f1f5f9;
+    color: #334155;
+}
+
+.clima-miniCard__icon--indigo {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.clima-miniCard__icon--rose {
+    background: #ffe4e6;
+    color: #be123c;
+}
+
+.clima-miniCard__title {
+    margin: 0;
+    font-weight: 800;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+.clima-miniCard__desc {
+    margin: 8px 0 0;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* Services */
+.clima-services {
+    background: #fff;
+}
+
+.clima-servicesGrid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 22px;
+}
+
+.clima-serviceCard {
+    background: #eaf5f6;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 22px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+}
+
+.clima-serviceCard__title {
+    margin: 0;
+    font-weight: 900;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+.clima-serviceCard__desc {
+    margin: 10px 0 0;
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* Buttons (pill, sin sombras) */
+.clima-btn {
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.clima-btn--mint {
+    background: #58c2c8;
+    color: #083344;
+    border-color: rgba(8, 51, 68, 0.10);
+}
+
+.clima-btn--mint:hover {
+    background: #49b5bb;
+}
+
+.clima-btn--outline {
+    background: #fff;
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.25);
+}
+
+.clima-btn--outline:hover {
+    background: #eff6ff;
+}
+
+/* Team band */
+.clima-team__band {
+    background: #2f7f88;
+    /* verde azulado como en tu mockup */
+    padding: 58px 0 74px;
+}
+
+.clima-teamGrid {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 22px;
+}
+
+.clima-teamCard {
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.clima-teamCard__img {
+    background: #7ad0d6;
+    padding: 18px;
+}
+
+.clima-teamCard__placeholder {
+    width: 100%;
+    height: 170px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.12);
+}
+
+.clima-teamCard__body {
+    padding: 18px 18px 20px;
+    color: #0f172a;
+}
+
+.clima-teamCard__name {
+    margin: 0;
+    font-weight: 900;
+    text-align: center;
+}
+
+.clima-teamCard__meta {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #334155;
+    line-height: 1.55;
+}
+
+.clima-teamCard__meta p {
+    margin: 4px 0;
+}
+
+.clima-teamCard__body .clima-btn {
+    margin-top: 14px;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .clima-commitment__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clima-commitmentCards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .clima-servicesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .clima-teamGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .clima-commitmentCards {
+        grid-template-columns: 1fr;
+    }
+}
