@@ -3,7 +3,7 @@ import AppRoutes from "./router/routes";
 
 const App = () => {
   return (
-    <div className="w-screen">
+    <div className="w-screen  overflow-x-hidden">
       <Navbar />
       <AppRoutes />
     </div>
