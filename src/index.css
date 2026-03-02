@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./styles/tokens.css";
 
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, winter;
@@ -7,16 +8,21 @@
 @plugin "daisyui/theme" {
   name: "winter";
   default: true;
-  --color-primary: #1c3a5e;
+  --color-primary: #1b3068;
+  /* psm-navy-mid */
   --color-primary-content: #FFFFFF;
+  --color-secondary: #00b4d8;
+  /* psm-teal */
+  --color-secondary-content: #FFFFFF;
+  --color-accent: #00b4d8;
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--psm-font-body, Inter, system-ui, sans-serif);
   line-height: 1.5;
   font-weight: 400;
 
-  color: black;
+  color: #111827;
   background-color: white;
 
   font-synthesis: none;

@@ -12,150 +12,59 @@ import "swiper/css/effect-fade";
 import CountUp from "react-countup";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaArrowRight, FaHandsHelping, FaUserGraduate, FaSeedling } from "react-icons/fa";
+import {
+  Users, CheckCircle2, Zap, ArrowRight,
+  BarChart3, Star, Handshake, GraduationCap, Sprout,
+  FolderOpen, MessageCircle, Quote
+} from "lucide-react";
 import Footer from "../components/Footer";
 import CardProject from "../components/CardProject";
 import NewsPopup from "../components/NewsPopup";
 
-// Registrar ScrollTrigger con GSAP
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef(null);
   const statsRef = useRef(null);
-  const [statsRefInView, statsRefInViewEntry] = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
-  });
+  const [statsRefInView] = useInView({ threshold: 0.3, triggerOnce: true });
 
-  // Inicializar AOS para animaciones de scroll
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-out',
-    });
-
+    AOS.init({ duration: 1000, once: true, easing: "ease-out" });
     setIsVisible(true);
 
-    // Animación del hero con GSAP
     const heroElement = heroRef.current;
     if (heroElement) {
       gsap.fromTo(
-        heroElement.querySelector('.hero-content'),
-        {
-          y: 100,
-          opacity: 0
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power3.out"
-        }
+        heroElement.querySelector(".hero-content"),
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
       );
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: heroElement, start: "top top", end: "bottom top", scrub: true },
+      });
+      tl.to(heroElement.querySelector(".hero-bg"), { y: 100, scale: 1.1 });
     }
 
-    // Timeline para animación de parallax en hero
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroElement,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    tl.to(heroElement.querySelector('.hero-bg'), {
-      y: 100,
-      scale: 1.1,
-    });
-
-    return () => {
-      // Limpieza de ScrollTriggers al desmontar
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
-  // Sección de Testimonios - datos
   const testimonials = [
-    {
-      id: 1,
-      name: "Carlos Mendoza",
-      role: "Estudiante de Ingeniería",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      text: "Participar en este voluntariado ha sido una de las mejores decisiones de mi vida universitaria. He adquirido habilidades que ninguna clase podría enseñarme y he formado parte de proyectos que realmente hacen la diferencia."
-    },
-    {
-      id: 2,
-      name: "Ana Ramírez",
-      role: "Estudiante de Administración",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
-      text: "El ambiente colaborativo y enfocado en resultados me ha permitido aplicar lo que aprendo en clase en contextos reales. Ahora me siento más preparada para mi futuro profesional."
-    },
-    {
-      id: 3,
-      name: "Dr. Felipe Gutiérrez",
-      role: "Docente UNMSM",
-      image: "https://randomuser.me/api/portraits/men/46.jpg",
-      text: "Como docente, he visto cómo esta iniciativa transforma a los estudiantes, desarrollando su liderazgo y compromiso social. La universidad necesita más espacios como este."
-    },
-    {
-      id: 4,
-      name: "Laura Torres",
-      role: "Coordinadora de Proyectos",
-      image: "https://randomuser.me/api/portraits/women/65.jpg",
-      text: "Lo que más valoro es cómo potenciamos el talento de cada voluntario mientras generamos un impacto social tangible. Es inspirador ver cómo crecen profesionalmente mientras ayudan a otros."
-    }
+    { id: 1, name: "Carlos Mendoza", role: "Estudiante de Ingeniería", image: "https://randomuser.me/api/portraits/men/32.jpg", text: "Participar en este voluntariado ha sido una de las mejores decisiones de mi vida universitaria. He adquirido habilidades que ninguna clase podría enseñarme y he formado parte de proyectos que realmente hacen la diferencia." },
+    { id: 2, name: "Ana Ramírez", role: "Estudiante de Administración", image: "https://randomuser.me/api/portraits/women/44.jpg", text: "El ambiente colaborativo y enfocado en resultados me ha permitido aplicar lo que aprendo en clase en contextos reales. Ahora me siento más preparada para mi futuro profesional." },
+    { id: 3, name: "Dr. Felipe Gutiérrez", role: "Docente UNMSM", image: "https://randomuser.me/api/portraits/men/46.jpg", text: "Como docente, he visto cómo esta iniciativa transforma a los estudiantes, desarrollando su liderazgo y compromiso social. La universidad necesita más espacios como este." },
+    { id: 4, name: "Laura Torres", role: "Coordinadora de Proyectos", image: "https://randomuser.me/api/portraits/women/65.jpg", text: "Lo que más valoro es cómo potenciamos el talento de cada voluntario mientras generamos un impacto social tangible. Es inspirador ver cómo crecen profesionalmente mientras ayudan a otros." },
   ];
 
-  // Servicios con iconos mejorados
   const services = [
-    {
-      id: 1,
-      icon: <FaHandsHelping size={40} className="text-blue-600" />,
-      title: "Gestión de Proyectos",
-      description: "Implementamos metodologías efectivas para la planificación y ejecución de proyectos que generan impacto real en nuestra comunidad universitaria y sociedad."
-    },
-    {
-      id: 2,
-      icon: <FaUserGraduate size={40} className="text-blue-600" />,
-      title: "Capacitación y Desarrollo",
-      description: "Ofrecemos talleres y programas formativos para estudiantes interesados en adquirir habilidades de liderazgo, trabajo en equipo y gestión de recursos."
-    },
-    {
-      id: 3,
-      icon: <FaSeedling size={40} className="text-blue-600" />,
-      title: "Responsabilidad Social",
-      description: "Desarrollamos iniciativas que abordan problemas sociales y contribuyen al desarrollo sostenible de nuestras comunidades a través de acciones concretas y medibles."
-    }
+    { id: 1, icon: <Handshake size={32} color="white" />, title: "Gestión de Proyectos", description: "Implementamos metodologías efectivas para la planificación y ejecución de proyectos que generan impacto real en nuestra comunidad universitaria y sociedad." },
+    { id: 2, icon: <GraduationCap size={32} color="white" />, title: "Capacitación y Desarrollo", description: "Ofrecemos talleres y programas formativos para estudiantes interesados en adquirir habilidades de liderazgo, trabajo en equipo y gestión de recursos." },
+    { id: 3, icon: <Sprout size={32} color="white" />, title: "Responsabilidad Social", description: "Desarrollamos iniciativas que abordan problemas sociales y contribuyen al desarrollo sostenible de nuestras comunidades a través de acciones concretas y medibles." },
   ];
-
-  // Componente de contador mejorado con animación
-  const StatCounter = ({ value, label, delay = 0 }) => {
-    return (
-      <div className="flex flex-col items-center">
-        <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-          {statsRefInView && (
-            <CountUp
-              start={0}
-              end={value}
-              duration={2.5}
-              separator=","
-              delay={delay}
-              suffix="+"
-            />
-          )}
-        </div>
-        <p className="text-gray-700 font-medium text-lg">{label}</p>
-      </div>
-    );
-  };
 
   return (
     <div className="overflow-hidden">
-      {/* ── Popup de última hora ── */}
+      {/* Popup */}
       <NewsPopup
         imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/banner_popups/puch.jpg"
         altText="Última hora"
@@ -165,7 +74,7 @@ const Home = () => {
         aspectRatio="3/4"
       />
 
-      {/* Hero Section - Mejorado con parallax y animaciones */}
+      {/* ── Hero ── */}
       <section
         ref={heroRef}
         className="relative h-[calc(100dvh-64px)] md:h-[calc(100dvh-60px)] flex items-center justify-center overflow-hidden"
@@ -176,214 +85,184 @@ const Home = () => {
             alt="Estudiantes voluntarios de UNMSM"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-950/80 to-blue-800/90"></div>
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,22,40,0.88) 0%, rgba(15,32,68,0.94) 100%)" }} />
         </div>
 
         <div className="container mx-auto px-6 relative z-10 hero-content">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="max-w-4xl mx-auto text-center">
             <motion.h1
-              className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              className="font-bold text-white mb-4 tracking-tight leading-tight"
+              style={{ fontFamily: "var(--psm-font-heading)", fontSize: "clamp(2.4rem, 7vw, 5rem)", textTransform: "uppercase", letterSpacing: "0.04em" }}
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Proyectos San Marcos
+              Proyectos{" "}
+              <span style={{ color: "var(--psm-teal)" }}>San Marcos</span>
             </motion.h1>
 
             <motion.p
-              className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Estudiantes voluntarios impulsando el cambio social a través de la
-              gestión de proyectos de alto impacto en nuestra comunidad.
+              Estudiantes voluntarios impulsando el cambio social a través de la gestión de proyectos de alto impacto.
             </motion.p>
+
+            <motion.div
+              className="flex flex-wrap gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <a href="#about" className="psm-btn-primary">Conoce más</a>
+              <a href="#projects" className="psm-btn-outline">Ver proyectos</a>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Indicador de scroll */}
+        {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-          <motion.div
-            animate={{
-              y: [0, 10, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className="flex flex-col items-center"
-          >
+          <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }} className="flex flex-col items-center">
             <div className="w-6 h-10 rounded-full border-2 border-white flex justify-center pt-1">
-              <motion.div
-                animate={{
-                  y: [0, 8, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                }}
-                className="w-1.5 h-3 bg-white rounded-full"
-              ></motion.div>
+              <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }} className="w-1.5 h-3 bg-white rounded-full" />
             </div>
           </motion.div>
         </div>
       </section>
 
       <main className="flex-1">
-        {/* Quiénes Somos - Mejorado con mejor layout y efecto de aparición */}
-        <section className="py-24 bg-white" id="about">
+
+        {/* ── Quiénes Somos ── */}
+        <section className="py-24 psm-section-light" id="about">
           <div className="container mx-auto px-6 xl:px-20">
-            <div
-              className="flex flex-col lg:flex-row items-center gap-16"
-              data-aos="fade-up"
-            >
+            <div className="flex flex-col lg:flex-row items-center gap-16" data-aos="fade-up">
+              {/* Foto */}
               <div className="lg:w-2/5">
                 <div className="relative">
-                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-100 rounded-lg z-0"></div>
-                  <div className="rounded-lg overflow-hidden shadow-2xl relative z-10">
+                  <div className="absolute -top-4 -left-4 w-20 h-20 rounded-lg z-0" style={{ background: "var(--psm-teal-subtle)", border: "2px solid var(--psm-teal)" }} />
+                  <div className="rounded-xl overflow-hidden relative z-10" style={{ border: "2px solid var(--psm-teal)" }}>
                     <img
                       src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg"
                       alt="Equipo de voluntarios"
-                      className="w-full h-auto rounded-lg transition-transform duration-500 hover:scale-105"
+                      className="w-full h-auto rounded-xl"
                     />
                   </div>
-                  <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-50 rounded-lg z-0"></div>
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-lg z-0" style={{ background: "var(--psm-teal-subtle)", border: "2px solid var(--psm-teal)" }} />
                 </div>
               </div>
 
+              {/* Texto */}
               <div className="lg:w-3/5" data-aos="fade-left" data-aos-delay="200">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 relative">
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800">
-                    ¿Quiénes Somos?
-                  </span>
-                  <div className="w-20 h-1 bg-blue-600 mt-2"></div>
-                </h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="psm-icon-circle psm-icon-circle--solid">
+                    <Users size={24} color="white" />
+                  </div>
+                  <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
+                    <span style={{ color: "var(--psm-teal)" }}>¿Quiénes</span> Somos?
+                  </h2>
+                </div>
+                <div className="psm-divider mb-6" />
 
-                <p className="text-gray-700 text-lg mb-6 leading-relaxed">
-                  Somos una organización liderada por estudiantes voluntarios de
-                  la Universidad Nacional Mayor de San Marcos, comprometidos con
-                  la excelencia y el desarrollo social a través de la gestión de
-                  proyectos innovadores y sostenibles.
+                <p className="text-gray-700 text-lg mb-5 leading-relaxed">
+                  Somos una organización liderada por estudiantes voluntarios de la Universidad Nacional Mayor de San Marcos, comprometidos con la excelencia y el desarrollo social a través de la gestión de proyectos innovadores y sostenibles.
                 </p>
-
                 <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                  Promovemos y aplicamos las buenas prácticas de dirección de
-                  proyectos con el objetivo de contribuir al desarrollo de
-                  nuestra universidad y sociedad, mediante la ejecución de
-                  iniciativas de alto impacto que generan cambios positivos y duraderos.
+                  Promovemos y aplicamos las buenas prácticas de dirección de proyectos con el objetivo de contribuir al desarrollo de nuestra universidad y sociedad.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                  <div className="flex items-start">
-                    <div className="bg-blue-100 p-3 rounded-full mr-4">
-                      <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
+                  {[
+                    { icon: <CheckCircle2 size={20} />, title: "Compromiso Social", desc: "Enfocados en generar cambios positivos" },
+                    { icon: <Zap size={20} />, title: "Innovación", desc: "Soluciones creativas a problemas reales" },
+                  ].map(({ icon, title, desc }) => (
+                    <div key={title} className="flex items-start gap-3">
+                      <div className="psm-icon-circle" style={{ width: 44, height: 44 }}>
+                        {icon}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-1 text-gray-800">{title}</h4>
+                        <p className="text-gray-600 text-sm">{desc}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Compromiso Social</h4>
-                      <p className="text-gray-600">Enfocados en generar cambios positivos</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="bg-blue-100 p-3 rounded-full mr-4">
-                      <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-1">Innovación</h4>
-                      <p className="text-gray-600">Soluciones creativas a problemas reales</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
-                <button className="bg-white border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-blue-600 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                <a href="#milestones" className="psm-btn-primary" style={{ width: "fit-content" }}>
                   Conoce Nuestra Historia
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </button>
+                  <ArrowRight size={16} />
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Nuestro Impacto - Mejorado con contador animado */}
-        <section
-          className="py-24 bg-gradient-to-b from-blue-50 to-white"
-          id="impact"
-          ref={statsRef}
-        >
+        {/* ── Nuestro Impacto ── */}
+        <section className="py-24 psm-section-dark" id="impact" ref={statsRef}>
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-                Nuestro Impacto
-              </h2>
-              <p className="max-w-2xl mx-auto text-lg text-gray-600">
-                Los números reflejan el alcance de nuestras iniciativas y el impacto
-                que generamos en nuestra comunidad
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="psm-icon-circle psm-icon-circle--solid">
+                  <BarChart3 size={24} color="white" />
+                </div>
+                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                  Nuestro <span style={{ color: "var(--psm-teal)" }}>Impacto</span>
+                </h2>
+              </div>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
+                Los números reflejan el alcance de nuestras iniciativas y el impacto que generamos en nuestra comunidad
               </p>
-              <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
+              <div className="psm-divider mx-auto" />
             </div>
 
-            <div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div className="bg-white p-10 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 border-t-4 border-blue-600">
-                <StatCounter value={400} label="Estudiantes beneficiados" delay={0} />
-              </div>
-              <div className="bg-white p-10 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 border-t-4 border-blue-600">
-                <StatCounter value={25} label="Proyectos completados" delay={0.2} />
-              </div>
-              <div className="bg-white p-10 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 border-t-4 border-blue-600">
-                <StatCounter value={10} label="Alianzas institucionales" delay={0.4} />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+              {[
+                { value: 400, label: "Estudiantes beneficiados", delay: 0 },
+                { value: 25, label: "Proyectos completados", delay: 0.2 },
+                { value: 10, label: "Alianzas institucionales", delay: 0.4 },
+              ].map(({ value, label, delay }) => (
+                <div key={label} className="p-10 rounded-xl flex flex-col items-center" style={{ background: "var(--psm-navy)", border: "1px solid rgba(0,180,216,0.25)" }}>
+                  <div className="text-5xl font-bold mb-2" style={{ color: "var(--psm-teal)" }}>
+                    {statsRefInView && <CountUp start={0} end={value} duration={2.5} separator="," delay={delay} suffix="+" />}
+                  </div>
+                  <p className="font-medium text-lg" style={{ color: "var(--psm-teal-light)" }}>{label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Nuestros Servicios - Mejorado con mejores tarjetas e iconos */}
-        <section className="py-24 bg-white" id="services">
+        {/* ── Nuestros Servicios ── */}
+        <section className="py-24 psm-section-navy" id="services">
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-                Nuestros Servicios
-              </h2>
-              <p className="max-w-2xl mx-auto text-lg text-gray-600">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="psm-icon-circle psm-icon-circle--solid">
+                  <Star size={24} color="white" />
+                </div>
+                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                  Nuestros <span style={{ color: "var(--psm-teal)" }}>Servicios</span>
+                </h2>
+              </div>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
                 Ofrecemos diversas formas de contribuir al desarrollo universitario y social
               </p>
-              <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
+              <div className="psm-divider mx-auto" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <div
                   key={service.id}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
-                  className="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-100 group"
+                  className="rounded-xl p-8"
+                  style={{ background: "var(--psm-navy-dark)", border: "1px solid rgba(0,180,216,0.2)", transition: "border-color 0.3s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--psm-teal)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(0,180,216,0.2)")}
                 >
                   <div className="mb-6 flex justify-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300">
+                    <div className="psm-icon-circle psm-icon-circle--solid" style={{ width: 64, height: 64 }}>
                       {service.icon}
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4 text-center text-gray-800">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 text-center leading-relaxed">
+                  <h3 className="psm-heading text-xl mb-4 text-center text-white">{service.title}</h3>
+                  <p className="text-center leading-relaxed" style={{ color: "var(--psm-teal-light)", fontSize: "0.95rem" }}>
                     {service.description}
                   </p>
                 </div>
@@ -392,17 +271,22 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Proyectos Destacados - Mejorado con Swiper */}
-        <section className="py-20 bg-gray-50" id="projects">
+        {/* ── Proyectos Destacados ── */}
+        <section className="py-20 psm-section-dark" id="projects">
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-                Proyectos Destacados
-              </h2>
-              <p className="max-w-2xl mx-auto text-lg text-gray-600">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="psm-icon-circle psm-icon-circle--solid">
+                  <FolderOpen size={24} color="white" />
+                </div>
+                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                  Proyectos <span style={{ color: "var(--psm-teal)" }}>Destacados</span>
+                </h2>
+              </div>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
                 Conoce algunas de nuestras iniciativas más importantes y su impacto
               </p>
-              <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
+              <div className="psm-divider mx-auto" />
             </div>
 
             <div className="mt-12" data-aos="fade-up" data-aos-delay="200">
@@ -410,98 +294,38 @@ const Home = () => {
                 modules={[Pagination, Autoplay, Navigation]}
                 spaceBetween={30}
                 slidesPerView={1}
-                breakpoints={{
-                  640: { slidesPerView: 1 },
-                  768: { slidesPerView: 2 },
-                  1024: { slidesPerView: 4 },
-                }}
+                breakpoints={{ 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } }}
                 pagination={{ clickable: true }}
                 navigation
                 autoplay={{ delay: 5000 }}
-                className="w-full !pt-6 !pb-10 !px-6"
+                className="w-full !pt-6 !pb-10 !px-6 psm-swiper"
               >
-                <SwiperSlide>
-                  <div className="h-full">
-                    <CardProject
-                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_rescatandoplayas.jpg"
-                      title="Rescatando playas"
-                      description="En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️ Cada acción, por pequeña que sea, es una victoria en nuestro compromiso por un futuro más limpio y un mar más saludable. 🐚"
-                      buttonText="Ver más"
-                      className="h-full"
-                      color="#4158b5"
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-full">
-                    <CardProject
-                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sembrandosonrisas.jpg"
-                      title="Sembrando sonrisas"
-                      description="En 𝗦𝗲𝗺𝗯𝗿𝗮𝗻𝗱𝗼 𝗦𝗼𝗻𝗿𝗶𝘀𝗮𝘀 logramos llevar esperanza y sonrisas a muchas comunidades, especialmente en zonas rurales como Ayacucho, donde entregamos canastas de víveres, regalos y compartimos momentos de alegría con más de 50 familias y 150 niños. 🎁💖"
-                      buttonText="Ver más"
-                      className="h-full"
-                      color="#f1162e"
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-full">
-                    <CardProject
-                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_4patas.jpg"
-                      title="4 Patas"
-                      description="En 4 PATAS llevamos alimento, esterilizaciones y educación comunitaria a barrios de escasos recursos para mejorar el bienestar de perros y gatos en situación vulnerable. 🥣🐶🐱 Con más de 40 animales esterilizados y decenas de hogares empoderados, contribuimos a reducir el abandono y a promover la tenencia responsable."
-                      buttonText="Ver más"
-                      className="h-full"
-                      color="#ffbd54"
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-full">
-                    <CardProject
-                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sanamente.jpg"
-                      title="Sanamente"
-                      description="Durante el 2023, más de 280,000 casos de depresión fueron atendidos, y la ansiedad sigue siendo uno de los trastornos más comunes. ¡Es hora de dar un paso hacia el cambio!
-
-En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar emocional de los jóvenes, promoviendo la inteligencia emocional y reduciendo el estigma de la salud mental.
-"
-                      buttonText="Ver más"
-                      className="h-full"
-                      color="#f44d95"
-                    />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-full">
-                    <CardProject
-                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_poni.jpg"
-                      title="PONI"
-                      description="PONI es un proyecto que tiene como objetivo capacitar a los nuevos ingresantes de Proyectos San Marcos (PSM) en la gestión de proyectos y en la integración efectiva dentro de la organización. 💙🌱
-Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacitar a 36 nuevos ingresantes, quienes no solo adquirieron herramientas clave en la planificación de proyectos, sino que también presentaron propuestas innovadoras alineadas con los Objetivos de Desarrollo Sostenible (ODS). 🌍✨"
-                      buttonText="Ver más"
-                      className="h-full"
-                      color="#1b395d"
-                    />
-                  </div>
-                </SwiperSlide>
+                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_rescatandoplayas.jpg" title="Rescatando playas" description="En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️ Cada acción, por pequeña que sea, es una victoria en nuestro compromiso por un futuro más limpio y un mar más saludable. 🐚" buttonText="Ver más" className="h-full" color="#4158b5" /></div></SwiperSlide>
+                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sembrandosonrisas.jpg" title="Sembrando sonrisas" description="En 𝗦𝗲𝗺𝗯𝗿𝗮𝗻𝗱𝗼 𝗦𝗼𝗻𝗿𝗶𝘀𝗮𝘀 logramos llevar esperanza y sonrisas a muchas comunidades, especialmente en zonas rurales como Ayacucho, donde entregamos canastas de víveres, regalos y compartimos momentos de alegría con más de 50 familias y 150 niños. 🎁💖" buttonText="Ver más" className="h-full" color="#f1162e" /></div></SwiperSlide>
+                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_4patas.jpg" title="4 Patas" description="En 4 PATAS llevamos alimento, esterilizaciones y educación comunitaria a barrios de escasos recursos para mejorar el bienestar de perros y gatos en situación vulnerable. 🥣🐶🐱 Con más de 40 animales esterilizados y decenas de hogares empoderados, contribuimos a reducir el abandono y a promover la tenencia responsable." buttonText="Ver más" className="h-full" color="#ffbd54" /></div></SwiperSlide>
+                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sanamente.jpg" title="Sanamente" description={`Durante el 2023, más de 280,000 casos de depresión fueron atendidos. En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar emocional de los jóvenes, promoviendo la inteligencia emocional y reduciendo el estigma de la salud mental.`} buttonText="Ver más" className="h-full" color="#f44d95" /></div></SwiperSlide>
+                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_poni.jpg" title="PONI" description="PONI es un proyecto que tiene como objetivo capacitar a los nuevos ingresantes de Proyectos San Marcos (PSM) en la gestión de proyectos y en la integración efectiva dentro de la organización. 💙🌱 PONI ha logrado capacitar a 36 nuevos ingresantes, quienes presentaron propuestas innovadoras alineadas con los ODS. 🌍✨" buttonText="Ver más" className="h-full" color="#1b395d" /></div></SwiperSlide>
               </Swiper>
             </div>
           </div>
         </section>
 
-
-
-        {/* Testimonios - Carrusel mejorado */}
-        <section className="py-24 bg-white" id="testimonials">
+        {/* ── Testimonios ── */}
+        <section className="py-24 psm-section-navy" id="testimonials">
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-                Testimonios
-              </h2>
-              <p className="max-w-2xl mx-auto text-lg text-gray-600">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="psm-icon-circle psm-icon-circle--solid">
+                  <MessageCircle size={24} color="white" />
+                </div>
+                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                  <span style={{ color: "var(--psm-teal)" }}>Testimonios</span>
+                </h2>
+              </div>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
                 Lo que dicen nuestros voluntarios y beneficiarios
               </p>
-              <div className="w-20 h-1 bg-blue-600 mt-6 mx-auto"></div>
+              <div className="psm-divider mx-auto" />
             </div>
 
             <div data-aos="fade-up" data-aos-delay="200">
@@ -517,30 +341,21 @@ Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacita
               >
                 {testimonials.map((testimonial) => (
                   <SwiperSlide key={testimonial.id}>
-                    <div className="bg-gray-50 rounded-2xl p-10 max-w-4xl mx-auto">
+                    <div className="rounded-2xl p-10 max-w-4xl mx-auto" style={{ background: "var(--psm-navy-dark)", border: "1px solid rgba(0,180,216,0.25)" }}>
                       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                         <div className="shrink-0">
-                          <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                            <img
-                              src={testimonial.image}
-                              alt={testimonial.name}
-                              className="w-full h-full object-cover"
-                            />
+                          <div className="w-24 h-24 rounded-full overflow-hidden" style={{ border: "3px solid var(--psm-teal)" }}>
+                            <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
                           </div>
                         </div>
-
                         <div>
-                          <svg className="w-10 h-10 text-blue-200 mb-4" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 8c-2.209 0-4 1.791-4 4v10c0 2.209 1.791 4 4 4h12c2.209 0 4-1.791 4-4v-10c0-2.209-1.791-4-4-4h-12zM8.5 15c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5zM20.5 15c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5z"></path>
-                          </svg>
-
-                          <p className="text-xl italic text-gray-700 mb-6 leading-relaxed">
+                          <Quote size={40} style={{ color: "var(--psm-teal)" }} className="mb-4" />
+                          <p className="text-lg italic mb-6 leading-relaxed" style={{ color: "var(--psm-teal-light)" }}>
                             "{testimonial.text}"
                           </p>
-
                           <div>
-                            <h4 className="font-bold text-lg">{testimonial.name}</h4>
-                            <p className="text-blue-600">{testimonial.role}</p>
+                            <h4 className="font-bold text-lg text-white">{testimonial.name}</h4>
+                            <p style={{ color: "var(--psm-teal)" }}>{testimonial.role}</p>
                           </div>
                         </div>
                       </div>
@@ -552,40 +367,6 @@ Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacita
           </div>
         </section>
 
-        {/* CTA Section 
-        <section className="py-28 bg-gradient-to-r from-blue-600 to-blue-800 relative overflow-hidden" id="join">
-          <div className="absolute inset-0 opacity-10">
-            <svg className="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#ffffff" d="M37.9,-68.5C47.1,-60.5,51.1,-45.7,59.1,-33.5C67.1,-21.3,79.1,-10.7,81.6,1.4C84.1,13.5,77.1,27,67.7,38.5C58.3,50,46.6,59.4,33.8,64.6C21,69.8,7.1,70.7,-6.9,70.3C-20.9,69.9,-41.8,68.2,-52.9,58.3C-64,48.4,-65.2,30.4,-68.6,13.7C-72,-3,-77.5,-18.3,-73.1,-31C-68.6,-43.6,-54.2,-53.5,-40.1,-59.9C-26.1,-66.2,-12.3,-68.9,1.4,-71.3C15.1,-73.7,28.7,-76,37.9,-68.5Z" transform="translate(100 100)" />
-            </svg>
-          </div>
-
-          <div className="container mx-auto px-6 xl:px-20 relative z-10">
-            <div className="max-w-3xl mx-auto text-center text-white" data-aos="fade-up">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                ¿Listo para marcar la diferencia?
-              </h2>
-              <p className="text-xl mb-10 text-white/90">
-                Únete a nuestro equipo de voluntarios y forma parte del cambio que quieres ver en el mundo.
-                Desarrolla habilidades profesionales mientras generas un impacto real en la sociedad.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a
-                  href="#apply"
-                  className="px-8 py-4 bg-white text-blue-700 font-medium rounded-full hover:bg-blue-50 transition-colors duration-300 shadow-lg text-lg"
-                >
-                  Postula ahora
-                </a>
-                <a
-                  href="#contact"
-                  className="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white/10 transition-all duration-300 rounded-full text-lg"
-                >
-                  Contáctanos
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>*/}
       </main>
 
       <Footer />
