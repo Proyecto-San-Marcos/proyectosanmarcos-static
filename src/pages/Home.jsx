@@ -15,6 +15,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaArrowRight, FaHandsHelping, FaUserGraduate, FaSeedling } from "react-icons/fa";
 import Footer from "../components/Footer";
 import CardProject from "../components/CardProject";
+import NewsPopup from "../components/NewsPopup";
 
 // Registrar ScrollTrigger con GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -154,6 +155,14 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
+      {/* ── Popup de última hora ── */}
+      <NewsPopup
+        imageUrl=""
+        altText="Última hora"
+        redirectTo="/"
+        delay={800}
+      />
+
       {/* Hero Section - Mejorado con parallax y animaciones */}
       <section
         ref={heroRef}
