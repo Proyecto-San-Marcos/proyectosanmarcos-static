@@ -1,39 +1,110 @@
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 
-const CardProject = ({ imageUrl, title, description, buttonText, onButtonClick, className }) => {
-  return (
-    <motion.div
-      className={`bg-white rounded-xl overflow-hidden border border-gray-200 h-full flex flex-col ${className}`}
+/* ─────────────────────────────────────────────
+   Modal (se renderiza en <body> via portal)
+───────────────────────────────────────────── */
+const ProjectModal = ({ imageUrl, title, description, onClose }) => {
+  // Cerrar con Escape
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return createPortal(
+    <div
+      className="card-modal__overlay"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
     >
-      <div className="relative h-48 overflow-hidden bg-gray-100">
-        <img
-          src={imageUrl}
-          alt={title}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <div
+        className="card-modal__panel"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Imagen — proporción 3:4 */}
+        <div className="card-modal__img-wrap">
+          <img
+            src={imageUrl}
+            alt={title}
+            className="card-modal__img"
+            loading="lazy"
+          />
+        </div>
 
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold mb-3 text-gray-900">{title}</h3>
-        <p className="text-gray-600 mb-6 flex-grow leading-relaxed">{description}</p>
+        {/* Contenido */}
+        <div className="card-modal__body">
+          <h2 className="card-modal__title">{title}</h2>
+          <p className="card-modal__desc">{description}</p>
+        </div>
 
+        {/* Botón cerrar */}
         <button
-          onClick={onButtonClick}
-          className="mt-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+          className="card-modal__close"
+          onClick={onClose}
+          aria-label="Cerrar"
         >
-          {buttonText}
           <svg
-            className="w-4 h-4 ml-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
       </div>
-    </motion.div>
+    </div>,
+    document.body
+  );
+};
+
+/* ─────────────────────────────────────────────
+   CardProject
+───────────────────────────────────────────── */
+const CardProject = ({ imageUrl, title, description, buttonText = "Ver más", className = "" }) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => setOpen(true), []);
+  const handleClose = useCallback(() => setOpen(false), []);
+
+  return (
+    <>
+      <div className={`card-project ${className}`} onClick={handleOpen}>
+        {/* Imagen — proporción 3:4 */}
+        <div className="card-project__img-wrap">
+          <img
+            src={imageUrl}
+            alt={title}
+            className="card-project__img"
+            loading="lazy"
+          />
+        </div>
+
+        {/* Cuerpo */}
+        <div className="card-project__body">
+          <h3 className="card-project__title">{title}</h3>
+        </div>
+      </div>
+
+      {open && (
+        <ProjectModal
+          imageUrl={imageUrl}
+          title={title}
+          description={description}
+          onClose={handleClose}
+        />
+      )}
+    </>
   );
 };
 

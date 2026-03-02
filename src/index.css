@@ -98,6 +98,195 @@ body {
 }
 
 /* ===================================================
+   CardProject — tarjeta con proporción 3:4
+   =================================================== */
+
+.card-project {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-project__img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #f1f5f9;
+  flex-shrink: 0;
+}
+
+.card-project__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-project__body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-project__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+}
+
+.card-project__desc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin: 0 0 16px;
+}
+
+.card-project__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  align-self: flex-start;
+  padding: 9px 20px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card-project__btn:hover {
+  background: #1e40af;
+}
+
+.card-project__btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===================================================
+   Modal de proyecto
+   =================================================== */
+
+.card-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.card-modal__panel {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+}
+
+.card-modal__img-wrap {
+  flex: 0 0 40%;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.card-modal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-modal__body {
+  flex: 1;
+  padding: 40px 36px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-modal__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.card-modal__desc {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.card-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #374151;
+  z-index: 10;
+}
+
+.card-modal__close:hover {
+  background: #f3f4f6;
+}
+
+.card-modal__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 640px) {
+  .card-modal__panel {
+    flex-direction: column;
+    max-height: 92vh;
+    border-radius: 12px;
+  }
+
+  .card-modal__img-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    max-height: 52vw;
+  }
+
+  .card-modal__body {
+    padding: 24px 20px;
+    justify-content: flex-start;
+  }
+
+  .card-modal__title {
+    font-size: 18px;
+  }
+}
+
+/* ===================================================
    NewsPopup – Ventana flotante de última hora
    =================================================== */
 

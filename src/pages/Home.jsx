@@ -421,11 +421,10 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="h-full">
                     <CardProject
-                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//rescatando.jpeg"
+                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_rescatandoplayas.jpg"
                       title="Rescatando playas"
-                      description="Iniciativa de limpieza y educación ambiental en playas locales. Voluntarios trabajando para preservar la belleza natural y la vida marina."
+                      description="En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️ Cada acción, por pequeña que sea, es una victoria en nuestro compromiso por un futuro más limpio y un mar más saludable. 🐚"
                       buttonText="Ver más"
-                      onButtonClick={() => alert("Ver más sobre Rescatando playas")}
                       className="h-full"
                     />
                   </div>
@@ -433,11 +432,10 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="h-full">
                     <CardProject
-                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//sembrando_sonrisas.jpeg"
+                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sembrandosonrisas.jpg"
                       title="Sembrando sonrisas"
-                      description="Iniciativa de reforestación y educación ambiental en comunidades vulnerables. Voluntarios trabajando para preservar el medio ambiente."
+                      description="En 𝗦𝗲𝗺𝗯𝗿𝗮𝗻𝗱𝗼 𝗦𝗼𝗻𝗿𝗶𝘀𝗮𝘀 logramos llevar esperanza y sonrisas a muchas comunidades, especialmente en zonas rurales como Ayacucho, donde entregamos canastas de víveres, regalos y compartimos momentos de alegría con más de 50 familias y 150 niños. 🎁💖"
                       buttonText="Ver más"
-                      onButtonClick={() => alert("Ver más sobre Sembrando sonrisas")}
                       className="h-full"
                     />
                   </div>
@@ -445,11 +443,10 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="h-full">
                     <CardProject
-                      imageUrl="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/488407688_991399479761909_1978576309811572481_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=icwfO92A0coQ7kNvwF4FKVZ&_nc_oc=Adnv-eZ_iumM4UA2D8TAcRq7hDjaxd2mIZKzvV8rx3Rh2xo13Rrjqm_ZfnSc_TFgqa9iAKJFgxL-FaEx5-HNrh2m&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=Nb3yE7R_PGwyhNbrmwZRtg&oh=00_AfEXL68zxe0cOSDxqJtTOmqfwl7i3v4QykxgQvjXfKlVHw&oe=6801E335"
+                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_4patas.jpg"
                       title="4 Patas"
-                      description="Iniciativa enfocada en el apoyo de animales en situación de abandono. Voluntarios trabajando para brindarles una segunda oportunidad."
+                      description="En 4 PATAS llevamos alimento, esterilizaciones y educación comunitaria a barrios de escasos recursos para mejorar el bienestar de perros y gatos en situación vulnerable. 🥣🐶🐱 Con más de 40 animales esterilizados y decenas de hogares empoderados, contribuimos a reducir el abandono y a promover la tenencia responsable."
                       buttonText="Ver más"
-                      onButtonClick={() => alert("Ver más sobre 4 Patas")}
                       className="h-full"
                     />
                   </div>
@@ -457,11 +454,25 @@ const Home = () => {
                 <SwiperSlide>
                   <div className="h-full">
                     <CardProject
-                      imageUrl="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                      title="Educando para el Futuro"
-                      description="Programa de refuerzo académico para estudiantes de comunidades rurales, brindando herramientas para mejorar su rendimiento escolar."
+                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sanamente.jpg"
+                      title="Sanamente"
+                      description="Durante el 2023, más de 280,000 casos de depresión fueron atendidos, y la ansiedad sigue siendo uno de los trastornos más comunes. ¡Es hora de dar un paso hacia el cambio!
+
+En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar emocional de los jóvenes, promoviendo la inteligencia emocional y reduciendo el estigma de la salud mental.
+"
                       buttonText="Ver más"
-                      onButtonClick={() => alert("Ver más sobre Educando para el Futuro")}
+                      className="h-full"
+                    />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="h-full">
+                    <CardProject
+                      imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_poni.jpg"
+                      title="PONI"
+                      description="PONI es un proyecto que tiene como objetivo capacitar a los nuevos ingresantes de Proyectos San Marcos (PSM) en la gestión de proyectos y en la integración efectiva dentro de la organización. 💙🌱
+Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacitar a 36 nuevos ingresantes, quienes no solo adquirieron herramientas clave en la planificación de proyectos, sino que también presentaron propuestas innovadoras alineadas con los Objetivos de Desarrollo Sostenible (ODS). 🌍✨"
+                      buttonText="Ver más"
                       className="h-full"
                     />
                   </div>
