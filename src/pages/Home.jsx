@@ -15,7 +15,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   Users, CheckCircle2, Zap, ArrowRight,
   BarChart3, Star, Handshake, GraduationCap, Sprout,
-  FolderOpen, MessageCircle, Quote
+  FolderOpen, MessageCircle, Quote,
+  Target, Eye, Flag, Network
 } from "lucide-react";
 import Footer from "../components/Footer";
 import CardProject from "../components/CardProject";
@@ -131,7 +132,9 @@ const Home = () => {
         {/* ── Quiénes Somos ── */}
         <section className="py-24 psm-section-light" id="about">
           <div className="container mx-auto px-6 xl:px-20">
-            <div className="flex flex-col lg:flex-row items-center gap-16" data-aos="fade-up">
+
+            {/* Bloque principal: foto + texto */}
+            <div className="flex flex-col lg:flex-row items-center gap-16 mb-20" data-aos="fade-up">
               {/* Foto */}
               <div className="lg:w-2/5">
                 <div className="relative">
@@ -139,7 +142,7 @@ const Home = () => {
                   <div className="rounded-xl overflow-hidden relative z-10" style={{ border: "2px solid var(--psm-teal)" }}>
                     <img
                       src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg"
-                      alt="Equipo de voluntarios"
+                      alt="Comunidad PSM"
                       className="w-full h-auto rounded-xl"
                     />
                   </div>
@@ -160,16 +163,16 @@ const Home = () => {
                 <div className="psm-divider mb-6" />
 
                 <p className="text-gray-700 text-lg mb-5 leading-relaxed">
-                  Somos una organización liderada por estudiantes voluntarios de la Universidad Nacional Mayor de San Marcos, comprometidos con la excelencia y el desarrollo social a través de la gestión de proyectos innovadores y sostenibles.
+                  Somos una <strong>comunidad estudiantil de voluntarios</strong> comprometidos con el aprendizaje constante, la gestión de proyectos y la responsabilidad social.
                 </p>
                 <p className="text-gray-700 text-lg mb-8 leading-relaxed">
-                  Promovemos y aplicamos las buenas prácticas de dirección de proyectos con el objetivo de contribuir al desarrollo de nuestra universidad y sociedad.
+                  Nos motiva ser parte del cambio hacia una sociedad más <strong>justa, digna y con mayores oportunidades para todos</strong>.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
                   {[
-                    { icon: <CheckCircle2 size={20} />, title: "Compromiso Social", desc: "Enfocados en generar cambios positivos" },
-                    { icon: <Zap size={20} />, title: "Innovación", desc: "Soluciones creativas a problemas reales" },
+                    { icon: <CheckCircle2 size={20} />, title: "Compromiso Social", desc: "Motivados por un cambio positivo y duradero" },
+                    { icon: <Zap size={20} />, title: "Aprendizaje Constante", desc: "Crecemos junto a cada proyecto que gestionamos" },
                   ].map(({ icon, title, desc }) => (
                     <div key={title} className="flex items-start gap-3">
                       <div className="psm-icon-circle" style={{ width: 44, height: 44 }}>
@@ -187,6 +190,133 @@ const Home = () => {
                   Conoce Nuestra Historia
                   <ArrowRight size={16} />
                 </a>
+              </div>
+            </div>
+
+            {/* ¿Qué Buscamos? */}
+            <div data-aos="fade-up">
+              <div className="flex items-center gap-3 mb-8">
+                <h3 className="psm-heading text-3xl md:text-4xl" style={{ color: "var(--psm-navy-mid)" }}>
+                  ¿Qué <span style={{ color: "var(--psm-teal)" }}>Buscamos</span>?
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    icon: <FolderOpen size={28} color="white" />,
+                    title: "Proyectos",
+                    items: ["Innovación", "Colaboración", "Responsabilidad"],
+                  },
+                  {
+                    icon: <Users size={28} color="white" />,
+                    title: "Sociedad",
+                    items: ["Conciencia Social", "Transformación Social", "Ciudadanía activa", "Sostenibilidad Social"],
+                  },
+                  {
+                    icon: <Target size={28} color="white" />,
+                    title: "Metas",
+                    items: ["Compromiso", "Cultura", "Liderazgo", "Propósito"],
+                  },
+                ].map(({ icon, title, items }, i) => (
+                  <div
+                    key={title}
+                    className="rounded-xl p-7 bg-white"
+                    style={{ border: "1px solid var(--psm-gray-mid)", boxShadow: "var(--psm-shadow-card)", transition: "border-color 0.3s, box-shadow 0.3s" }}
+                    data-aos="fade-up"
+                    data-aos-delay={i * 100}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--psm-teal)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,180,216,0.15)"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--psm-gray-mid)"; e.currentTarget.style.boxShadow = "var(--psm-shadow-card)"; }}
+                  >
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="psm-icon-circle psm-icon-circle--solid" style={{ width: 52, height: 52 }}>
+                        {icon}
+                      </div>
+                      <h4 className="psm-heading text-2xl" style={{ color: "var(--psm-navy-mid)" }}>
+                        {title}
+                      </h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {items.map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-gray-600 text-sm">
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "var(--psm-teal)" }} />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── Misión & Visión ── */}
+        <section className="py-24 psm-section-white" id="mision">
+          <div className="container mx-auto px-6 xl:px-20">
+            <div className="flex flex-col lg:flex-row gap-16 items-center" data-aos="fade-up">
+
+              {/* Imagen lateral */}
+              <div className="lg:w-2/5 w-full">
+                <div className="relative rounded-2xl overflow-hidden" style={{ border: "2px solid var(--psm-teal)" }}>
+                  <img
+                    src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg"
+                    alt="Equipo PSM"
+                    className="w-full h-full object-cover"
+                    style={{ minHeight: 340, maxHeight: 480 }}
+                  />
+                  {/* Badge flotante */}
+                  <div
+                    className="absolute bottom-4 left-4 px-4 py-2 rounded-xl"
+                    style={{ background: "var(--psm-navy)", border: "1px solid var(--psm-teal)" }}
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)" }}>
+                      Desde 2011
+                    </p>
+                    <p className="text-white text-sm font-semibold">Transformando la UNMSM</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Misión + Visión */}
+              <div className="lg:w-3/5 w-full space-y-12">
+
+                {/* Misión */}
+                <div data-aos="fade-left" data-aos-delay="100">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="psm-icon-circle psm-icon-circle--solid">
+                      <Target size={22} color="white" />
+                    </div>
+                    <h2 className="psm-heading text-4xl" style={{ color: "var(--psm-navy-mid)" }}>
+                      <span style={{ color: "var(--psm-teal)" }}>Mis</span>ión
+                    </h2>
+                  </div>
+                  <div className="psm-divider mb-5" />
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Difundir y promover las buenas prácticas en gestión de proyectos alineados a los Objetivos de Desarrollo Sostenible (ODS) y las necesidades de la sociedad, fortaleciendo la organización y formando futuros gestores de proyectos.
+                  </p>
+                </div>
+
+                {/* Separador */}
+                <div style={{ height: 1, background: "var(--psm-gray-mid)" }} />
+
+                {/* Visión */}
+                <div data-aos="fade-left" data-aos-delay="200">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="psm-icon-circle psm-icon-circle--solid">
+                      <Eye size={22} color="white" />
+                    </div>
+                    <h2 className="psm-heading text-4xl" style={{ color: "var(--psm-navy-mid)" }}>
+                      <span style={{ color: "var(--psm-teal)" }}>Vi</span>sión
+                    </h2>
+                  </div>
+                  <div className="psm-divider mb-5" />
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    Ser el voluntariado más prestigioso a nivel nacional, con proyectos ambiciosos y voluntarios amantes de la excelencia, que generen una huella en la UNMSM y el Perú entero.
+                  </p>
+                </div>
+
               </div>
             </div>
           </div>
@@ -223,6 +353,120 @@ const Home = () => {
                   <p className="font-medium text-lg" style={{ color: "var(--psm-text-body)" }}>{label}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Hitos Importantes ── */}
+        <section className="py-24 psm-section-light" id="milestones">
+          <div className="container mx-auto px-6 xl:px-20">
+            <div className="text-center mb-16" data-aos="fade-up">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="psm-icon-circle psm-icon-circle--solid">
+                  <Flag size={24} color="white" />
+                </div>
+                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
+                  Hitos <span style={{ color: "var(--psm-teal)" }}>Importantes</span>
+                </h2>
+              </div>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
+                A lo largo de nuestra trayectoria, hemos marcado un antes y un después con iniciativas transformadoras que abarcan desde la innovación hasta el impacto social.
+              </p>
+              <div className="psm-divider mx-auto" />
+            </div>
+
+            {/* Timeline */}
+            <div className="relative">
+              {/* Línea central — solo desktop */}
+              <div
+                className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2"
+                style={{ background: "var(--psm-teal)", opacity: 0.3 }}
+              />
+
+              <div className="space-y-12">
+                {[
+                  {
+                    year: "2011",
+                    side: "right",
+                    title: "Fundación de PSM",
+                    desc: "Nace Proyectos San Marcos, iniciativa liderada por estudiantes de la UNMSM con la visión de transformar la gestión de proyectos en el ámbito universitario y social.",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                  },
+                  {
+                    year: "2016",
+                    side: "left",
+                    title: "65 Proyectos desarrollados",
+                    desc: "Alcanzamos la marca de 65 proyectos ejecutados, consolidando nuestra presencia en distintas áreas de impacto social y fortaleciendo nuestra metodología de gestión.",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                  },
+                  {
+                    year: "2019",
+                    side: "right",
+                    title: "CONEGP & 20 talleres",
+                    desc: "Se organizó el Congreso Nacional Estudiantil de Gestión de Proyectos (CONEGP) y se realizaron más de 20 talleres formativos, posicionándonos como referentes a nivel nacional.",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                  },
+                  {
+                    year: "2020",
+                    side: "left",
+                    title: "Innova Weekend",
+                    desc: "En tiempos de pandemia, desarrollamos 5 sesiones del Innova Weekend: un espacio de innovación y colaboración virtual que mantuvo vivo el espíritu de PSM.",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                  },
+                ].map(({ year, side, title, desc, image }, i) => (
+                  <div
+                    key={year}
+                    className={`flex flex-col md:flex-row items-center gap-8 ${side === "left" ? "md:flex-row-reverse" : ""
+                      }`}
+                    data-aos={side === "left" ? "fade-right" : "fade-left"}
+                    data-aos-delay={i * 100}
+                  >
+                    {/* Imagen */}
+                    <div className="w-full md:w-5/12">
+                      <div
+                        className="rounded-2xl overflow-hidden"
+                        style={{ border: "2px solid var(--psm-gray-mid)", boxShadow: "var(--psm-shadow-card)" }}
+                      >
+                        <img src={image} alt={title} className="w-full h-56 object-cover" />
+                      </div>
+                    </div>
+
+                    {/* Nodo central */}
+                    <div className="hidden md:flex w-2/12 justify-center">
+                      <div
+                        className="flex items-center justify-center rounded-full text-white font-bold text-sm z-10"
+                        style={{
+                          width: 56, height: 56,
+                          background: "var(--psm-teal)",
+                          fontFamily: "var(--psm-font-heading)",
+                          fontSize: "0.8rem",
+                          letterSpacing: "0.05em",
+                          boxShadow: "0 0 0 4px white, 0 0 0 6px var(--psm-teal)",
+                        }}
+                      >
+                        {year}
+                      </div>
+                    </div>
+
+                    {/* Texto */}
+                    <div className="w-full md:w-5/12">
+                      {/* Año visible solo en móvil */}
+                      <span
+                        className="md:hidden inline-block mb-2 px-3 py-1 rounded-full text-xs font-bold"
+                        style={{ background: "var(--psm-teal)", color: "white", fontFamily: "var(--psm-font-heading)" }}
+                      >
+                        {year}
+                      </span>
+                      <h3 className="psm-heading text-2xl mb-3" style={{ color: "var(--psm-navy-mid)" }}>
+                        {title}
+                      </h3>
+                      <p className="leading-relaxed" style={{ color: "var(--psm-text-body)" }}>
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -267,6 +511,43 @@ const Home = () => {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Organigrama ── */}
+        <section className="py-24 psm-section-white" id="organigrama">
+          <div className="container mx-auto px-6 xl:px-20">
+            <div className="text-center mb-12" data-aos="fade-up">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="psm-icon-circle psm-icon-circle--solid">
+                  <Network size={24} color="white" />
+                </div>
+                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
+                  Nuestro <span style={{ color: "var(--psm-teal)" }}>Organigrama</span>
+                </h2>
+              </div>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
+                Nuestra estructura organizacional está diseñada para materializar los valores que guían cada una de nuestras iniciativas, articulando roles, procesos y sinergias.
+              </p>
+              <div className="psm-divider mx-auto" />
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="150">
+              <div
+                className="rounded-2xl overflow-hidden"
+                style={{ border: "2px solid var(--psm-gray-mid)", boxShadow: "var(--psm-shadow-card)" }}
+              >
+                <img
+                  src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg"
+                  alt="Organigrama de Proyectos San Marcos"
+                  className="w-full object-contain"
+                  style={{ maxHeight: 600, background: "var(--psm-gray-light)" }}
+                />
+              </div>
+              <p className="text-center text-sm mt-4" style={{ color: "var(--psm-text-muted)" }}>
+                Estructura organizacional vigente — Proyectos San Marcos
+              </p>
             </div>
           </div>
         </section>
