@@ -543,7 +543,7 @@ Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacita
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Section 
         <section className="py-28 bg-gradient-to-r from-blue-600 to-blue-800 relative overflow-hidden" id="join">
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -576,7 +576,7 @@ Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacita
               </div>
             </div>
           </div>
-        </section>
+        </section>*/}
       </main>
 
       <Footer />
