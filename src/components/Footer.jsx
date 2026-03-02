@@ -1,236 +1,196 @@
-const Footer = () => {
-  return (
-    <>
-      <footer className="w-full text-slate-400">
-        <div className="pt-16 pb-12 text-sm border-t border-slate-900 bg-slate-800">
-          <div className="container px-6 mx-auto">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-8 lg:grid-cols-12">
-              {/* Logo y Descripción */}
-              <div className="col-span-1 md:col-span-8 lg:col-span-3">
-                <img src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo.png" alt="Voluntariado UNMSM" className="w-16 mb-4 rounded-md" />
-                <p className="mb-4">
-                  Estudiantes voluntarios impulsando el cambio social a través de la gestión de proyectos de alto impacto.
-                </p>
-              </div>
-              
-              {/* Enlaces Importantes */}
-              <nav className="col-span-1 md:col-span-4 lg:col-span-3" aria-labelledby="footer-links">
-                <h3 className="mb-6 text-base font-medium text-white" id="footer-links">
-                  Enlaces Importantes
-                </h3>
-                <ul>
-                  <li className="mb-2 leading-6">
-                    <a href="/about" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      ¿Quiénes somos?
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a href="/projects" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      Proyectos
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a href="/volunteer" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      Cómo ser voluntario
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a href="/faq" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      Preguntas frecuentes
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-              
-              {/* Áreas de Trabajo */}
-              <nav className="col-span-1 md:col-span-4 lg:col-span-3" aria-labelledby="footer-areas">
-                <h3 className="mb-6 text-base font-medium text-white" id="footer-areas">
-                  Áreas de Trabajo
-                </h3>
-                <ul>
-                  <li className="mb-2 leading-6">
-                    <a href="/talento-humano/capacitaciones" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      Capacitaciones
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a href="/talento-humano/clima" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      Clima
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a href="/talento-humano/control" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      Control
-                    </a>
-                  </li>
-                  <li className="mb-2 leading-6">
-                    <a href="/talento-humano/reclutamiento" className="transition-colors duration-300 hover:text-neutral-500 focus:text-neutral-600">
-                      Reclutamiento
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-              
-              {/* Información de Contacto */}
-              <div className="col-span-1 md:col-span-8 lg:col-span-3">
-                <h3 className="mb-6 text-base font-medium text-white">
-                  Información de Contacto
-                </h3>
-                
-                <div className="space-y-4">
-                  {/* Ubicación */}
-                  <div className="flex items-start">
-                    <div className="text-slate-400 mr-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-400">
-                        Ciudad Universitaria, UNMSM, Lima, Perú
-                      </p>
-                    </div>
-                  </div>
+import { MapPin, Mail, Phone, Facebook, Instagram, Youtube } from "lucide-react";
 
-                  {/* Email */}
-                  <div className="flex items-start">
-                    <div className="text-slate-400 mr-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-400">
-                        voluntariado@unmsm.edu.pe
-                      </p>
-                    </div>
-                  </div>
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/proyectossanmarcos", icon: <Facebook size={18} /> },
+  { label: "Instagram", href: "https://www.instagram.com/proyectossanmarcos", icon: <Instagram size={18} /> },
+  { label: "YouTube", href: "https://www.youtube.com/@proyectossanmarcos", icon: <Youtube size={18} /> },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@proyectossanmarcos",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" width={18} height={18}>
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z" />
+      </svg>
+    ),
+  },
+];
 
-                  {/* Teléfono */}
-                  <div className="flex items-start">
-                    <div className="text-slate-400 mr-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-400">
-                        (+51) 123-456-789
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/*      <!-- Sub Footer --> */}
-        <div className="py-4 text-sm border-t border-slate-900 bg-slate-700">
-          <div className="container px-6 mx-auto">
-            <div className="grid grid-cols-4 gap-6 md:grid-cols-8 lg:grid-cols-12">
-              <div className="col-span-2 md:col-span-4 lg:col-span-6">
-                Proyecto San Marcos
-              </div>
-              <nav
-                aria-labelledby="footer-social-links-dark"
-                className="col-span-2 text-right md:col-span-4 lg:col-span-6"
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/about", label: "¿Quiénes somos?" },
+  { href: "/projects", label: "Proyectos" },
+  { href: "/volunteer", label: "Únete como voluntario" },
+];
+
+const areaLinks = [
+  { href: "/talento-humano/capacitaciones", label: "Capacitaciones" },
+  { href: "/talento-humano/clima", label: "Clima organizacional" },
+  { href: "/talento-humano/control", label: "Control" },
+  { href: "/talento-humano/reclutamiento", label: "Reclutamiento" },
+];
+
+const contactItems = [
+  { icon: <MapPin size={16} />, text: "Ciudad Universitaria, UNMSM, Lima, Perú" },
+  { icon: <Mail size={16} />, text: "voluntariado@unmsm.edu.pe" },
+  { icon: <Phone size={16} />, text: "(+51) 123-456-789" },
+];
+
+const SocialBtn = ({ label, href, icon }) => (
+  <a
+    aria-label={label}
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center rounded-lg transition-all duration-300"
+    style={{
+      width: 38, height: 38,
+      background: "rgba(255,255,255,0.08)",
+      color: "rgba(255,255,255,0.75)",
+      border: "1px solid rgba(255,255,255,0.15)",
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.background = "var(--psm-teal)";
+      e.currentTarget.style.color = "white";
+      e.currentTarget.style.borderColor = "var(--psm-teal)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+      e.currentTarget.style.color = "rgba(255,255,255,0.75)";
+      e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+    }}
+  >
+    {icon}
+  </a>
+);
+
+const NavItem = ({ href, label }) => (
+  <li>
+    <a
+      href={href}
+      className="text-sm transition-colors duration-200"
+      style={{ color: "rgba(255,255,255,0.75)" }}
+      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--psm-teal)")}
+      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
+    >
+      {label}
+    </a>
+  </li>
+);
+
+const Footer = () => (
+  <footer>
+    {/* ── Área principal ── */}
+    <div
+      className="pt-16 pb-12"
+      style={{ background: "var(--psm-navy)", borderTop: "3px solid var(--psm-teal)" }}
+    >
+      <div className="container mx-auto px-6 xl:px-20">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-12">
+
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo.png"
+                alt="PSM Logo"
+                className="w-12 h-12 rounded-lg object-contain"
+                style={{ background: "rgba(255,255,255,0.08)", padding: "4px" }}
+              />
+              <span
+                className="text-xl font-bold"
+                style={{
+                  fontFamily: "var(--psm-font-heading)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                  color: "white",
+                }}
               >
-                <h2 className="sr-only" id="footer-social-links-dark">
-                  Social Media Links
-                </h2>
-                <ul className="flex items-center justify-end gap-4">
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      className="transition-colors duration-300 hover:text-neutral-500"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 48 48"
-                        height="16"
-                        width="16"
-                        className="w-4 h-4 shrink-0"
-                        role="graphics-symbol"
-                        aria-labelledby="title-tb01-dark desc-tb01-dark"
-                      >
-                        <title id="title-tb01-dark">Icon title</title>
-                        <desc id="desc-tb01-dark">
-                          A more detailed description of the icon
-                        </desc>
-                        <path
-                          fill="currentColor"
-                          fillRule="evenodd"
-                          d="M37.2491 3.30238C37.0498 2.18649 36.0513 1.49746 34.9878 1.50395C32.2606 1.5206 29.7927 1.60328 27.6333 1.96988C25.4705 2.33708 23.584 2.99414 22.038 4.18283C18.9929 6.52415 17.4377 10.7872 17.3724 18.3217H11.9552C10.9254 18.3217 9.94522 18.9739 9.74313 20.0674C9.51312 21.312 9.33088 23.311 9.75643 25.8014C9.95527 26.9651 10.9939 27.7324 12.1233 27.7324H17.3703V44.3867C17.3703 45.2169 17.8349 46.0595 18.7834 46.2403C19.5015 46.3773 20.6304 46.5002 22.375 46.5002C24.1168 46.5002 25.347 46.3777 26.1718 46.2437C27.2507 46.0684 27.8777 45.1191 27.8777 44.1186V27.7324H34.9316C36.0256 27.7324 37.0562 27.009 37.2608 25.8665C37.6736 23.5618 37.4742 21.4753 37.2437 20.1563C37.0465 19.0284 36.0444 18.3217 34.9653 18.3217H27.8795C27.8917 16.7111 27.9661 15.4564 28.1447 14.4728C28.341 13.3921 28.6547 12.6875 29.1044 12.2048C29.5502 11.7263 30.1817 11.4104 31.1284 11.2121C32.0832 11.0121 33.3126 10.9408 34.9123 10.9193C36.0128 10.9045 37.0511 10.1718 37.2541 9.01765C37.6718 6.64193 37.4794 4.59202 37.2491 3.30238Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      className="transition-colors duration-300 hover:text-neutral-500"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 48 48"
-                        height="16"
-                        width="16"
-                        className="w-4 h-4 shrink-0"
-                        role="graphics-symbol"
-                        aria-labelledby="title-tb02-dark desc-tb02-dark"
-                      >
-                        <title id="title-tb02-dark">Icon title</title>
-                        <desc id="desc-tb02-dark">
-                          A more detailed description of the icon
-                        </desc>
-                        <path
-                          fill="currentColor"
-                          d="M34.7229 4.69819C36.9179 5.13151 38.8231 6.226 39.9574 7.46121L44.8741 7.22772C46.162 7.16656 46.9576 8.61264 46.216 9.66758L42.8041 14.5217C43.7777 35.6815 22.2547 49.0961 4.54954 41.2208C3.75067 40.8654 3.58181 40.0439 3.74682 39.4029C3.91015 38.7685 4.4337 38.1304 5.23631 38.0329C7.74782 37.7279 10.886 36.8951 13.5309 34.8102C11.3351 34.4801 8.87383 33.2203 6.77118 31.5522C4.25179 29.5535 2.11595 26.8651 1.53319 24.2321C1.41942 23.7181 1.60805 23.2504 1.94754 22.9478C2.27981 22.6517 2.75116 22.5146 3.22643 22.6022C4.4998 22.8369 6.44397 23.1705 7.93366 23.3225C7.82715 23.2095 7.71399 23.0872 7.59534 22.9561C6.83881 22.1198 5.85466 20.9171 4.947 19.4528C3.13974 16.5372 1.58717 12.5021 2.86967 8.24191C3.04524 7.65872 3.52191 7.3215 4.02883 7.2399C4.52724 7.15967 5.07712 7.31911 5.46709 7.72851C7.80814 10.1862 13.7896 15.4057 22.914 16.1638C22.5823 14.0277 22.368 9.45707 27.2507 6.17582C29.7236 4.51405 32.4029 4.2402 34.7229 4.69819Z"
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="javascript:void(0)"
-                      className="transition-colors duration-300 hover:text-neutral-500"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 48 48"
-                        height="16"
-                        width="16"
-                        className="w-4 h-4 shrink-0"
-                        role="graphics-symbol"
-                        aria-labelledby="title-tb03-dark desc-tb03-dark"
-                      >
-                        <title id="title-tb03-dark">Icon title</title>
-                        <desc id="desc-tb03-dark">
-                          A more detailed description of the icon
-                        </desc>
-                        <path
-                          fill="currentColor"
-                          fillRule="evenodd"
-                          d="M18.9563 7.52344C18.7526 6.91526 18.1767 6.49018 17.5166 6.51256C13.7277 6.64105 10.4346 7.72034 9.03159 8.24815C8.46409 8.46164 7.98142 8.84195 7.6475 9.35489C6.13235 11.6824 1.35143 20.1396 1.5015 33.9816C1.51112 34.8687 1.87868 35.7421 2.60293 36.3174C4.05518 37.4709 7.22566 39.6169 12.2716 41.1548C13.1338 41.4176 14.1343 41.1791 14.6848 40.3722C15.3668 39.3727 15.9633 38.1197 16.3718 37.1704C16.4818 36.9145 16.7753 36.775 17.0546 36.8566C18.8459 37.3799 21.1512 37.7795 24.0128 37.7795C26.865 37.7795 29.1613 37.3825 30.9459 36.8617C31.2254 36.7802 31.5188 36.9197 31.6289 37.1755C32.0373 38.1241 32.6329 39.3744 33.3137 40.3722C33.8643 41.1791 34.8647 41.4176 35.727 41.1548C40.7729 39.6169 43.9433 37.4709 45.3956 36.3174C46.1198 35.7421 46.4874 34.8687 46.497 33.9816C46.6459 20.2518 41.9432 11.8198 40.3884 9.41269C40.0295 8.85716 39.4986 8.45634 38.8845 8.24366C37.3835 7.72379 33.9285 6.65561 30.4846 6.51532C29.821 6.48828 29.2456 6.91631 29.0422 7.52344L28.5352 9.03687C28.4493 9.293 28.1503 9.47311 27.8343 9.41471C27.0144 9.26322 25.7164 9.09373 24.0128 9.09373C22.2989 9.09373 20.9871 9.26529 20.1611 9.41734C19.8471 9.47513 19.5502 9.29611 19.4648 9.04103L18.9563 7.52344ZM21 25C21 27.7614 18.9853 30 16.5 30C14.0147 30 12 27.7614 12 25C12 22.2386 14.0147 20 16.5 20C18.9853 20 21 22.2386 21 25ZM31.5 30C29.0147 30 27 27.7614 27 25C27 22.2386 29.0147 20 31.5 20C33.9853 20 36 22.2386 36 25C36 27.7614 33.9853 30 31.5 30Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+                Proyectos <span style={{ color: "var(--psm-teal)" }}>San Marcos</span>
+              </span>
+            </div>
+
+            <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.75)" }}>
+              Estudiantes voluntarios de la UNMSM impulsando el cambio social
+              a través de la gestión de proyectos de alto impacto.
+            </p>
+
+            <div className="flex gap-3">
+              {socialLinks.map((s) => <SocialBtn key={s.label} {...s} />)}
             </div>
           </div>
+
+          {/* Nav */}
+          <nav className="lg:col-span-2" aria-label="Navegación">
+            <h3
+              className="mb-5 text-xs font-semibold uppercase tracking-widest"
+              style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)" }}
+            >
+              Navegación
+            </h3>
+            <ul className="space-y-3">
+              {navLinks.map((l) => <NavItem key={l.href} {...l} />)}
+            </ul>
+          </nav>
+
+          {/* Áreas */}
+          <nav className="lg:col-span-2" aria-label="Áreas">
+            <h3
+              className="mb-5 text-xs font-semibold uppercase tracking-widest"
+              style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)" }}
+            >
+              Áreas
+            </h3>
+            <ul className="space-y-3">
+              {areaLinks.map((l) => <NavItem key={l.href} {...l} />)}
+            </ul>
+          </nav>
+
+          {/* Contacto */}
+          <div className="lg:col-span-4">
+            <h3
+              className="mb-5 text-xs font-semibold uppercase tracking-widest"
+              style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)" }}
+            >
+              Contacto
+            </h3>
+            <ul className="space-y-4">
+              {contactItems.map(({ icon, text }) => (
+                <li key={text} className="flex items-start gap-3">
+                  <span className="mt-0.5 shrink-0" style={{ color: "var(--psm-teal)" }}>
+                    {icon}
+                  </span>
+                  <span className="text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+                    {text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
-      </footer>
-      {/*    <!-- End Dark Theme Footer --> */}
-    </>
-  );
-};
+      </div>
+    </div>
+
+    {/* ── Sub-footer ── */}
+    <div style={{ background: "var(--psm-navy-dark)", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+      <div className="container mx-auto px-6 xl:px-20 py-4">
+        <div
+          className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs"
+          style={{ color: "rgba(255,255,255,0.5)" }}
+        >
+          <p>
+            © {new Date().getFullYear()}{" "}
+            <span style={{ color: "var(--psm-teal)" }}>Proyectos San Marcos</span>
+            {" "}— Todos los derechos reservados.
+          </p>
+          <p>
+            Hecho con ❤️ por voluntarios de la{" "}
+            <span style={{ color: "var(--psm-teal)" }}>UNMSM</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

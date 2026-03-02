@@ -6,8 +6,7 @@
  * ============================================================
  */
 
-/* Google Fonts: Inter (body) + Barlow Condensed (headings bold) */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
 
 :root {
 
@@ -41,8 +40,8 @@
     /* texto secundario */
 
     /* ── Tipografía ── */
-    --psm-font-body: 'Inter', system-ui, sans-serif;
-    --psm-font-heading: 'Barlow Condensed', 'Inter', sans-serif;
+    --psm-font-body: 'Montserrat', system-ui, sans-serif;
+    --psm-font-heading: 'Oswald', 'Montserrat', sans-serif;
 
     /* ── Espaciados de sección ── */
     --psm-section-py: 96px;
@@ -82,7 +81,7 @@
     color: #111827;
 }
 
-/* Título de sección estilo PSM (Barlow Condensed uppercase) */
+/* Título de sección estilo PSM (Oswald uppercase) */
 .psm-heading {
     font-family: var(--psm-font-heading);
     font-weight: 700;

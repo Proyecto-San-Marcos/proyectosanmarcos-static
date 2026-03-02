@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,27 +10,22 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [areasOpenDesktop, setAreasOpenDesktop] = useState(false);
   const [areasOpenMobile, setAreasOpenMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const dropdownRef = useRef(null);
 
-  const listItems = useMemo(
-    () => [
-      { name: "Inicio", link: "/" },
-      { name: "¿Quiénes somos?", link: "#about" },
-      { name: "¿Qué hacemos?", link: "#impact" },
-      { name: "Proyectos", link: "#projects" },
-    ],
-    []
-  );
+  const listItems = useMemo(() => [
+    { name: "Inicio", link: "/" },
+    { name: "¿Quiénes somos?", link: "#about" },
+    { name: "¿Qué hacemos?", link: "#impact" },
+    { name: "Proyectos", link: "#projects" },
+  ], []);
 
-  const areasItems = useMemo(
-    () => [
-      { name: "Clima", link: "/talento-humano/clima" },
-      { name: "Control", link: "/talento-humano/control" },
-      { name: "Reclutamiento", link: "/talento-humano/reclutamiento" },
-    ],
-    []
-  );
+  const areasItems = useMemo(() => [
+    { name: "Clima", link: "/talento-humano/clima" },
+    { name: "Control", link: "/talento-humano/control" },
+    { name: "Reclutamiento", link: "/talento-humano/reclutamiento" },
+  ], []);
 
   const closeAll = () => {
     setMobileOpen(false);
@@ -37,19 +33,20 @@ const Navbar = () => {
     setAreasOpenMobile(false);
   };
 
-  // Cerrar dropdown desktop (click afuera / ESC)
+  // Sombra al hacer scroll
   useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") closeAll();
-    };
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
+  // Cerrar dropdown desktop con click afuera / ESC
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") closeAll(); };
     const onClick = (e) => {
-      if (!dropdownRef.current) return;
-      if (areasOpenDesktop && !dropdownRef.current.contains(e.target)) {
+      if (areasOpenDesktop && dropdownRef.current && !dropdownRef.current.contains(e.target))
         setAreasOpenDesktop(false);
-      }
     };
-
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onClick);
     return () => {
@@ -58,43 +55,60 @@ const Navbar = () => {
     };
   }, [areasOpenDesktop]);
 
-  // Lock scroll cuando mobileOpen
+  // Lock scroll en menú móvil
   useEffect(() => {
-    if (mobileOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => (document.body.style.overflow = "");
   }, [mobileOpen]);
 
   const scrollToHash = (hash) => {
-    if (!hash?.startsWith("#")) return;
     const el = document.querySelector(hash);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const handleNav = (href) => {
     if (href.startsWith("#")) {
       closeAll();
-
       if (location.pathname !== "/") {
         navigate("/");
         setTimeout(() => scrollToHash(href), 120);
         return;
       }
-
       scrollToHash(href);
       return;
     }
-
     closeAll();
     navigate(href);
   };
 
+  /* ── Estilos de link de navegación ── */
+  const linkStyle = {
+    fontFamily: "var(--psm-font-body)",
+    fontWeight: 600,
+    fontSize: "0.875rem",
+    color: "var(--psm-navy-mid)",
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    transition: "color 0.2s",
+    padding: "4px 0",
+  };
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
+    <header
+      className="sticky top-0 z-50 bg-white/95 backdrop-blur"
+      style={{
+        borderBottom: scrolled
+          ? "2px solid var(--psm-teal)"
+          : "1px solid var(--psm-gray-mid)",
+        transition: "border-color 0.3s, box-shadow 0.3s",
+        boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.08)" : "none",
+      }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <nav className="flex h-16 items-center justify-between">
-          {/* Logo */}
+
+          {/* Logo + Nombre */}
           <button
             onClick={() => handleNav("/")}
             className="flex items-center gap-2"
@@ -103,53 +117,72 @@ const Navbar = () => {
           >
             <img
               src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm/logo-nobg.png"
-              alt="Logo"
-              className="h-10 w-auto"
+              alt="PSM Logo"
+              className="h-12 w-auto"
               loading="lazy"
             />
           </button>
 
-          {/* Desktop menu */}
+          {/* ── Desktop menu ── */}
           <div className="hidden lg:flex items-center gap-8">
             {listItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNav(item.link)}
-                className="text-sm font-semibold text-slate-800 hover:text-blue-600 transition-colors"
+                style={linkStyle}
                 type="button"
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--psm-teal)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--psm-navy-mid)")}
               >
                 {item.name}
               </button>
             ))}
 
-            {/* Dropdown */}
+            {/* Dropdown áreas */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setAreasOpenDesktop((v) => !v)}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 hover:text-blue-600 transition-colors"
+                style={linkStyle}
+                className="inline-flex items-center gap-1"
                 type="button"
                 aria-haspopup="menu"
                 aria-expanded={areasOpenDesktop}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--psm-teal)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--psm-navy-mid)")}
               >
                 Áreas de trabajo
-                <ChevronDownIcon
-                  className={`h-4 w-4 transition-transform ${areasOpenDesktop ? "rotate-180" : ""
-                    }`}
+                <ChevronDown
+                  size={16}
+                  style={{ transition: "transform 0.2s", transform: areasOpenDesktop ? "rotate(180deg)" : "rotate(0deg)" }}
                 />
               </button>
 
               {areasOpenDesktop && (
-                <div className="absolute right-0 mt-3 w-64 overflow-hidden rounded-2xl border border-slate-100 bg-white">
-                  <div className="px-3 py-2 text-xs font-semibold text-slate-500">
+                <div
+                  className="absolute right-0 mt-3 w-56 overflow-hidden rounded-xl bg-white"
+                  style={{ border: "1px solid var(--psm-gray-mid)", boxShadow: "0 8px 32px rgba(0,0,0,0.12)" }}
+                >
+                  <div
+                    className="px-4 py-2 text-xs font-semibold uppercase tracking-widest"
+                    style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)", borderBottom: "1px solid var(--psm-gray-mid)" }}
+                  >
                     Talento humano
                   </div>
-                  <div className="h-px bg-slate-100" />
                   {areasItems.map((item) => (
                     <button
                       key={item.name}
                       onClick={() => handleNav(item.link)}
-                      className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 transition"
+                      className="w-full text-left px-4 py-3 text-sm transition-colors"
+                      style={{ fontFamily: "var(--psm-font-body)", color: "var(--psm-navy-mid)" }}
                       type="button"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "var(--psm-gray-light)";
+                        e.currentTarget.style.color = "var(--psm-teal)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.color = "var(--psm-navy-mid)";
+                      }}
                     >
                       {item.name}
                     </button>
@@ -159,100 +192,147 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* CTA desktop 
-          <div className="hidden lg:block">
-            <button
-              onClick={() => handleNav("#join")}
-              className="px-6 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
-              type="button"
-            >
-              Quiero unirme
-            </button>
-          </div>*/}
-
-          {/* Mobile button */}
+          {/* ── Botón hamburguesa (móvil) ── */}
           <button
-            className="lg:hidden inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-slate-900 hover:bg-slate-50 transition"
+            className="lg:hidden inline-flex items-center justify-center rounded-xl px-3 py-2 transition"
+            style={{
+              border: "1px solid var(--psm-gray-mid)",
+              color: "var(--psm-navy-mid)",
+            }}
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileOpen}
             type="button"
           >
-            {mobileOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </nav>
       </div>
 
-      {/* ✅ Portal: el drawer sale fuera del layout y SIEMPRE se ve */}
+      {/* ── Drawer móvil (portal) ── */}
       {mobileOpen &&
         createPortal(
           <div className="fixed inset-0 z-[9999] lg:hidden">
             {/* overlay */}
             <button
-              className="absolute inset-0 bg-black/35"
+              className="absolute inset-0"
+              style={{ background: "rgba(10,22,40,0.5)" }}
               onClick={closeAll}
               aria-label="Cerrar menú"
               type="button"
             />
 
-            {/* panel full screen para evitar “ver el fondo” */}
-            <aside className="absolute inset-0 bg-white">
-              {/* header panel */}
-              <div className="flex h-16 items-center justify-between px-5 border-b border-slate-100">
-                <img
-                  src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm/logo-nobg.png"
-                  alt="Logo"
-                  className="h-9 w-auto"
-                  loading="lazy"
-                />
+            {/* panel */}
+            <aside
+              className="absolute inset-0 flex flex-col"
+              style={{ background: "white" }}
+            >
+              {/* Header del panel */}
+              <div
+                className="flex h-16 items-center justify-between px-5"
+                style={{ borderBottom: "2px solid var(--psm-teal)" }}
+              >
+                <div className="flex items-center gap-2">
+                  <img
+                    src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm/logo-nobg.png"
+                    alt="PSM Logo"
+                    className="h-8 w-auto"
+                    loading="lazy"
+                  />
+                  <span
+                    style={{
+                      fontFamily: "var(--psm-font-heading)",
+                      fontSize: "1rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.04em",
+                      color: "var(--psm-navy-mid)",
+                    }}
+                  >
+                    Proyectos <span style={{ color: "var(--psm-teal)" }}>SM</span>
+                  </span>
+                </div>
                 <button
-                  className="inline-flex items-center justify-center rounded-xl border border-slate-200 px-3 py-2 text-slate-900 hover:bg-slate-50 transition"
+                  className="inline-flex items-center justify-center rounded-xl px-3 py-2 transition"
+                  style={{ border: "1px solid var(--psm-gray-mid)", color: "var(--psm-navy-mid)" }}
                   onClick={closeAll}
                   aria-label="Cerrar"
                   type="button"
                 >
-                  <XIcon className="h-5 w-5" />
+                  <X size={20} />
                 </button>
               </div>
 
-              {/* content */}
-              <div className="h-[calc(100%-64px)] overflow-y-auto px-5 py-4">
+              {/* Links */}
+              <div className="flex-1 overflow-y-auto px-5 py-6">
                 <div className="space-y-1">
                   {listItems.map((item) => (
                     <button
                       key={item.name}
                       onClick={() => handleNav(item.link)}
-                      className="w-full text-left rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-900 hover:bg-slate-50 transition"
+                      className="w-full text-left rounded-xl px-4 py-3 transition-colors"
+                      style={{
+                        fontFamily: "var(--psm-font-body)",
+                        fontWeight: 600,
+                        fontSize: "0.95rem",
+                        color: "var(--psm-navy-mid)",
+                      }}
                       type="button"
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "var(--psm-gray-light)";
+                        e.currentTarget.style.color = "var(--psm-teal)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.color = "var(--psm-navy-mid)";
+                      }}
                     >
                       {item.name}
                     </button>
                   ))}
                 </div>
 
-                <div className="my-4 h-px bg-slate-100" />
+                <div className="my-4 h-px" style={{ background: "var(--psm-gray-mid)" }} />
 
                 {/* Áreas acordeón */}
                 <button
                   onClick={() => setAreasOpenMobile((v) => !v)}
-                  className="w-full flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-900 hover:bg-slate-50 transition"
+                  className="w-full flex items-center justify-between rounded-xl px-4 py-3 transition-colors"
+                  style={{
+                    fontFamily: "var(--psm-font-body)",
+                    fontWeight: 600,
+                    fontSize: "0.95rem",
+                    color: "var(--psm-navy-mid)",
+                  }}
                   type="button"
                   aria-expanded={areasOpenMobile}
                 >
                   <span>Áreas de trabajo</span>
-                  <ChevronDownIcon
-                    className={`h-5 w-5 transition-transform ${areasOpenMobile ? "rotate-180" : ""}`}
+                  <ChevronDown
+                    size={18}
+                    style={{ transition: "transform 0.2s", transform: areasOpenMobile ? "rotate(180deg)" : "rotate(0deg)" }}
                   />
                 </button>
 
                 {areasOpenMobile && (
-                  <div className="mt-2 space-y-1 pl-1">
+                  <div className="mt-1 space-y-1 pl-2">
                     {areasItems.map((item) => (
                       <button
                         key={item.name}
                         onClick={() => handleNav(item.link)}
-                        className="w-full text-left rounded-xl px-4 py-3 text-[14px] font-medium text-slate-700 hover:bg-slate-50 transition"
+                        className="w-full text-left rounded-xl px-4 py-2.5 text-sm transition-colors"
+                        style={{
+                          fontFamily: "var(--psm-font-body)",
+                          color: "var(--psm-text-body)",
+                        }}
                         type="button"
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "var(--psm-gray-light)";
+                          e.currentTarget.style.color = "var(--psm-teal)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "transparent";
+                          e.currentTarget.style.color = "var(--psm-text-body)";
+                        }}
                       >
                         {item.name}
                       </button>
@@ -260,11 +340,7 @@ const Navbar = () => {
                   </div>
                 )}
 
-                <div className="my-5 h-px bg-slate-100" />
-
-                <p className="mt-3 text-xs text-slate-500 text-center">
-                  Proceso claro · Comunicación rápida
-                </p>
+                <div className="my-6 h-px" style={{ background: "var(--psm-gray-mid)" }} />
               </div>
             </aside>
           </div>,
@@ -275,42 +351,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-/* Icons inline */
-function MenuIcon({ className = "" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function XIcon({ className = "" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ChevronDownIcon({ className = "" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function ArrowRightIcon({ className = "" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M5 12h12M13 6l6 6-6 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}

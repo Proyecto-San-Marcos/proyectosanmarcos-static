@@ -193,18 +193,18 @@ const Home = () => {
         </section>
 
         {/* ── Nuestro Impacto ── */}
-        <section className="py-24 psm-section-dark" id="impact" ref={statsRef}>
+        <section className="py-24 psm-section-white" id="impact" ref={statsRef}>
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <BarChart3 size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
                   Nuestro <span style={{ color: "var(--psm-teal)" }}>Impacto</span>
                 </h2>
               </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
                 Los números reflejan el alcance de nuestras iniciativas y el impacto que generamos en nuestra comunidad
               </p>
               <div className="psm-divider mx-auto" />
@@ -216,11 +216,11 @@ const Home = () => {
                 { value: 25, label: "Proyectos completados", delay: 0.2 },
                 { value: 10, label: "Alianzas institucionales", delay: 0.4 },
               ].map(({ value, label, delay }) => (
-                <div key={label} className="p-10 rounded-xl flex flex-col items-center" style={{ background: "var(--psm-navy)", border: "1px solid rgba(0,180,216,0.25)" }}>
-                  <div className="text-5xl font-bold mb-2" style={{ color: "var(--psm-teal)" }}>
+                <div key={label} className="p-10 rounded-xl flex flex-col items-center" style={{ background: "white", border: "1px solid var(--psm-gray-mid)", boxShadow: "var(--psm-shadow-card)" }}>
+                  <div className="text-5xl font-bold mb-2" style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)" }}>
                     {statsRefInView && <CountUp start={0} end={value} duration={2.5} separator="," delay={delay} suffix="+" />}
                   </div>
-                  <p className="font-medium text-lg" style={{ color: "var(--psm-teal-light)" }}>{label}</p>
+                  <p className="font-medium text-lg" style={{ color: "var(--psm-text-body)" }}>{label}</p>
                 </div>
               ))}
             </div>
@@ -228,18 +228,18 @@ const Home = () => {
         </section>
 
         {/* ── Nuestros Servicios ── */}
-        <section className="py-24 psm-section-navy" id="services">
+        <section className="py-24 psm-section-light" id="services">
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <Star size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
                   Nuestros <span style={{ color: "var(--psm-teal)" }}>Servicios</span>
                 </h2>
               </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
                 Ofrecemos diversas formas de contribuir al desarrollo universitario y social
               </p>
               <div className="psm-divider mx-auto" />
@@ -251,18 +251,18 @@ const Home = () => {
                   key={service.id}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
-                  className="rounded-xl p-8"
-                  style={{ background: "var(--psm-navy-dark)", border: "1px solid rgba(0,180,216,0.2)", transition: "border-color 0.3s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--psm-teal)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(0,180,216,0.2)")}
+                  className="rounded-xl p-8 bg-white"
+                  style={{ border: "1px solid var(--psm-gray-mid)", boxShadow: "var(--psm-shadow-card)", transition: "border-color 0.3s, box-shadow 0.3s" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--psm-teal)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,180,216,0.15)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--psm-gray-mid)"; e.currentTarget.style.boxShadow = "var(--psm-shadow-card)"; }}
                 >
                   <div className="mb-6 flex justify-center">
                     <div className="psm-icon-circle psm-icon-circle--solid" style={{ width: 64, height: 64 }}>
                       {service.icon}
                     </div>
                   </div>
-                  <h3 className="psm-heading text-xl mb-4 text-center text-white">{service.title}</h3>
-                  <p className="text-center leading-relaxed" style={{ color: "var(--psm-teal-light)", fontSize: "0.95rem" }}>
+                  <h3 className="psm-heading text-xl mb-4 text-center" style={{ color: "var(--psm-navy-mid)" }}>{service.title}</h3>
+                  <p className="text-center leading-relaxed" style={{ color: "var(--psm-text-body)", fontSize: "0.95rem" }}>
                     {service.description}
                   </p>
                 </div>
@@ -272,18 +272,18 @@ const Home = () => {
         </section>
 
         {/* ── Proyectos Destacados ── */}
-        <section className="py-20 psm-section-dark" id="projects">
+        <section className="py-20 psm-section-white" id="projects">
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <FolderOpen size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
                   Proyectos <span style={{ color: "var(--psm-teal)" }}>Destacados</span>
                 </h2>
               </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
                 Conoce algunas de nuestras iniciativas más importantes y su impacto
               </p>
               <div className="psm-divider mx-auto" />
@@ -311,18 +311,18 @@ const Home = () => {
         </section>
 
         {/* ── Testimonios ── */}
-        <section className="py-24 psm-section-navy" id="testimonials">
+        <section className="py-24 psm-section-light" id="testimonials">
           <div className="container mx-auto px-6 xl:px-20">
             <div className="text-center mb-16" data-aos="fade-up">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <MessageCircle size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl text-white">
+                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
                   <span style={{ color: "var(--psm-teal)" }}>Testimonios</span>
                 </h2>
               </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-teal-light)" }}>
+              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
                 Lo que dicen nuestros voluntarios y beneficiarios
               </p>
               <div className="psm-divider mx-auto" />
