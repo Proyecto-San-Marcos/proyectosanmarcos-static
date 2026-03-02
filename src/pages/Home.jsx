@@ -230,7 +230,6 @@ const Home = () => {
             }}
             className="flex flex-col items-center"
           >
-            <span className="text-white text-sm mb-2">Descubre más</span>
             <div className="w-6 h-10 rounded-full border-2 border-white flex justify-center pt-1">
               <motion.div
                 animate={{

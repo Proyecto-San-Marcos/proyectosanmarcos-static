@@ -159,7 +159,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* CTA desktop */}
+          {/* CTA desktop 
           <div className="hidden lg:block">
             <button
               onClick={() => handleNav("#join")}
@@ -168,7 +168,7 @@ const Navbar = () => {
             >
               Quiero unirme
             </button>
-          </div>
+          </div>*/}
 
           {/* Mobile button */}
           <button
@@ -261,14 +261,6 @@ const Navbar = () => {
                 )}
 
                 <div className="my-5 h-px bg-slate-100" />
-
-                <button
-                  onClick={() => handleNav("#join")}
-                  className="w-full rounded-full bg-blue-600 text-white py-3 text-[15px] font-semibold hover:bg-blue-700 transition inline-flex items-center justify-center gap-2"
-                  type="button"
-                >
-                  Quiero unirme <ArrowRightIcon className="h-4 w-4" />
-                </button>
 
                 <p className="mt-3 text-xs text-slate-500 text-center">
                   Proceso claro · Comunicación rápida
