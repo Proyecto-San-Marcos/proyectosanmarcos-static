@@ -413,7 +413,7 @@ const Home = () => {
                 breakpoints={{
                   640: { slidesPerView: 1 },
                   768: { slidesPerView: 2 },
-                  1024: { slidesPerView: 3 },
+                  1024: { slidesPerView: 4 },
                 }}
                 pagination={{ clickable: true }}
                 navigation
@@ -428,6 +428,7 @@ const Home = () => {
                       description="En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️ Cada acción, por pequeña que sea, es una victoria en nuestro compromiso por un futuro más limpio y un mar más saludable. 🐚"
                       buttonText="Ver más"
                       className="h-full"
+                      color="#4158b5"
                     />
                   </div>
                 </SwiperSlide>
@@ -439,6 +440,7 @@ const Home = () => {
                       description="En 𝗦𝗲𝗺𝗯𝗿𝗮𝗻𝗱𝗼 𝗦𝗼𝗻𝗿𝗶𝘀𝗮𝘀 logramos llevar esperanza y sonrisas a muchas comunidades, especialmente en zonas rurales como Ayacucho, donde entregamos canastas de víveres, regalos y compartimos momentos de alegría con más de 50 familias y 150 niños. 🎁💖"
                       buttonText="Ver más"
                       className="h-full"
+                      color="#f1162e"
                     />
                   </div>
                 </SwiperSlide>
@@ -450,6 +452,7 @@ const Home = () => {
                       description="En 4 PATAS llevamos alimento, esterilizaciones y educación comunitaria a barrios de escasos recursos para mejorar el bienestar de perros y gatos en situación vulnerable. 🥣🐶🐱 Con más de 40 animales esterilizados y decenas de hogares empoderados, contribuimos a reducir el abandono y a promover la tenencia responsable."
                       buttonText="Ver más"
                       className="h-full"
+                      color="#ffbd54"
                     />
                   </div>
                 </SwiperSlide>
@@ -464,6 +467,7 @@ En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar 
 "
                       buttonText="Ver más"
                       className="h-full"
+                      color="#f44d95"
                     />
                   </div>
                 </SwiperSlide>
@@ -476,6 +480,7 @@ En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar 
 Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacitar a 36 nuevos ingresantes, quienes no solo adquirieron herramientas clave en la planificación de proyectos, sino que también presentaron propuestas innovadoras alineadas con los Objetivos de Desarrollo Sostenible (ODS). 🌍✨"
                       buttonText="Ver más"
                       className="h-full"
+                      color="#1b395d"
                     />
                   </div>
                 </SwiperSlide>
@@ -483,6 +488,8 @@ Gracias al esfuerzo de nuestros voluntarios y mentores, PONI ha logrado capacita
             </div>
           </div>
         </section>
+
+
 
         {/* Testimonios - Carrusel mejorado */}
         <section className="py-24 bg-white" id="testimonials">

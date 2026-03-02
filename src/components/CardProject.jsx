@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import Modal from "./Modal";
 
-const CardProject = ({ imageUrl, title, description, className = "" }) => {
+const CardProject = ({ imageUrl, title, description, className = "", color = "#FFFFFF" }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = useCallback(() => setOpen(true), []);
   const handleClose = useCallback(() => setOpen(false), []);
@@ -20,7 +20,7 @@ const CardProject = ({ imageUrl, title, description, className = "" }) => {
         </div>
 
         {/* Título */}
-        <div className="card-project__body">
+        <div className="card-project__body" style={{ backgroundColor: color }}>
           <h3 className="card-project__title">{title}</h3>
         </div>
       </div>
