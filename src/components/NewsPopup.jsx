@@ -17,6 +17,9 @@ const NewsPopup = ({
     redirectTo = "/",
     delay = 800,
     sessionKey = "newsPopupSeen",
+    isButtonVisible = true,
+    buttonText = "Ver más",
+    aspectRatio = "3/4",
 }) => {
     const [visible, setVisible] = useState(false);
     const navigate = useNavigate();
@@ -43,6 +46,42 @@ const NewsPopup = ({
         }
     };
 
+    // Calcula dimensiones exactas respetando los límites del viewport.
+    // Usamos clientHeight (más fiable en móvil que innerHeight) y
+    // límites más conservadores en pantallas pequeñas.
+    const calcCardSize = () => {
+        const [rawW, rawH] = aspectRatio.split("/").map(parseFloat);
+        if (!rawW || !rawH) return {};
+
+        const isMobile = window.innerWidth <= 640;
+
+        // clientHeight descuenta la barra de URL del navegador en móvil
+        const vh = document.documentElement.clientHeight;
+        const vw = window.innerWidth;
+
+        const maxH = vh * (isMobile ? 0.78 : 0.88);
+        const maxW = Math.min(vw * (isMobile ? 0.92 : 0.90), isMobile ? 420 : 600);
+        const minW = isMobile ? 240 : 260;
+
+        // Intentar height-constrained: height = maxH, width = maxH * (w/h)
+        let h = maxH;
+        let w = h * (rawW / rawH);
+
+        // Si se excede el ancho máximo, cambia a width-constrained
+        if (w > maxW) {
+            w = maxW;
+            h = w * (rawH / rawW);
+        }
+
+        // Forzar ancho mínimo (no recalcula altura — ya es el mínimo razonable)
+        if (w < minW) {
+            w = minW;
+            h = w * (rawH / rawW);
+        }
+
+        return { width: Math.round(w), height: Math.round(h) };
+    };
+
     if (!visible) return null;
 
     return (
@@ -53,6 +92,7 @@ const NewsPopup = ({
             {/* Card */}
             <div
                 className="news-popup__card"
+                style={calcCardSize()}
                 role="dialog"
                 aria-modal="true"
                 aria-label="Información"
@@ -100,23 +140,25 @@ const NewsPopup = ({
                 </div>
 
                 {/* Footer */}
-                <div className="news-popup__footer">
-                    <button className="news-popup__btn" onClick={handleVerMas}>
-                        Ver más
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                    </button>
-                </div>
+                {isButtonVisible && (
+                    <div className="news-popup__footer">
+                        <button className="news-popup__btn" onClick={handleVerMas}>
+                            {buttonText}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </button>
+                    </div>
+                )}
             </div>
         </>
     );

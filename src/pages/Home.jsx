@@ -157,10 +157,12 @@ const Home = () => {
     <div className="overflow-hidden">
       {/* ── Popup de última hora ── */}
       <NewsPopup
-        imageUrl=""
+        imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/banner_popups/puch.jpg"
         altText="Última hora"
         redirectTo="/"
         delay={800}
+        isButtonVisible={false}
+        aspectRatio="3/4"
       />
 
       {/* Hero Section - Mejorado con parallax y animaciones */}

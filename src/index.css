@@ -299,7 +299,7 @@ body {
   z-index: 9998;
 }
 
-/* Tarjeta principal */
+/* Tarjeta principal — width y height los inyecta JS según aspectRatio */
 .news-popup__card {
   position: fixed;
   top: 50%;
@@ -309,10 +309,6 @@ body {
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e5e7eb;
-  width: 60vw;
-  max-width: 700px;
-  min-width: 300px;
-  max-height: 60vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -346,13 +342,13 @@ body {
   color: #111827;
 }
 
-/* Contenedor de imagen */
+/* Contenedor de imagen — ocupa todo el espacio disponible del card */
 .news-popup__image-wrapper {
   width: 100%;
   flex: 1;
+  min-height: 0;
   overflow: hidden;
   background: #f1f5f9;
-  min-height: 0;
 }
 
 .news-popup__image {
