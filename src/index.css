@@ -226,11 +226,35 @@ body {
   background: #1e40af;
 }
 
-/* ── Responsive: móvil ── */
+/* ===================================================
+   WhatsApp FAB – Botón flotante
+   =================================================== */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+}
+
+.whatsapp-fab:hover {
+  background: #1ebe5d;
+}
+
 @media (max-width: 640px) {
-  .news-popup__card {
-    width: 92vw;
-    max-height: 70vh;
-    border-radius: 12px;
+  .whatsapp-fab {
+    bottom: 20px;
+    right: 16px;
+    width: 46px;
+    height: 46px;
   }
 }

@@ -202,27 +202,6 @@ const Home = () => {
               Estudiantes voluntarios impulsando el cambio social a través de la
               gestión de proyectos de alto impacto en nuestra comunidad.
             </motion.p>
-
-            <motion.div
-              className="flex flex-wrap gap-4 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <a
-                href="#join"
-                className="px-8 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-1"
-              >
-                Únete al Equipo
-              </a>
-              <a
-                href="#about"
-                className="px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700 transition-all duration-300 rounded-full group flex items-center gap-2"
-              >
-                Conoce Más
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </motion.div>
           </motion.div>
         </div>
 

@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import WhatsAppFAB from "./components/WhatsAppFAB";
 import AppRoutes from "./router/routes";
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <div className="w-screen  overflow-x-hidden">
       <Navbar />
       <AppRoutes />
+      <WhatsAppFAB />
     </div>
   );
 };
