@@ -1,9 +1,8 @@
-import { MapPin, Mail, Phone, Facebook, Instagram, Youtube } from "lucide-react";
+import { MapPin, Mail, Phone, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 
 const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/proyectossanmarcos", icon: <Facebook size={18} /> },
-  { label: "Instagram", href: "https://www.instagram.com/proyectossanmarcos", icon: <Instagram size={18} /> },
-  { label: "YouTube", href: "https://www.youtube.com/@proyectossanmarcos", icon: <Youtube size={18} /> },
+  { label: "Facebook", href: "https://www.facebook.com/ProyectosSanMarcos", icon: <Facebook size={18} /> },
+  { label: "Instagram", href: "https://www.instagram.com/proyectossm", icon: <Instagram size={18} /> },
   {
     label: "TikTok",
     href: "https://www.tiktok.com/@proyectossanmarcos",
@@ -13,6 +12,7 @@ const socialLinks = [
       </svg>
     ),
   },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/proyectossm", icon: <Linkedin size={18} /> },
 ];
 
 const navLinks = [
