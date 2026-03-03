@@ -94,10 +94,6 @@ body {
   right: 10px !important;
 }
 
-/* Ocultar dots */
-.psm-swiper .swiper-pagination {
-  display: none !important;
-}
 
 /* Mobile: ocultar flechas y dejar swipe */
 @media (max-width: 768px) {
