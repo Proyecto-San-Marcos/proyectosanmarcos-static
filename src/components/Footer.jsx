@@ -17,16 +17,19 @@ const socialLinks = [
 
 const navLinks = [
   { href: "/", label: "Inicio" },
-  { href: "/about", label: "¿Quiénes somos?" },
-  { href: "/projects", label: "Proyectos" },
-  { href: "/volunteer", label: "Únete como voluntario" },
+  { href: "#about", label: "¿Quiénes somos?" },
+  { href: "#impact", label: "Nuestro Impacto" },
+  { href: "#projects", label: "Proyectos" },
+  { href: "#presencia", label: "Nuestra Presencia" },
+  { href: "#milestones", label: "Hitos Importantes" },
 ];
 
 const areaLinks = [
-  { href: "/talento-humano/capacitaciones", label: "Capacitaciones" },
-  { href: "/talento-humano/clima", label: "Clima organizacional" },
-  { href: "/talento-humano/control", label: "Control" },
-  { href: "/talento-humano/reclutamiento", label: "Reclutamiento" },
+  { href: "#organigrama", label: "Presidencia" },
+  { href: "#organigrama", label: "Gerencia de PMO" },
+  { href: "#organigrama", label: "Comunicaciones" },
+  { href: "#organigrama", label: "Finanzas" },
+  { href: "#organigrama", label: "Talento Humano" },
 ];
 
 const contactItems = [

@@ -16,15 +16,17 @@ const Navbar = () => {
 
   const listItems = useMemo(() => [
     { name: "Inicio", link: "/" },
-    { name: "¿Quiénes somos?", link: "#about" },
-    { name: "¿Qué hacemos?", link: "#impact" },
     { name: "Proyectos", link: "#projects" },
+    { name: "Impacto", link: "#impact" },
+    { name: "Presencia", link: "#presencia" },
   ], []);
 
-  const areasItems = useMemo(() => [
-    { name: "Clima", link: "/talento-humano/clima" },
-    { name: "Control", link: "/talento-humano/control" },
-    { name: "Reclutamiento", link: "/talento-humano/reclutamiento" },
+  // — Dropdown “Nosotros” — agrupa las secciones institucionales
+  const nosotrosItems = useMemo(() => [
+    { name: "¿Quiénes somos?", link: "#about" },
+    { name: "Misión y Visión", link: "#mision" },
+    { name: "Hitos importantes", link: "#milestones" },
+    { name: "Organigrama", link: "#organigrama" },
   ], []);
 
   const closeAll = () => {
@@ -138,7 +140,7 @@ const Navbar = () => {
               </button>
             ))}
 
-            {/* Dropdown áreas */}
+            {/* Dropdown Nosotros */}
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setAreasOpenDesktop((v) => !v)}
@@ -150,7 +152,7 @@ const Navbar = () => {
                 onMouseEnter={(e) => (e.currentTarget.style.color = "var(--psm-teal)")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--psm-navy-mid)")}
               >
-                Áreas de trabajo
+                Nosotros
                 <ChevronDown
                   size={16}
                   style={{ transition: "transform 0.2s", transform: areasOpenDesktop ? "rotate(180deg)" : "rotate(0deg)" }}
@@ -166,9 +168,9 @@ const Navbar = () => {
                     className="px-4 py-2 text-xs font-semibold uppercase tracking-widest"
                     style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)", borderBottom: "1px solid var(--psm-gray-mid)" }}
                   >
-                    Talento humano
+                    Organización
                   </div>
-                  {areasItems.map((item) => (
+                  {nosotrosItems.map((item) => (
                     <button
                       key={item.name}
                       onClick={() => handleNav(item.link)}
@@ -282,7 +284,7 @@ const Navbar = () => {
 
                 <div className="my-4 h-px" style={{ background: "var(--psm-gray-mid)" }} />
 
-                {/* Áreas acordeón */}
+                {/* Nosotros acordeón */}
                 <button
                   onClick={() => setAreasOpenMobile((v) => !v)}
                   className="w-full flex items-center justify-between rounded-xl px-4 py-3 transition-colors"
@@ -295,7 +297,7 @@ const Navbar = () => {
                   type="button"
                   aria-expanded={areasOpenMobile}
                 >
-                  <span>Áreas de trabajo</span>
+                  <span>Nosotros</span>
                   <ChevronDown
                     size={18}
                     style={{ transition: "transform 0.2s", transform: areasOpenMobile ? "rotate(180deg)" : "rotate(0deg)" }}
@@ -304,7 +306,7 @@ const Navbar = () => {
 
                 {areasOpenMobile && (
                   <div className="mt-1 space-y-1 pl-2">
-                    {areasItems.map((item) => (
+                    {nosotrosItems.map((item) => (
                       <button
                         key={item.name}
                         onClick={() => handleNav(item.link)}
