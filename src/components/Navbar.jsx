@@ -236,20 +236,9 @@ const Navbar = () => {
                   <img
                     src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm/logo-nobg.png"
                     alt="PSM Logo"
-                    className="h-8 w-auto"
+                    className="h-12 w-auto"
                     loading="lazy"
                   />
-                  <span
-                    style={{
-                      fontFamily: "var(--psm-font-heading)",
-                      fontSize: "1rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.04em",
-                      color: "var(--psm-navy-mid)",
-                    }}
-                  >
-                    Proyectos <span style={{ color: "var(--psm-teal)" }}>SM</span>
-                  </span>
                 </div>
                 <button
                   className="inline-flex items-center justify-center rounded-xl px-3 py-2 transition"

@@ -96,17 +96,6 @@ const Footer = () => (
                 className="w-12 h-12 rounded-lg object-contain"
                 style={{ background: "rgba(255,255,255,0.08)", padding: "4px" }}
               />
-              <span
-                className="text-xl font-bold"
-                style={{
-                  fontFamily: "var(--psm-font-heading)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  color: "white",
-                }}
-              >
-                Proyectos <span style={{ color: "var(--psm-teal)" }}>San Marcos</span>
-              </span>
             </div>
 
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.75)" }}>
