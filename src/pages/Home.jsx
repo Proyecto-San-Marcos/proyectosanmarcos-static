@@ -658,23 +658,55 @@ const Home = () => {
               <div className="psm-divider mx-auto" />
             </div>
 
-            <div className="mt-12" data-aos="fade-up" data-aos-delay="200">
-              <Swiper
-                modules={[Pagination, Autoplay, Navigation]}
-                spaceBetween={30}
-                slidesPerView={1}
-                breakpoints={{ 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } }}
-                pagination={{ clickable: true }}
-                navigation
-                autoplay={{ delay: 5000 }}
-                className="w-full !pt-6 !pb-10 !px-6 psm-swiper"
-              >
-                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_rescatandoplayas.jpg" title="Rescatando playas" description="En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️ Cada acción, por pequeña que sea, es una victoria en nuestro compromiso por un futuro más limpio y un mar más saludable. 🐚" buttonText="Ver más" className="h-full" color="#4158b5" /></div></SwiperSlide>
-                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sembrandosonrisas.jpg" title="Sembrando sonrisas" description="En 𝗦𝗲𝗺𝗯𝗿𝗮𝗻𝗱𝗼 𝗦𝗼𝗻𝗿𝗶𝘀𝗮𝘀 logramos llevar esperanza y sonrisas a muchas comunidades, especialmente en zonas rurales como Ayacucho, donde entregamos canastas de víveres, regalos y compartimos momentos de alegría con más de 50 familias y 150 niños. 🎁💖" buttonText="Ver más" className="h-full" color="#f1162e" /></div></SwiperSlide>
-                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_4patas.jpg" title="4 Patas" description="En 4 PATAS llevamos alimento, esterilizaciones y educación comunitaria a barrios de escasos recursos para mejorar el bienestar de perros y gatos en situación vulnerable. 🥣🐶🐱 Con más de 40 animales esterilizados y decenas de hogares empoderados, contribuimos a reducir el abandono y a promover la tenencia responsable." buttonText="Ver más" className="h-full" color="#ffbd54" /></div></SwiperSlide>
-                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sanamente.jpg" title="Sanamente" description={`Durante el 2023, más de 280,000 casos de depresión fueron atendidos. En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar emocional de los jóvenes, promoviendo la inteligencia emocional y reduciendo el estigma de la salud mental.`} buttonText="Ver más" className="h-full" color="#f44d95" /></div></SwiperSlide>
-                <SwiperSlide><div className="h-full"><CardProject imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_poni.jpg" title="PONI" description="PONI es un proyecto que tiene como objetivo capacitar a los nuevos ingresantes de Proyectos San Marcos (PSM) en la gestión de proyectos y en la integración efectiva dentro de la organización. 💙🌱 PONI ha logrado capacitar a 36 nuevos ingresantes, quienes presentaron propuestas innovadoras alineadas con los ODS. 🌍✨" buttonText="Ver más" className="h-full" color="#1b395d" /></div></SwiperSlide>
-              </Swiper>
+            {/* Grid dinámico — sin Swiper */}
+            <div className="mt-12 flex flex-wrap justify-center gap-8">
+              {[
+                {
+                  imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_rescatandoplayas.jpg",
+                  title: "Rescatando Playas",
+                  color: "#4158b5",
+                  description: "En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️",
+                },
+                {
+                  imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sembrandosonrisas.jpg",
+                  title: "Sembrando Sonrisas",
+                  color: "#f1162e",
+                  description: "En 𝗦𝗲𝗺𝗯𝗿𝗮𝗻𝗱𝗼 𝗦𝗼𝗻𝗿𝗶𝘀𝗮𝘀 logramos llevar esperanza y sonrisas a muchas comunidades, especialmente en zonas rurales como Ayacucho, donde entregamos canastas de víveres, regalos y compartimos momentos de alegría con más de 50 familias y 150 niños. 🎁💖",
+                },
+                {
+                  imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_4patas.jpg",
+                  title: "4 Patas",
+                  color: "#ffbd54",
+                  description: "En 4 PATAS llevamos alimento, esterilizaciones y educación comunitaria a barrios de escasos recursos para mejorar el bienestar de perros y gatos en situación vulnerable. 🥣🐶🐱 Con más de 40 animales esterilizados y decenas de hogares empoderados.",
+                },
+                {
+                  imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sanamente.jpg",
+                  title: "Sanamente",
+                  color: "#f44d95",
+                  description: "Durante el 2023, más de 280,000 casos de depresión fueron atendidos. En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar emocional de los jóvenes, promoviendo la inteligencia emocional y reduciendo el estigma de la salud mental.",
+                },
+                {
+                  imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_poni.jpg",
+                  title: "PONI",
+                  color: "#1b395d",
+                  description: "PONI capacita a los nuevos ingresantes de PSM en la gestión de proyectos y en la integración efectiva dentro de la organización. 💙🌱 Ha logrado capacitar a 36 nuevos ingresantes, quienes presentaron propuestas innovadoras alineadas con los ODS. 🌍✨",
+                },
+              ].map((project, i) => (
+                <div
+                  key={project.title}
+                  className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)] h-full"
+                  data-aos="fade-up"
+                  data-aos-delay={i * 80}
+                >
+                  <CardProject
+                    imageUrl={project.imageUrl}
+                    title={project.title}
+                    description={project.description}
+                    color={project.color}
+                    className="h-full"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
