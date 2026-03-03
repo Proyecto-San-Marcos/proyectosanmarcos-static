@@ -336,11 +336,11 @@ const Home = () => {
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <BarChart3 size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
+                <h2 className="psm-heading text-4xl md:text-5xl text-left md:text-center" style={{ color: "var(--psm-navy-mid)" }}>
                   Nuestro <span style={{ color: "var(--psm-teal)" }}>Impacto</span>
                 </h2>
               </div>
-              <p className="max-w-3xl mx-auto text-lg leading-relaxed" style={{ color: "var(--psm-text-body)" }}>
+              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-justify md:text-center" style={{ color: "var(--psm-text-body)" }}>
                 Nuestra labor se sostiene sobre cuatro ejes: las <strong>actividades</strong> que movilizan a nuestros voluntarios y benefician a la comunidad; los <strong>resultados concretos</strong> que demuestran el alcance de cada iniciativa; las <strong>redes de colaboración</strong> con aliados que amplían nuestro trabajo; y la <strong>visibilidad</strong> que hemos ganado tanto en la UNMSM como en espacios digitales.
               </p>
               <div className="psm-divider mx-auto mt-4" />
@@ -480,11 +480,11 @@ const Home = () => {
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <Flag size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
+                <h2 className="psm-heading text-4xl md:text-5xl text-left md:text-center" style={{ color: "var(--psm-navy-mid)" }}>
                   Hitos <span style={{ color: "var(--psm-teal)" }}>Importantes</span>
                 </h2>
               </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
+              <p className="max-w-2xl mx-auto text-lg text-justify md:text-center" style={{ color: "var(--psm-text-body)" }}>
                 A lo largo de nuestra trayectoria, hemos marcado un antes y un después con iniciativas transformadoras que abarcan desde la innovación hasta el impacto social.
               </p>
               <div className="psm-divider mx-auto" />
@@ -596,11 +596,11 @@ const Home = () => {
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <Network size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
+                <h2 className="psm-heading text-4xl md:text-5xl text-left md:text-center" style={{ color: "var(--psm-navy-mid)" }}>
                   Nuestro <span style={{ color: "var(--psm-teal)" }}>Organigrama</span>
                 </h2>
               </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
+              <p className="max-w-2xl mx-auto text-lg text-justify md:text-center" style={{ color: "var(--psm-text-body)" }}>
                 Nuestra estructura organizacional está diseñada para materializar los valores que guían cada una de nuestras iniciativas, articulando roles, procesos y sinergias.
               </p>
               <div className="psm-divider mx-auto" />
@@ -648,11 +648,11 @@ const Home = () => {
                 <div className="psm-icon-circle psm-icon-circle--solid">
                   <FolderOpen size={24} color="white" />
                 </div>
-                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
+                <h2 className="psm-heading text-4xl md:text-5xl text-left md:text-center" style={{ color: "var(--psm-navy-mid)" }}>
                   Proyectos <span style={{ color: "var(--psm-teal)" }}>Destacados</span>
                 </h2>
               </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
+              <p className="max-w-2xl mx-auto text-lg text-justify md:text-center" style={{ color: "var(--psm-text-body)" }}>
                 Conoce algunas de nuestras iniciativas más importantes y su impacto
               </p>
               <div className="psm-divider mx-auto" />
@@ -727,7 +727,7 @@ const Home = () => {
                   </h2>
                 </div>
                 <div className="psm-divider mb-6" />
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <p className="text-gray-600 text-lg leading-relaxed text-justify">
                   El alcance y la visibilidad que Proyectos San Marcos ha construido tanto en el entorno universitario como en el ecosistema digital ha sido gracias a las alianzas estratégicas y plataformas de interacción en redes sociales. Hemos consolidado una comunidad de seguidores y colaboradores que respaldan nuestra labor y amplían nuestro mensaje.
                 </p>
               </div>
