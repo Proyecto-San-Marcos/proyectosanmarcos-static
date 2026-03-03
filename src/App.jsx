@@ -4,7 +4,7 @@ import AppRoutes from "./router/routes";
 
 const App = () => {
   return (
-    <div className="w-screen  overflow-x-hidden">
+    <div className="w-screen">
       <Navbar />
       <AppRoutes />
       <WhatsAppFAB />

@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "./styles/tokens.css";
 
+/* Evita scroll horizontal sin romper position:sticky del Navbar */
+body {
+  overflow-x: hidden;
+}
+
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, winter;
 }
