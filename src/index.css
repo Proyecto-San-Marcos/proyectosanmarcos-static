@@ -255,12 +255,58 @@ body {
 }
 
 /* Tarjeta principal — width y height los inyecta JS según aspectRatio */
-.news-popup__card {
+.news-popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
+  display: flex;
+  gap: 16px;
+}
+
+.news-popup__socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+
+
+@media (max-width: 640px) {
+  .news-popup {
+    flex-direction: column-reverse;
+    max-height: 92vh;
+    border-radius: 12px;
+  }
+
+  .news-popup__socials {
+    flex-direction: row;
+    justify-content: center;
+    width: min-content;
+    padding: 10px 12px;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+  }
+
+  .news-popup__socials-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.news-popup__card {
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e5e7eb;
@@ -336,7 +382,7 @@ body {
 
 /* Footer con botón */
 .news-popup__footer {
-  padding: 14px 18px;
+  padding: 6px 12px;
   display: flex;
   justify-content: flex-end;
   border-top: 1px solid #e5e7eb;

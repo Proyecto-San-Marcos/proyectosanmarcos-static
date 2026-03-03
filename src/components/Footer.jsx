@@ -34,8 +34,7 @@ const areaLinks = [
 
 const contactItems = [
   { icon: <MapPin size={16} />, text: "Ciudad Universitaria, UNMSM, Lima, Perú" },
-  { icon: <Mail size={16} />, text: "voluntariado@unmsm.edu.pe" },
-  { icon: <Phone size={16} />, text: "(+51) 123-456-789" },
+  //{ icon: <Mail size={16} />, text: "voluntariado@unmsm.edu.pe" },
 ];
 
 const SocialBtn = ({ label, href, icon }) => (
