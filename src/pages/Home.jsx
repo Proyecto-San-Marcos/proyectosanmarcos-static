@@ -380,28 +380,28 @@ const Home = () => {
                     title: "Webinars Virtuales",
                     shortDesc: "Charlas formativas sobre gestión de proyectos, metodologías ágiles y liderazgo dictadas por profesionales del sector.",
                     fullDesc: "Charlas formativas sobre gestión de proyectos, metodologías ágiles y liderazgo, dictadas por profesionales del sector para fortalecer las capacidades de nuestros voluntarios. Cada webinar aborda temáticas clave que permiten a los participantes adquirir herramientas prácticas aplicables en sus proyectos.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/tallervirtual.jpg",
                     icon: <Users size={20} color="white" />,
                   },
                   {
                     title: "Taller de Scrum",
                     shortDesc: "Iniciativa de PMO para fortalecer a los miembros en el marco de trabajo Scrum, con base en los webinars previos.",
                     fullDesc: "Iniciativa liderada por la PMO para seguir fortaleciendo a los miembros en este marco de trabajo ágil. Tiene como antecedente los webinars de SCRUM que se realizaron anteriormente. Los participantes aplican metodologías ágiles en simulaciones de proyectos reales.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/scrum.jpg",
                     icon: <Zap size={20} color="white" />,
                   },
                   {
                     title: "Taller de Power BI",
                     shortDesc: "Sesiones virtuales donde se explica la herramienta Power BI para estudiantes, desde el nivel básico hasta avanzado.",
                     fullDesc: "Sesiones virtuales en donde se explicó la herramienta de Power BI para estudiantes, desde el nivel básico hasta el nivel avanzado. Los participantes aprenden a crear dashboards interactivos, visualizar datos y generar reportes profesionales aplicados a la gestión de proyectos.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/powerbi.jpg",
                     icon: <BarChart3 size={20} color="white" />,
                   },
                   {
                     title: "Integraciones",
                     shortDesc: "Espacios recreativos para fortalecer los lazos entre voluntarios a través de dinámicas grupales y juegos colaborativos.",
                     fullDesc: "Espacios recreativos pensados para fortalecer los lazos entre voluntarios a través de dinámicas grupales, juegos colaborativos y momentos de esparcimiento. Las integraciones son fundamentales para construir una comunidad sólida, fomentar la confianza y mantener el espíritu de equipo que caracteriza a PSM.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/integra.jpg",
                     icon: <Star size={20} color="white" />,
                   },
                 ].map((act, i) => (
@@ -505,28 +505,28 @@ const Home = () => {
                     side: "right",
                     title: "Fundación de PSM",
                     desc: "Nace Proyectos San Marcos, iniciativa liderada por estudiantes de la UNMSM con la visión de transformar la gestión de proyectos en el ámbito universitario y social.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/photo_1.jpg",
                   },
                   {
                     year: "2016",
                     side: "left",
                     title: "65 Proyectos desarrollados",
                     desc: "Alcanzamos la marca de 65 proyectos ejecutados, consolidando nuestra presencia en distintas áreas de impacto social y fortaleciendo nuestra metodología de gestión.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/photo_2.jpg",
                   },
                   {
                     year: "2019",
                     side: "right",
                     title: "CONEGP & 20 talleres",
                     desc: "Se organizó el Congreso Nacional Estudiantil de Gestión de Proyectos (CONEGP) y se realizaron más de 20 talleres formativos, posicionándonos como referentes a nivel nacional.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/photo_4.jpg",
                   },
                   {
                     year: "2020",
                     side: "left",
                     title: "Innova Weekend",
                     desc: "En tiempos de pandemia, desarrollamos 5 sesiones del Innova Weekend: un espacio de innovación y colaboración virtual que mantuvo vivo el espíritu de PSM.",
-                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/photo_5.jpg",
                   },
                 ].map(({ year, side, title, desc, image }, i) => (
                   <div
@@ -610,29 +610,29 @@ const Home = () => {
               <OrganigramaGallery
                 images={[
                   {
-                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/2.jpg",
+                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/presidencia.jpg",
                     alt: "Organigrama de Presidencia",
                     title: "Presidencia",
                   },
                   {
-                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/6.jpg",
-                    alt: "Gerencia de Talento Humano",
-                    title: "Talento Humano",
-                  },
-                  {
-                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/3.jpg",
-                    alt: "Gerencia de Comunicaciones",
-                    title: "Comunicaciones",
-                  },
-                  {
-                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/5.jpg",
+                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/pmo.jpg",
                     alt: "Gerencia de PMO",
                     title: "PMO",
                   },
                   {
-                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/4.jpg",
+                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/comunicaciones.jpg",
+                    alt: "Gerencia de Comunicaciones",
+                    title: "Comunicaciones",
+                  },
+                  {
+                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/finanzas.jpg",
                     alt: "Gerencia de Finanzas",
                     title: "Finanzas",
+                  },
+                  {
+                    src: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/organigrama/talentohumano.jpg",
+                    alt: "Gerencia de Talento Humano",
+                    title: "Talento Humano",
                   },
                 ]}
               />
@@ -703,7 +703,7 @@ const Home = () => {
               <div className="lg:w-2/5">
                 <div className="rounded-2xl overflow-hidden" style={{ border: "2px solid var(--psm-teal)", boxShadow: "var(--psm-shadow-card)" }}>
                   <img
-                    src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos//grupo.jpeg"
+                    src="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/photo_3.JPG"
                     alt="Presencia PSM"
                     className="w-full h-64 object-cover"
                   />
@@ -769,63 +769,6 @@ const Home = () => {
               </div>
             </div>
 
-          </div>
-        </section>
-
-        {/* ── Testimonios ── */}
-        <section className="py-24 psm-section-light" id="testimonials">
-          <div className="container mx-auto px-6 xl:px-20">
-            <div className="text-center mb-16" data-aos="fade-up">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="psm-icon-circle psm-icon-circle--solid">
-                  <MessageCircle size={24} color="white" />
-                </div>
-                <h2 className="psm-heading text-4xl md:text-5xl" style={{ color: "var(--psm-navy-mid)" }}>
-                  <span style={{ color: "var(--psm-teal)" }}>Testimonios</span>
-                </h2>
-              </div>
-              <p className="max-w-2xl mx-auto text-lg" style={{ color: "var(--psm-text-body)" }}>
-                Lo que dicen nuestros voluntarios y beneficiarios
-              </p>
-              <div className="psm-divider mx-auto" />
-            </div>
-
-            <div data-aos="fade-up" data-aos-delay="200">
-              <Swiper
-                modules={[Pagination, Autoplay, EffectFade]}
-                effect="fade"
-                fadeEffect={{ crossFade: true }}
-                spaceBetween={30}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 6000 }}
-                className="testimonial-swiper"
-              >
-                {testimonials.map((testimonial) => (
-                  <SwiperSlide key={testimonial.id}>
-                    <div className="rounded-2xl p-10 max-w-4xl mx-auto" style={{ background: "var(--psm-navy-dark)", border: "1px solid rgba(0,180,216,0.25)" }}>
-                      <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                        <div className="shrink-0">
-                          <div className="w-24 h-24 rounded-full overflow-hidden" style={{ border: "3px solid var(--psm-teal)" }}>
-                            <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
-                          </div>
-                        </div>
-                        <div>
-                          <Quote size={40} style={{ color: "var(--psm-teal)" }} className="mb-4" />
-                          <p className="text-lg italic mb-6 leading-relaxed" style={{ color: "var(--psm-teal-light)" }}>
-                            "{testimonial.text}"
-                          </p>
-                          <div>
-                            <h4 className="font-bold text-lg text-white">{testimonial.name}</h4>
-                            <p style={{ color: "var(--psm-teal)" }}>{testimonial.role}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
           </div>
         </section>
 
