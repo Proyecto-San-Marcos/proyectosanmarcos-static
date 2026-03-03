@@ -425,8 +425,8 @@ body {
   bottom: 28px;
   right: 28px;
   z-index: 9000;
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: #25d366;
   color: #ffffff;
@@ -445,7 +445,5 @@ body {
   .whatsapp-fab {
     bottom: 20px;
     right: 16px;
-    width: 46px;
-    height: 46px;
   }
 }
