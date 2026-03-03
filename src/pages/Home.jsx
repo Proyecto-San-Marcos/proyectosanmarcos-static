@@ -271,7 +271,7 @@ const Home = () => {
                       <Target size={22} color="white" />
                     </div>
                     <h2 className="psm-heading text-4xl" style={{ color: "var(--psm-navy-mid)" }}>
-                      <span style={{ color: "var(--psm-teal)" }}>Mis</span>ión
+                      <span style={{ color: "var(--psm-teal)" }}>M</span>isión
                     </h2>
                   </div>
                   <div className="psm-divider mb-5" />
@@ -290,7 +290,7 @@ const Home = () => {
                       <Eye size={22} color="white" />
                     </div>
                     <h2 className="psm-heading text-4xl" style={{ color: "var(--psm-navy-mid)" }}>
-                      <span style={{ color: "var(--psm-teal)" }}>Vi</span>sión
+                      <span style={{ color: "var(--psm-teal)" }}>V</span>isión
                     </h2>
                   </div>
                   <div className="psm-divider mb-5" />
