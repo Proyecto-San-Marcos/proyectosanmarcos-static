@@ -162,7 +162,7 @@ const OrganigramaGallery = ({ images = [] }) => {
                                     type="button"
                                     onClick={(e) => { e.stopPropagation(); next(); }}
                                     aria-label="Siguiente"
-                                    className="absolute right-16 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full transition-colors"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full transition-colors"
                                     style={{
                                         width: 44, height: 44,
                                         background: "rgba(255,255,255,0.12)",
