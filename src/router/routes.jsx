@@ -5,6 +5,7 @@ import LandingCapacitaciones from "../pages/LandingCapacitaciones";
 import LandingClima from "../pages/LandingClima";
 import LandingControl from "../pages/LandingControl";
 import LandingReclutamiento from "../pages/LandingReclutamiento";
+import SembrandoSonrisas from "../pages/projects/sembrandoSonrisas";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/talento-humano/clima" element={<LandingClima/>} />
       <Route path="/talento-humano/control" element={<LandingControl/>} />
       <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento/>} />
+      <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas/>} />
     </Routes>
   );
 };
