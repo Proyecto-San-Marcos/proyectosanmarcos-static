@@ -1,0 +1,909 @@
+/* =============================================
+   Landing Comunidad PSM — CSS aislado
+   Usa los tokens de src/styles/tokens.css
+   ============================================= */
+
+.comunidad-page {
+  width: 100%;
+  background: #fff;
+}
+
+/* ─── Contenedor ─── */
+.comunidad-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Hero ─── */
+.comunidad-hero {
+  position: relative;
+  min-height: 1000px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-image: url("https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/testimonios_bg.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+
+.comunidad-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.42) 0%,
+    rgba(10, 22, 40, 0.82) 100%
+  );
+}
+
+.comunidad-hero__logo {
+  position: absolute;
+  bottom: 22px;
+  right: 28px;
+  z-index: 2;
+}
+
+.comunidad-hero__logo img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.92;
+}
+
+.comunidad-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 44px 6% 38px;
+}
+
+.comunidad-hero__title {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: clamp(1.8rem, 4.8vw, 3.2rem);
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.comunidad-hero__title-accent {
+  color: var(--psm-teal);
+}
+
+.comunidad-hero__divider {
+  width: 68px;
+  height: 4px;
+  background: var(--psm-teal);
+  border-radius: 4px;
+  margin-top: 14px;
+}
+
+/* ─── Sección principal ─── */
+.comunidad-section {
+  padding: 68px 0 80px;
+}
+
+/* ─── Encabezado ─── */
+.comunidad-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.comunidad-h2 {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  color: var(--psm-navy-mid);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.comunidad-h2__accent {
+  color: var(--psm-teal);
+}
+
+.comunidad-subtitle {
+  font-family: var(--psm-font-body);
+  font-size: 1rem;
+  color: var(--psm-text-body);
+  margin: 7px 0 0;
+}
+
+/* ─── Selector de persona ─── */
+.comunidad-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.comunidad-selector__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px 8px 8px;
+  border-radius: 999px;
+  border: 2px solid var(--psm-gray-mid);
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  font-family: var(--psm-font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--psm-text-body);
+}
+
+.comunidad-selector__btn:hover {
+  border-color: var(--psm-teal);
+  background: var(--psm-teal-subtle);
+  color: var(--psm-navy-mid);
+}
+
+.comunidad-selector__btn--active {
+  border-color: var(--psm-teal);
+  background: var(--psm-teal-subtle);
+  color: var(--psm-navy-mid);
+}
+
+/* ─── Avatar ─── */
+.comunidad-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--psm-teal);
+  flex-shrink: 0;
+  background: var(--psm-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--psm-teal);
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+}
+
+/* ─── Tarjeta de testimonio ─── */
+.comunidad-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.comunidad-card__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Video ─── */
+.comunidad-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--psm-navy-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.comunidad-video__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--psm-font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.comunidad-video__play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Cita ─── */
+.comunidad-quote {
+  background: var(--psm-gray-light);
+  border-radius: 16px;
+  padding: 26px 26px 22px;
+  border: 1px solid var(--psm-gray-mid);
+}
+
+.comunidad-quote__icon {
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+.comunidad-quote__text {
+  font-family: var(--psm-font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-weight: 600;
+  color: var(--psm-navy-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.comunidad-quote__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.comunidad-quote__name {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--psm-navy-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.comunidad-quote__cargo {
+  font-family: var(--psm-font-body);
+  font-size: 0.78rem;
+  color: var(--psm-text-body);
+  margin-top: 3px;
+}
+
+/* ─── Stats ─── */
+.comunidad-stats {
+  display: flex;
+  align-items: stretch;
+  background: white;
+  border-radius: 14px;
+  padding: 20px 16px;
+  border: 1px solid var(--psm-gray-mid);
+  box-shadow: var(--psm-shadow-card);
+  gap: 0;
+  justify-content: center
+}
+
+.comunidad-stat {
+  flex: 1;
+  text-align: center;
+  padding: 4px 8px;
+}
+
+.comunidad-stat__num {
+  font-family: var(--psm-font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--psm-navy-mid);
+  line-height: 1;
+}
+
+.comunidad-stat__label {
+  font-family: var(--psm-font-body);
+  font-size: 0.75rem;
+  color: var(--psm-text-body);
+  margin-top: 6px;
+  line-height: 1.35;
+}
+
+.comunidad-stats__divider {
+  width: 1px;
+  background: var(--psm-gray-mid);
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 860px) {
+  .comunidad-card {
+    grid-template-columns: 1fr;
+  }
+
+  .comunidad-hero {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 520px) {
+  .comunidad-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .comunidad-stats {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .comunidad-stats__divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+
+  .comunidad-selector {
+    gap: 8px;
+  }
+}
+/* =============================================
+   Landing Comunidad PSM — CSS aislado
+   Usa los tokens de src/styles/tokens.css
+   ============================================= */
+ 
+.comunidad-page {
+  width: 100%;
+  background: #fff;
+}
+ 
+/* ─── Contenedor ─── */
+.comunidad-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+ 
+/* ─── Hero ─── */
+.comunidad-hero {
+  position: relative;
+  min-height: 800px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-image: url("https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/testimonios_bg.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+ 
+.comunidad-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.42) 0%,
+    rgba(10, 22, 40, 0.82) 100%
+  );
+}
+ 
+.comunidad-hero__logo {
+  position: absolute;
+  bottom: 22px;
+  right: 28px;
+  z-index: 2;
+}
+ 
+.comunidad-hero__logo img {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.92;
+}
+ 
+.comunidad-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 44px 6% 38px;
+}
+ 
+.comunidad-hero__title {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: clamp(1.8rem, 4.8vw, 3.2rem);
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+ 
+.comunidad-hero__title-accent {
+  color: var(--psm-teal);
+}
+ 
+.comunidad-hero__divider {
+  width: 68px;
+  height: 4px;
+  background: var(--psm-teal);
+  border-radius: 4px;
+  margin-top: 14px;
+}
+ 
+/* ─── Sección principal ─── */
+.comunidad-section {
+  padding: 68px 0 80px;
+}
+ 
+/* ─── Encabezado ─── */
+.comunidad-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+ 
+.comunidad-h2 {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  color: var(--psm-navy-mid);
+  margin: 0;
+  line-height: 1.1;
+}
+ 
+.comunidad-h2__accent {
+  color: var(--psm-teal);
+}
+ 
+.comunidad-subtitle {
+  font-family: var(--psm-font-body);
+  font-size: 1rem;
+  color: var(--psm-text-body);
+  margin: 7px 0 0;
+}
+ 
+/* ─── Selector de persona ─── */
+.comunidad-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+ 
+.comunidad-selector__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px 8px 8px;
+  border-radius: 999px;
+  border: 2px solid var(--psm-gray-mid);
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  font-family: var(--psm-font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--psm-text-body);
+}
+ 
+.comunidad-selector__btn:hover {
+  border-color: var(--psm-teal);
+  background: var(--psm-teal-subtle);
+  color: var(--psm-navy-mid);
+}
+ 
+.comunidad-selector__btn--active {
+  border-color: var(--psm-teal);
+  background: var(--psm-teal-subtle);
+  color: var(--psm-navy-mid);
+}
+ 
+/* ─── Avatar ─── */
+.comunidad-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--psm-teal);
+  flex-shrink: 0;
+  background: var(--psm-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--psm-teal);
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+}
+ 
+/* ─── Tarjeta de testimonio ─── */
+.comunidad-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+ 
+.comunidad-card__right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+ 
+/* ─── Video ─── */
+.comunidad-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--psm-navy-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+ 
+.comunidad-video__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--psm-font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+ 
+.comunidad-video__play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+/* ─── Cita ─── */
+.comunidad-quote {
+  background: var(--psm-gray-light);
+  border-radius: 16px;
+  padding: 26px 26px 22px;
+  border: 1px solid var(--psm-gray-mid);
+}
+ 
+.comunidad-quote__icon {
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+ 
+.comunidad-quote__text {
+  font-family: var(--psm-font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-weight: 600;
+  color: var(--psm-navy-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+ 
+.comunidad-quote__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+ 
+.comunidad-quote__name {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--psm-navy-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+ 
+.comunidad-quote__cargo {
+  font-family: var(--psm-font-body);
+  font-size: 0.78rem;
+  color: var(--psm-text-body);
+  margin-top: 3px;
+}
+ 
+/* ─── Stats ─── */
+.comunidad-stats {
+  display: flex;
+  align-items: stretch;
+  background: white;
+  border-radius: 14px;
+  padding: 20px 16px;
+  border: 1px solid var(--psm-gray-mid);
+  box-shadow: var(--psm-shadow-card);
+  gap: 0;
+}
+ 
+.comunidad-stat {
+  flex: 1;
+  text-align: center;
+  padding: 4px 8px;
+}
+ 
+.comunidad-stat__num {
+  font-family: var(--psm-font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--psm-navy-mid);
+  line-height: 1;
+}
+ 
+.comunidad-stat__label {
+  font-family: var(--psm-font-body);
+  font-size: 0.75rem;
+  color: var(--psm-text-body);
+  margin-top: 6px;
+  line-height: 1.35;
+}
+ 
+.comunidad-stats__divider {
+  width: 1px;
+  background: var(--psm-gray-mid);
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+ 
+/* ─── Responsive ─── */
+@media (max-width: 860px) {
+  .comunidad-card {
+    grid-template-columns: 1fr;
+  }
+ 
+  .comunidad-hero {
+    min-height: 260px;
+  }
+}
+ 
+@media (max-width: 520px) {
+  .comunidad-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+ 
+  .comunidad-stats {
+    flex-direction: column;
+    gap: 14px;
+  }
+ 
+  .comunidad-stats__divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+ 
+  .comunidad-selector {
+    gap: 8px;
+  }
+}
+ 
+/* =============================================
+   SECCIÓN 2 — Carrusel de Voces (estilo Tony Robbins)
+   ============================================= */
+ 
+.voces-section {
+  position: relative;
+  padding: 80px 0 72px;
+  overflow: hidden;
+}
+ 
+/* Fondo: foto grupal + overlay teal */
+.voces-section__bg {
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+}
+ 
+/* Tint teal sobre el fondo */
+.voces-section__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(255, 255, 255);
+}
+ 
+.voces-section__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ 
+.voces-section__title {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0 0 52px;
+}
+ 
+/* ── Carrusel ── */
+.voces-carousel {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+/* ── Tarjeta base ── */
+.voz-card {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  padding: 36px 28px 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.45s ease, opacity 0.45s ease, width 0.45s ease, box-shadow 0.35s ease;
+  will-change: transform, opacity;
+  box-shadow: 0 8px 40px rgba(255, 255, 255, 0.18);
+}
+ 
+/* Centro — grande y nítida */
+.voz-card--center {
+  width: min(420px, 86vw);
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 3;
+  box-shadow: 0 16px 56px rgba(0, 0, 0, 0.28);
+}
+ 
+/* Lados — más pequeñas, semitransparentes */
+.voz-card--left {
+  width: min(340px, 72vw);
+  transform: translateX(calc(-50% - 120px)) scale(0.88);
+  opacity: 0.72;
+  z-index: 2;
+}
+ 
+.voz-card--right {
+  width: min(340px, 72vw);
+  transform: translateX(calc(50% + 120px)) scale(0.88);
+  opacity: 0.72;
+  z-index: 2;
+}
+ 
+/* Ocultas */
+.voz-card--hidden {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transform: translateX(0) scale(0.7);
+}
+ 
+/* Avatar flotando sobre la tarjeta */
+.voz-card__avatar-wrap {
+  margin-top: -68px;
+  margin-bottom: 12px;
+}
+ 
+/* Override avatar dentro de la tarjeta de voz */
+.voz-card .comunidad-avatar {
+  border: 4px solid white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+ 
+.voz-card__nombre {
+  font-family: var(--psm-font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--psm-navy-mid);
+  letter-spacing: 0.02em;
+  margin-bottom: 3px;
+}
+ 
+.voz-card__cargo {
+  font-family: var(--psm-font-body);
+  font-size: 0.78rem;
+  color: var(--psm-text-muted);
+  margin-bottom: 14px;
+}
+ 
+.voz-card__quote {
+  font-family: var(--psm-font-body);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--psm-text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+ 
+/* Solo la tarjeta central muestra la cita completa */
+.voz-card--left .voz-card__quote,
+.voz-card--right .voz-card__quote {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+ 
+/* ── Dots ── */
+.voces-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 32px;
+}
+ 
+.voces-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  padding: 0;
+}
+ 
+.voces-dot--active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+ 
+/* ── Flechas ── */
+.voces-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--psm-gray-mid, #e2e8f0); /* Un borde sutil gris */
+  background: white;                             /* Fondo blanco sólido para que resalte sobre el fondo gris */
+  color: var(--psm-navy-mid, #0a1628);          /* Color oscuro para la flecha/icono de adentro */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);    /* Sombra suave para darle volumen sobre el fondo claro */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+ 
+.voces-arrow:hover {
+  background: var(--psm-teal, #00a3a4);
+  color: white;
+  border-color: var(--psm-teal, #00a3a4);
+}
+ 
+.voces-arrow--left {
+  left: 16px;
+}
+ 
+.voces-arrow--right {
+  right: 16px;
+}
+ 
+/* ── Responsive carrusel ── */
+@media (max-width: 860px) {
+  .voz-card--left,
+  .voz-card--right {
+    display: none;
+  }
+ 
+  .voz-card--center {
+    width: min(380px, 88vw);
+  }
+ 
+  .voces-carousel {
+    height: 300px;
+  }
+ 
+  .voces-arrow--left {
+    left: 4px;
+  }
+ 
+  .voces-arrow--right {
+    right: 4px;
+  }
+}
