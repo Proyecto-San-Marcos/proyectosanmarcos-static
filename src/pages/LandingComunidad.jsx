@@ -56,7 +56,7 @@ const voces = [
     id: 1,
     nombre: "Marlon Cruzado",
     cargo: "Miembro activo · Ingeniería de telecomunicaciones",
-    quote: "Ser parte PSM me permitió tirar con Jhossyana, ahora esta obsesionada conmigo",
+    quote: "Ser parte PSM me permitió generar nuevas amistades y mejorar para mi futuro nacional",
     foto: "",
   },
   {
