@@ -10,7 +10,6 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
  *  - altText       : texto alternativo
  *  - redirectTo    : ruta o URL del botón "Ver más"
  *  - delay         : ms antes de aparecer (default 800)
- *  - sessionKey    : clave sessionStorage (default "newsPopupSeen")
  *  - footerBg      : color CSS del fondo del footer (default "#fafafa")
  *                    Ej: "#1b3068" para oscuro, "white" para claro
  *  - iconColor     : color CSS único para todos los íonos sociales
@@ -21,7 +20,6 @@ const NewsPopup = ({
     altText = "Información",
     redirectTo = "/",
     delay = 800,
-    sessionKey = "newsPopupSeen",
     isButtonVisible = true,
     buttonText = "Ver más",
     aspectRatio = "3/4",
@@ -52,16 +50,12 @@ const NewsPopup = ({
     const labelColor = isDarkFooter ? "rgba(255,255,255,0.55)" : "rgba(30,30,60,0.5)";
 
     useEffect(() => {
-        const alreadySeen = sessionStorage.getItem(sessionKey);
-        if (alreadySeen) return;
-
         const timer = setTimeout(() => setVisible(true), delay);
         return () => clearTimeout(timer);
-    }, [delay, sessionKey]);
+    }, [delay]);
 
     const handleClose = () => {
         setVisible(false);
-        sessionStorage.setItem(sessionKey, "true");
     };
 
     const handleVerMas = () => {
