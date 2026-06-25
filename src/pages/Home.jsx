@@ -71,7 +71,7 @@ const Home = () => {
     <div className="overflow-hidden">
       {/* Popup */}
       <NewsPopup
-        imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/banner_popups/poni.jpeg"
+        imageUrl="https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/banner_popups/popup_activo.webp"
         altText="Última hora"
         redirectTo="/"
         delay={800}

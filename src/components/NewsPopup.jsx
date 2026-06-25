@@ -194,7 +194,7 @@ const NewsPopup = ({
                     {/* Imagen */}
                     <div className="news-popup__image-wrapper">
                         {imageUrl ? (
-                            <img src={imageUrl} alt={altText} className="news-popup__image" />
+                            <img src={imageUrl} alt={altText} className="news-popup__image" onError={handleClose} />
                         ) : (
                             <div className="news-popup__image-placeholder">
                                 <svg
