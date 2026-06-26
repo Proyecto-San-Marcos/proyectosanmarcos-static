@@ -1,33 +1,24 @@
 /**
  * ============================================================
- *  Plantilla de PROYECTO PSM — Sembrando Sonrisas
- *
- *  Cómo reutilizar para otro proyecto:
- *  1. Copia este archivo y el .jsx con un nombre nuevo.
- *  2. Cambia SOLO el bloque ".proj-page { --p-* }" de abajo
- *     para re-tematizar todo (colores, acentos).
- *  3. Edita el objeto `proyecto` dentro del .jsx.
- *  Las clases usan el prefijo genérico `proj-` a propósito,
- *  para que el copy/paste no dependa del nombre del proyecto.
- *
- *  Estructura: Header · Intro · Sobre · Actividades · Impacto · Footer
+ *  Proyecto PSM — Sanamente
+ *  Tema: magenta/rosa vibrante + cian azul
  * ============================================================
  */
 
-/* ── TEMA DEL PROYECTO (lo único que cambia entre proyectos) ── */
+/* ── TEMA DEL PROYECTO ── */
 .proj-page {
-  /* Sembrando Sonrisas: rojo navideño + crema + dorado */
-  --p-primary: #e1283a;
-  --p-primary-dark: #b51f2e;
-  --p-primary-soft: #fdecee;
-  --p-accent: #f4b400;
-  --p-ink: #1f2937;
-  --p-body: #4b5563;
-  --p-muted: #9ca3af;
-  --p-bg: #eef2f7;
-  --p-bg-soft: #fff4f1;
+  /* Sanamente: magenta/rosa vibrante + cian azul */
+  --p-primary: #D81B8C;
+  --p-primary-dark: #A8146B;
+  --p-primary-soft: #FCE4F5;
+  --p-accent: #17C3E6;
+  --p-ink: #1e293b;
+  --p-body: #475569;
+  --p-muted: #94a3b8;
+  --p-bg: #EEF2F7;
+  --p-bg-soft: #FDF5FB;
   --p-radius: 22px;
-  --p-shadow: 0 12px 30px rgba(225, 40, 58, 0.14);
+  --p-shadow: 0 12px 30px rgba(216, 27, 140, 0.14);
 
   font-family: var(--psm-font-body, "Montserrat", system-ui, sans-serif);
   color: var(--p-body);
@@ -54,7 +45,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(225, 40, 58, 0.10) 2px, transparent 2.5px);
+  background-image: radial-gradient(rgba(216, 27, 140, 0.10) 2px, transparent 2.5px);
   background-size: 40px 40px;
   pointer-events: none;
   z-index: 0;
@@ -273,7 +264,7 @@
 .proj-tab--active {
   background: var(--p-primary);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(225, 40, 58, 0.3);
+  box-shadow: 0 6px 18px rgba(216, 27, 140, 0.3);
 }
 
 /* Mosaico de fotos con leyenda sobre la imagen */
@@ -367,6 +358,18 @@
 .proj-impact .proj-img--rect {
   aspect-ratio: 4 / 3;
   align-self: stretch;
+}
+
+.proj-impact .proj-img--rect img {
+  object-position: center 30%;
+}
+
+.proj-rows .proj-row:nth-child(2) .proj-img--round img {
+  object-position: left center;
+}
+
+.proj-intro .proj-img img {
+  object-position: center 35%;
 }
 
 .proj-stats {

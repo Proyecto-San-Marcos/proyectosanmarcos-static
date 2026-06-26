@@ -1,81 +1,64 @@
 import React, { useState } from "react";
 import { Target, Image as ImageIcon, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
-import "./sembrandoSonrisas.css";
+import "./sanamente.css";
 
-/**
- * ============================================================
- *  PLANTILLA DE PROYECTO PSM
- *  Para crear la página de otro proyecto:
- *    1. Copia este archivo y sembrandoSonrisas.css con otro nombre.
- *    2. Edita SOLO el objeto `proyecto` de abajo.
- *    3. Re-tematiza los colores en el bloque `.proj-page` del .css.
- *
- *  Estructura (igual para todos los proyectos):
- *    Header · Intro · Sobre el proyecto · Actividades · Impacto · Footer
- *
- *  Tip de texto: dentro de los párrafos puedes resaltar palabras
- *  con **dobles asteriscos** y se pintarán del color del proyecto.
- * ============================================================
- */
 const proyecto = {
-  nombre: "Sembrando Sonrisas",
-  // Logo de Proyectos San Marcos (header + footer)
+  nombre: "Sanamente",
   logoPSM:
     "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo-white.png",
-  // Logo redondo propio del proyecto
-  logo: "https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg",
+  logo: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/79348089-e37d-4066-a6e6-c35bd28c73ef.webp",
 
   // ── Intro ──
   intro:
-    "En **Sembrando Sonrisas** logramos llevar **esperanza y sonrisas** a muchas comunidades, especialmente en **zonas rurales** como **Ayacucho**, donde entregamos canastas de víveres, **regalos** y compartimos momentos de alegría con más de **50 familias y 150 niños**. 🎁❤️",
-  introFoto: "",
+    "En **Sanamente** trabajamos por el **bienestar emocional** de los jóvenes, creando espacios de **escucha**, **diálogo** y reflexión. Promovemos la **inteligencia emocional** y reducimos el estigma de la **salud mental** en colegios y comunidades.",
+  introFoto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/94df369e-db3b-4b1f-8f73-140f8bd469a3.webp",
 
-  // ── Sobre el proyecto (filas alternadas texto / foto redonda) ──
+  // ── Sobre el proyecto ──
   sobre: [
     {
       texto:
-        "**Sembrando Sonrisas** nace con el propósito de **brindar** un momento especial a **niños y familias** de comunidades rurales que muchas veces tienen **acceso limitado** a recursos.",
-      foto: "",
+        "**Sanamente** nace como respuesta a una realidad urgente: durante el 2023, más de **280,000 casos de depresión** fueron atendidos en el Perú y la **ansiedad** sigue siendo uno de los trastornos más comunes entre **jóvenes**. Por eso apostamos por la **prevención** y la **educación emocional**.",
+      foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/23fc0f62-69a4-4c5a-8792-e17772f5ba0b.webp",
     },
     {
       texto:
-        "Cada año **Sembrando Sonrisas** organiza campañas **solidarias** para recolectar **donaciones** y preparar una jornada navideña llena de **actividades**, juegos y **sorpresas** para los niños.",
-      foto: "",
+        "A través de **charlas**, **talleres** y dinámicas vivenciales, llevamos herramientas prácticas a **jóvenes** para que puedan gestionar sus emociones, conocerse mejor y tomar **decisiones** con mayor claridad y **propósito**.",
+      foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/a9e99f61-9234-49d7-8c77-0a3e27be5ff0.webp",
     },
   ],
 
-  // ── Actividades que realizamos, organizadas por edición/año ──
-  // El `texto` se muestra como leyenda sobre la foto.
-  // `size` arma el mosaico: "wide" (2 col), "tall" (2 filas) o "" (1x1).
+  // ── Actividades organizadas por edición/año ──
   actividades: {
+    "2023": [
+      { texto: "**Charlas informativas** para rendir una prueba.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/c565be4e-e717-4513-bd7c-128d65867e33.webp", size: "wide" },
+      { texto: "**Preparación 360** para el examen de admisión.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/9feacf66-1e44-4caa-bd15-56b548232ad0.webp", size: "" },
+      { texto: "Dinámica **grupal** con los participantes.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/223062e4-c4a9-4dc2-b855-a13f391daf3d.webp", size: "" },
+      { texto: "Charla sobre **salud mental** y psicología.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/313cfa45-9688-4305-864e-31d8d5da802a.webp", size: "wide" },
+    ],
     "2024": [
-      { texto: "Entrega de **juguetes** y **regalos** para los **niños**.", foto: "", size: "wide" },
-      { texto: "Compartir de **chocolate** caliente y **panetón**.", foto: "", size: "" },
-      { texto: "Juegos y **dinámicas** recreativas.", foto: "", size: "tall" },
-      { texto: "Entrega de ropa o **víveres** para las **familias**.", foto: "", size: "" },
-      { texto: "**Actividades** de integración con la **comunidad**.", foto: "", size: "wide" },
+      { texto: "**PsiqueaFest 2024** jornada de bienestar emocional en la **UNMSM**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/b58ad482-4504-4d40-ab1a-dfaa4181586a.webp", size: "wide" },
+      { texto: "Dinámicas **lúdicas** e interactivas con los asistentes.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/53803714-db73-49c6-bf20-ab9d129b9546.webp", size: "" },
+      { texto: "Dinámica de **autoconocimiento emocional**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/0ced7ed9-eddf-495f-84f0-42b3cffef791.webp", size: "tall" },
+      { texto: "Charlas de **salud mental** en el PsiqueaFest.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/53b6c830-ebee-4841-b7fc-84e80c1c65c9.webp", size: "" },
+      { texto: "Actividad creativa de **expresión emocional**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/3b56693f-01ef-4117-8732-9192760e0503.webp", size: "wide" },
     ],
     "2025": [
-      { texto: "Edición **2025** — actividad destacada.", foto: "", size: "wide" },
-      { texto: "Edición **2025** — actividad.", foto: "", size: "" },
-      { texto: "Edición **2025** — actividad.", foto: "", size: "" },
-      { texto: "Edición **2025** — actividad.", foto: "", size: "tall" },
-    ],
-    "2026": [
-      { texto: "Edición **2026** — actividad destacada.", foto: "", size: "wide" },
-      { texto: "Edición **2026** — actividad.", foto: "", size: "" },
-      { texto: "Edición **2026** — actividad.", foto: "", size: "" },
+      { texto: "**PsiqueaFest 2025** en la I.E. N.° 0013 Bernardo O'Higgins.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/4cdde1e4-1438-47b3-9dbd-4f1ba9640fcf.webp", size: "wide" },
+      { texto: "Participantes del **PsiqueaFest 2025**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/b1178b58-dfa0-402f-855d-7fc2bae3f796.webp", size: "tall" },
+      { texto: "Dinámica de **identificación emocional**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/67b650fe-fdcf-4a0b-a322-81ea18b9b56d.webp", size: "" },
+      { texto: "Espacios de **escucha y diálogo** con los estudiantes.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/56ad3dc4-5120-480e-978c-f96158170e2f.webp", size: "" },
+      { texto: "Dinámicas de **escucha** y reflexión grupal.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/d27fd842-bc86-4cbe-8d82-584e62b986d0.webp", size: "wide" },
     ],
   },
 
   // ── Impacto del proyecto ──
   impacto: {
     texto:
-      "**Sembrando Sonrisas** permite llevar momentos de felicidad a **comunidades rurales** y fortalecer el **compromiso** social con la comunidad. Cada año se busca **beneficiar** a más **niños** y **familias**, sembrando esperanza y **alegría** en cada visita.",
-    foto: "",
+      "**Sanamente** busca transformar la forma en que los jóvenes entienden y cuidan su **salud mental**. Con cada edición, más estudiantes acceden a herramientas para **gestionar sus emociones**, fortalecer su **orientación vocacional** y construir un **futuro** consciente y saludable.",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/1d61c09d-8a0d-487f-8007-e32055cc988a.webp",
     cifras: [
-      { num: "50+", label: "Familias beneficiadas por el proyecto" },
-      { num: "150+", label: "Niños beneficiados por el proyecto" },
+      { num: "94+", label: "Asistentes en el 14° Aniversario PSM 2025" },
+      { num: "3+", label: "Ediciones realizadas (2023–2025)" },
     ],
   },
 
@@ -156,7 +139,7 @@ const Sanamente = () => {
           <div className="proj-intro__card">
             <p>{renderRich(intro)}</p>
           </div>
-          <Foto src={introFoto} alt="Sembrando Sonrisas" shape="rect" />
+          <Foto src={introFoto} alt="Sanamente" shape="rect" />
         </div>
       </section>
 
