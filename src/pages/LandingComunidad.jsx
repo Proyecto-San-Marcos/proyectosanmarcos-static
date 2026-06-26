@@ -9,16 +9,17 @@ import "./LandingComunidad.css";
 const testimonios = [
   {
     id: 1,
-    nombre: "Valeria Mogrovejo",
-    cargo: "Subgerenta de Talento Humano (2025-2026)",
-    quote: "Proyectos San Marcos es más que una familia, viví mis mejores momentos aquí.",
+    nombre: "William Choquecahua",
+    cargo: "Gerente Finanzas (2023-2024)",
+    quote: "Me siento muy feliz de haber formado parte de esta familia.",
     foto: "",
     stats: [
-      { num: "4", label: "Proyectos participados" },
-      { num: "3", label: "Años de contribución" },
+      { num: "3", label: "Proyectos participados" },
+      { num: "4", label: "Años de contribución" },
       { num: "1", label: "Dirección de Proyecto" },
     ],
-    videoUrl: "",
+    videoUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/sign/video/WhatsApp%20Video%202026-06-26%20at%2011.43.32.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZTM3NGQ4MS1lMzY2LTQwZDctYTM2MC0xNWQxZThjMDQ5MGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9XaGF0c0FwcCBWaWRlbyAyMDI2LTA2LTI2IGF0IDExLjQzLjMyLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODI0OTY0NDMsImV4cCI6MTgxNDAzMjQ0M30.7eeESDWylYZg3wrqlce9uRzLJkql5sMsTjZIlj0a8rI",
+  
   },
   {
     id: 2,
