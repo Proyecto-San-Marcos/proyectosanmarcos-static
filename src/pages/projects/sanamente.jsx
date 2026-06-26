@@ -44,7 +44,7 @@ const proyecto = {
     ],
     "2025": [
       { texto: "**PsiqueaFest 2025** en la I.E. N.° 0013 Bernardo O'Higgins.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/4cdde1e4-1438-47b3-9dbd-4f1ba9640fcf.webp", size: "wide" },
-      { texto: "Participantes del **PsiqueaFest 2025**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/b1178b58-dfa0-402f-855d-7fc2bae3f796.webp", size: "tall" },
+      { texto: "Jóvenes del **PsiqueaFest 2025**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/b1178b58-dfa0-402f-855d-7fc2bae3f796.webp", size: "tall" },
       { texto: "Dinámica de **identificación emocional**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/67b650fe-fdcf-4a0b-a322-81ea18b9b56d.webp", size: "" },
       { texto: "Espacios de **escucha y diálogo** con los estudiantes.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/56ad3dc4-5120-480e-978c-f96158170e2f.webp", size: "" },
       { texto: "Dinámicas de **escucha** y reflexión grupal.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/d27fd842-bc86-4cbe-8d82-584e62b986d0.webp", size: "wide" },
@@ -57,8 +57,8 @@ const proyecto = {
       "**Sanamente** busca transformar la forma en que los jóvenes entienden y cuidan su **salud mental**. Con cada edición, más estudiantes acceden a herramientas para **gestionar sus emociones**, fortalecer su **orientación vocacional** y construir un **futuro** consciente y saludable.",
     foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sanamente/1d61c09d-8a0d-487f-8007-e32055cc988a.webp",
     cifras: [
-      { num: "94+", label: "Asistentes en el 14° Aniversario PSM 2025" },
-      { num: "3+", label: "Ediciones realizadas (2023–2025)" },
+      { num: "94+", label: "Jóvenes beneficiados por el proyecto" },
+      { num: "3", label: "Ediciones realizadas (2023–2025)" },
     ],
   },
 
