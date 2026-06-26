@@ -11,8 +11,8 @@ const testimonios = [
     id: 1,
     nombre: "William Choquecahua",
     cargo: "Gerente Finanzas (2023-2024)",
-    quote: "Me siento muy feliz de haber formado parte de esta familia.",
-    foto: "",
+    quote: "Me siento muy agradecido de haber formado parte de esta familia.",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/WlliamChoquecahua.jpeg",
     stats: [
       { num: "3", label: "Proyectos participados" },
       { num: "4", label: "Años de contribución" },
@@ -23,16 +23,16 @@ const testimonios = [
   },
   {
     id: 2,
-    nombre: "Carlos Mendoza",
-    cargo: "Ex Gerente de PMO (2023-2024)",
-    quote: "Aquí aprendí a liderar proyectos reales con impacto social, algo que ninguna aula puede enseñarte.",
-    foto: "",
+    nombre: "Jhosep Pariona",
+    cargo: "Presidente(2023-2024)",
+    quote: "Es un voluntariado que me ayudó muchísimo profesionalmente",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/JhosepPariona.jpeg",
     stats: [
-      { num: "6", label: "Proyectos participados" },
-      { num: "2", label: "Años de contribución" },
-      { num: "2", label: "Dirección de Proyecto" },
+      { num: "9", label: "Proyectos participados" },
+      { num: "6", label: "Años de contribución" },
+      { num: "1", label: "Dirección de Proyecto" },
     ],
-    videoUrl: "",
+    videoUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/sign/video/WhatsApp%20Video%202026-06-26%20at%2017.05.24.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZTM3NGQ4MS1lMzY2LTQwZDctYTM2MC0xNWQxZThjMDQ5MGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9XaGF0c0FwcCBWaWRlbyAyMDI2LTA2LTI2IGF0IDE3LjA1LjI0Lm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODI1MTIwMTgsImV4cCI6MTgxNDA0ODAxOH0.KPHXMglMXcRB6EzKmtv3UAtbBPW24_L3nOQ8E9Zs8NU",
   },
   {
     id: 3,
@@ -127,6 +127,7 @@ function Avatar({ nombre, foto, size }) {
 function VideoPlayer({ videoUrl, nombre }) {
   const firstName = nombre.split(" ")[0];
   return (
+  
     <div className="comunidad-video">
       {videoUrl ? (
         <video src={videoUrl} controls style={{ width: "100%", height: "100%", objectFit: "cover" }} />
