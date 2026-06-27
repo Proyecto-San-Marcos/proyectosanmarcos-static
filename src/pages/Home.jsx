@@ -17,7 +17,8 @@ import {
   BarChart3, Star, Handshake, GraduationCap, Sprout,
   FolderOpen, MessageCircle, Quote,
   Target, Eye, Flag, Network,
-  Globe, Facebook, Instagram, Linkedin
+  Globe, Facebook, Instagram, Linkedin,
+  ArrowDown
 } from "lucide-react";
 import Footer from "../components/Footer";
 import CardProject from "../components/CardProject";
@@ -33,6 +34,7 @@ const Home = () => {
   const heroRef = useRef(null);
   const statsRef = useRef(null);
   const [statsRefInView] = useInView({ threshold: 0.3, triggerOnce: true });
+  const [showAllMilestones, setShowAllMilestones] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true, easing: "ease-out" });
@@ -497,7 +499,7 @@ const Home = () => {
                 className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2"
                 style={{ background: "var(--psm-teal)", opacity: 0.3 }}
               />
-
+              {/* ── Hitos visibles ── */}
               <div className="space-y-12">
                 {[
                   {
@@ -582,9 +584,128 @@ const Home = () => {
                   </div>
                 ))}
               </div>
+              {/* ── Hitos adicionales (colapsados por defecto) ── */}
+               {showAllMilestones && (
+                  <div className="space-y-12 mt-12">
+                    {[
+                      {
+                    year: "2021",
+                    side: "right",
+                    title: "Capacitación PMI y SQL",
+                    desc: "Se ejecutaron 4 capacitaciones al público externo en PMI, SQL y entre otros",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/CapacitacionPMIySQL.jpeg",
+                  },
+                  {
+                    year: "2024",
+                    side: "left",
+                    title: "Proyectos Sociales",
+                    desc: "Se ejecutaron 6 proyectos de impacto social",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectossociales.jpg",
+                  },
+                  {
+                    year: "2025",
+                    side: "right",
+                    title: "Mejora Continua",
+                    desc: "Se llevaron a cabo 2 proyectos de mejora interna(crecimiento lineal)",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/mejorc.jpeg",
+                  },
+                  {
+                    year: "2026",
+                    side: "left",
+                    title: "Nueva área",
+                    desc: "Se creó la nueva área de Tecnología y Optimización Digital",
+                    image: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/tecnologia.png",
+                  }, 
+                ].map(({ year, side, title, desc, image }, i) => (
+                  <div
+                    key={year}
+                    className={`flex flex-col md:flex-row items-center gap-8 ${side === "left" ? "md:flex-row-reverse" : ""
+                      }`}
+                    data-aos={side === "left" ? "fade-right" : "fade-left"}
+                    data-aos-delay={i * 100}
+                  >
+                    {/* Imagen */}
+                    <div className="w-full md:w-5/12">
+                      <div
+                        className="rounded-2xl overflow-hidden"
+                        style={{ border: "2px solid var(--psm-gray-mid)", boxShadow: "var(--psm-shadow-card)" }}
+                      >
+                        <img src={image} alt={title} className="w-full h-56 object-cover" />
+                      </div>
+                    </div>
+
+                    {/* Nodo central */}
+                    <div className="hidden md:flex w-2/12 justify-center">
+                      <div
+                        className="flex items-center justify-center rounded-full text-white font-bold text-sm z-10"
+                        style={{
+                          width: 56, height: 56,
+                          background: "var(--psm-teal)",
+                          fontFamily: "var(--psm-font-heading)",
+                          fontSize: "0.8rem",
+                          letterSpacing: "0.05em",
+                          boxShadow: "0 0 0 4px white, 0 0 0 6px var(--psm-teal)",
+                        }}
+                      >
+                        {year}
+                      </div>
+                    </div>
+
+                    {/* Texto */}
+                    <div className="w-full md:w-5/12">
+                      {/* Año visible solo en móvil */}
+                      <span
+                        className="md:hidden inline-block mb-2 px-3 py-1 rounded-full text-xs font-bold"
+                        style={{ background: "var(--psm-teal)", color: "white", fontFamily: "var(--psm-font-heading)" }}
+                      >
+                        {year}
+                      </span>
+                      <h3 className="psm-heading text-2xl mb-3" style={{ color: "var(--psm-navy-mid)" }}>
+                        {title}
+                      </h3>
+                      <p className="leading-relaxed" style={{ color: "var(--psm-text-body)" }}>
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+
+                ))} 
+                </div>
+                  )}
+                  {/* ── Botón Ver más / Ver menos ── */}
+                  <div className="flex justify-center mt-10">
+                    <button
+                        onClick={() => setShowAllMilestones((v) => !v)}
+                        className="psm-btn-outline2"
+                        style={{ 
+                          background: "var(--psm-teal)", 
+                          color: "white", 
+                          borderColor: "var(--psm-teal)" 
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "var(--psm-teal)";
+                          e.currentTarget.style.color = "white";
+                          e.currentTarget.style.borderColor = "var(--psm-teal)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = "var(--psm-teal)";
+                          e.currentTarget.style.color = "white";
+                          e.currentTarget.style.borderColor = "var(--psm-teal)";
+                        }}
+                      >
+                        {showAllMilestones ? "Ver menos" : "Ver más"}
+                        <ArrowDown 
+                          size={20} 
+                          style={{ 
+                            transform: showAllMilestones ? "rotate(180deg)" : "rotate(0deg)", 
+                            transition: "transform 0.2s" 
+                          }} 
+                        />
+                      </button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
 
 

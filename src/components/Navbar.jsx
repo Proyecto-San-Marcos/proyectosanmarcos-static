@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: "Proyectos", link: "#projects" },
     { name: "Impacto", link: "#impact" },
     { name: "Presencia", link: "#presencia" },
+    {name: "Comunidad", link:"/comunidad"},
   ], []);
 
   // — Dropdown “Nosotros” — agrupa las secciones institucionales
