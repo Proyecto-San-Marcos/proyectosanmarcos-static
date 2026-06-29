@@ -230,7 +230,7 @@ const CuatroPatas = () => {
   const actsDelAnio = actividades[anioActivo] ?? [];
 
   return (
-    <main className="proj-page">
+    <main className="proj-page cuatro-patas">
       {/* ===================== HEADER ===================== */}
       <header className="proj-topbar">
         <div className="proj-container proj-topbar__inner">

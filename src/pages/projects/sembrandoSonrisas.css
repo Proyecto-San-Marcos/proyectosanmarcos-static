@@ -15,7 +15,7 @@
  */
 
 /* ── TEMA DEL PROYECTO (lo único que cambia entre proyectos) ── */
-.proj-page {
+.proj-page.sembrando-sonrisas {
   /* Sembrando Sonrisas: rojo navideño + crema + dorado */
   --p-primary: #e1283a;
   --p-primary-dark: #b51f2e;
@@ -32,7 +32,6 @@
   font-family: var(--psm-font-body, "Montserrat", system-ui, sans-serif);
   color: var(--p-body);
   background: var(--p-bg);
-  overflow-x: hidden;
 }
 
 .proj-container {

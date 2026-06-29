@@ -138,7 +138,7 @@ const SembrandoSonrisas = () => {
   const actsDelAnio = actividades[anioActivo] ?? [];
 
   return (
-    <main className="proj-page">
+    <main className="proj-page sembrando-sonrisas">
       {/* ===================== HEADER ===================== */}
       <header className="proj-topbar">
         <div className="proj-container proj-topbar__inner">

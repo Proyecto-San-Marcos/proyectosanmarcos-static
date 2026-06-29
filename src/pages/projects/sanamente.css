@@ -6,7 +6,7 @@
  */
 
 /* ── TEMA DEL PROYECTO ── */
-.proj-page {
+.proj-page.sanamente {
   /* Sanamente: magenta/rosa vibrante + cian azul */
   --p-primary: #D81B8C;
   --p-primary-dark: #A8146B;
@@ -23,7 +23,6 @@
   font-family: var(--psm-font-body, "Montserrat", system-ui, sans-serif);
   color: var(--p-body);
   background: var(--p-bg);
-  overflow-x: hidden;
 }
 
 .proj-container {
@@ -93,6 +92,9 @@
 .proj-topbar {
   background: var(--p-primary);
   color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .proj-topbar__inner {
