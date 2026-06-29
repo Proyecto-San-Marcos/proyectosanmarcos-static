@@ -11,8 +11,13 @@ const Navbar = () => {
   const [areasOpenDesktop, setAreasOpenDesktop] = useState(false);
   const [areasOpenMobile, setAreasOpenMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   const dropdownRef = useRef(null);
+  const lastScrollY = useRef(0);
+
+  // Determina si en esta ruta se debe esconder al hacer scroll down
+  const debeEsconderse = location.pathname.startsWith("/proyectos");
 
   const listItems = useMemo(() => [
     { name: "Inicio", link: "/" },
@@ -36,12 +41,31 @@ const Navbar = () => {
     setAreasOpenMobile(false);
   };
 
-  // Sombra al hacer scroll
+  // Sombra al hacer scroll y esconder navbar
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 8);
+
+      if (debeEsconderse) {
+        // Esconder si bajamos y pasamos de 60px
+        if (currentScrollY > lastScrollY.current && currentScrollY > 60) {
+          setIsHidden(true);
+        } else {
+          // Mostrar si subimos
+          setIsHidden(false);
+        }
+      } else {
+        // En otras rutas siempre visible
+        setIsHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+    
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [debeEsconderse]);
 
   // Cerrar dropdown desktop con click afuera / ESC
   useEffect(() => {
@@ -104,8 +128,9 @@ const Navbar = () => {
         borderBottom: scrolled
           ? "2px solid var(--psm-teal)"
           : "1px solid var(--psm-gray-mid)",
-        transition: "border-color 0.3s, box-shadow 0.3s",
+        transition: "transform 0.3s ease-in-out, border-color 0.3s, box-shadow 0.3s",
         boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.08)" : "none",
+        transform: isHidden ? "translateY(-100%)" : "translateY(0)",
       }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
