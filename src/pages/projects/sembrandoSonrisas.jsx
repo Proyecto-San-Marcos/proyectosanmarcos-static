@@ -72,7 +72,7 @@ const proyecto = {
   impacto: {
     texto:
       "**Sembrando Sonrisas** permite llevar momentos de felicidad a **comunidades rurales** y fortalecer el **compromiso** social con la comunidad. Cada año se busca **beneficiar** a más **niños** y **familias**, sembrando esperanza y **alegría** en cada visita.",
-    foto: "",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/eb18766b-3461-4fec-b16f-bff30a7a5431.webp",
     cifras: [
       { num: "50+", label: "Familias beneficiadas por el proyecto" },
       { num: "150+", label: "Niños beneficiados por el proyecto" },
