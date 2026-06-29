@@ -1,19 +1,21 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { Eye } from "lucide-react";
-import Modal from "./Modal";
+import { useNavigate } from "react-router-dom";
 
-const CardProject = ({ imageUrl, title, description, className = "", color = "#FFFFFF" }) => {
-  const [open, setOpen] = useState(false);
+const CardProject = ({ imageUrl, title, description, link, className = "", color = "#FFFFFF" }) => {
   const [hovered, setHovered] = useState(false);
-  const handleOpen = useCallback(() => setOpen(true), []);
-  const handleClose = useCallback(() => setOpen(false), []);
+  const navigate = useNavigate();
+  
+  const handleClick = () => {
+    if (link) navigate(link);
+  };
 
   return (
     <>
       {/* ── Card ── */}
       <div
         className={`card-project ${className}`}
-        onClick={handleOpen}
+        onClick={handleClick}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{ cursor: "pointer", position: "relative", borderRadius: "0.75rem", overflow: "hidden", boxShadow: "var(--psm-shadow-card)", transition: "box-shadow 0.3s", boxShadow: hovered ? "0 12px 40px rgba(0,180,216,0.25)" : "var(--psm-shadow-card)" }}
@@ -93,18 +95,6 @@ const CardProject = ({ imageUrl, title, description, className = "", color = "#F
         </div>
       </div>
 
-      {/* ── Modal ── */}
-      {open && (
-        <Modal
-          onClose={handleClose}
-          label={title}
-          imageUrl={imageUrl}
-          imageAlt={title}
-        >
-          <h2 className="card-modal__title">{title}</h2>
-          <p className="card-modal__desc">{description}</p>
-        </Modal>
-      )}
     </>
   );
 };

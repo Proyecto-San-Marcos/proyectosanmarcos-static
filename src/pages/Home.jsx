@@ -787,30 +787,35 @@ const Home = () => {
                   title: "Rescatando Playas",
                   color: "#4158b5",
                   description: "En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️",
+                  link: "/proyectos/rescatando-playas"
                 },
                 {
                   imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sembrandosonrisas.jpg",
                   title: "Sembrando Sonrisas",
                   color: "#f1162e",
                   description: "En 𝗦𝗲𝗺𝗯𝗿𝗮𝗻𝗱𝗼 𝗦𝗼𝗻𝗿𝗶𝘀𝗮𝘀 logramos llevar esperanza y sonrisas a muchas comunidades, especialmente en zonas rurales como Ayacucho, donde entregamos canastas de víveres, regalos y compartimos momentos de alegría con más de 50 familias y 150 niños. 🎁💖",
+                  link: "/proyectos/sembrando-sonrisas"
                 },
                 {
                   imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_4patas.jpg",
                   title: "4 Patas",
                   color: "#ffbd54",
                   description: "En 4 PATAS llevamos alimento, esterilizaciones y educación comunitaria a barrios de escasos recursos para mejorar el bienestar de perros y gatos en situación vulnerable. 🥣🐶🐱 Con más de 40 animales esterilizados y decenas de hogares empoderados.",
+                  link: "/proyectos/cuatro-patas"
                 },
                 {
                   imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sanamente.jpg",
                   title: "Sanamente",
                   color: "#f44d95",
                   description: "Durante el 2023, más de 280,000 casos de depresión fueron atendidos. En 𝙎𝙖𝙣𝙖𝙢𝙚𝙣𝙩𝙚, nuestra misión es apoyar el bienestar emocional de los jóvenes, promoviendo la inteligencia emocional y reduciendo el estigma de la salud mental.",
+                  link: "/proyectos/sanamente"
                 },
                 {
                   imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_poni.jpg",
                   title: "PONI",
                   color: "#1b395d",
                   description: "PONI capacita a los nuevos ingresantes de PSM en la gestión de proyectos y en la integración efectiva dentro de la organización. 💙🌱 Ha logrado capacitar a 36 nuevos ingresantes, quienes presentaron propuestas innovadoras alineadas con los ODS. 🌍✨",
+                  link: "/proyectos/poni"
                 },
               ].map((project, i) => (
                 <div
@@ -824,6 +829,7 @@ const Home = () => {
                     title={project.title}
                     description={project.description}
                     color={project.color}
+                    link={project.link}
                     className="h-full"
                   />
                 </div>
