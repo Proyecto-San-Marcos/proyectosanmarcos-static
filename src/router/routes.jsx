@@ -8,6 +8,7 @@ import LandingReclutamiento from "../pages/LandingReclutamiento";
 import SembrandoSonrisas from "../pages/projects/sembrandoSonrisas";
 import LandingComunidad from "../pages/LandingComunidad";
 import Sanamente from "../pages/projects/sanamente";
+import CuatroPatas from "../pages/projects/cuatroPatas";
 
 
 const AppRoutes = () => {
@@ -22,6 +23,7 @@ const AppRoutes = () => {
       <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento />} />
       <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas />} />
       <Route path="/proyectos/sanamente" element={<Sanamente />} />
+      <Route path="/proyectos/cuatro-patas" element={<CuatroPatas/>} />
       <Route path="/comunidad" element={<LandingComunidad />} />
     </Routes>
   );

@@ -49,7 +49,7 @@ const proyecto = {
   // `size` arma el mosaico: "wide" (2 col), "tall" (2 filas) o "" (1x1).
   actividades: {
     "2024": [
-      { texto: "Entrega de **juguetes** y **regalos** para los **niños**.", foto: "", size: "wide" },
+      { texto: "Entrega de **juguetes** y **regalos** para los **niños**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/sembrando_sonrisas.jpeg", size: "wide" },
       { texto: "Compartir de **chocolate** caliente y **panetón**.", foto: "", size: "" },
       { texto: "Juegos y **dinámicas** recreativas.", foto: "", size: "tall" },
       { texto: "Entrega de ropa o **víveres** para las **familias**.", foto: "", size: "" },

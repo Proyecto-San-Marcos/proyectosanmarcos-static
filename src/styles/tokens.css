@@ -173,6 +173,22 @@
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
 }
+.psm-btn-outline2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--psm-navy-mid);
+    color: var(--psm-white);
+    font-family: var(--psm-font-body);
+    font-weight: 700;
+    font-size: 15px;
+    border: 2px solid var(--psm-teal);
+    border-radius: var(--psm-radius-pill);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
 
 .psm-btn-outline:hover {
     background: var(--psm-teal);
