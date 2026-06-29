@@ -26,7 +26,7 @@ const navLinks = [
 
 const areaLinks = [
   { href: "#organigrama", label: "Presidencia" },
-  { href: "#organigrama", label: "Gerencia de PMO" },
+  { href: "#organigrama", label: "PMO" },
   { href: "#organigrama", label: "Comunicaciones" },
   { href: "#organigrama", label: "Finanzas" },
   { href: "#organigrama", label: "Talento Humano" },
@@ -129,7 +129,7 @@ const Footer = () => (
               className="mb-5 text-xs font-semibold uppercase tracking-widest"
               style={{ color: "var(--psm-teal)", fontFamily: "var(--psm-font-heading)" }}
             >
-              Áreas
+              Gerencias
             </h3>
             <ul className="space-y-3">
               {areaLinks.map((l) => <NavItem key={l.href} {...l} />)}
