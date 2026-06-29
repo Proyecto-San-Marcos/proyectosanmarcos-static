@@ -7,6 +7,7 @@ import LandingControl from "../pages/LandingControl";
 import LandingReclutamiento from "../pages/LandingReclutamiento";
 import SembrandoSonrisas from "../pages/projects/sembrandoSonrisas";
 import LandingComunidad from "../pages/LandingComunidad";
+import Sanamente from "../pages/projects/sanamente";
 
 
 const AppRoutes = () => {
@@ -15,11 +16,12 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="*" element={<div>404 Not Found</div>} />
-      <Route path="/talento-humano/capacitaciones" element={<LandingCapacitaciones/>} />
-      <Route path="/talento-humano/clima" element={<LandingClima/>} />
-      <Route path="/talento-humano/control" element={<LandingControl/>} />
-      <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento/>} />
-      <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas/>} />
+      <Route path="/talento-humano/capacitaciones" element={<LandingCapacitaciones />} />
+      <Route path="/talento-humano/clima" element={<LandingClima />} />
+      <Route path="/talento-humano/control" element={<LandingControl />} />
+      <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento />} />
+      <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas />} />
+      <Route path="/proyectos/sanamente" element={<Sanamente />} />
       <Route path="/comunidad" element={<LandingComunidad />} />
     </Routes>
   );
