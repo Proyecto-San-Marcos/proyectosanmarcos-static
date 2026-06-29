@@ -10,6 +10,7 @@ import SembrandoSonrisas from "../pages/projects/sembrandoSonrisas";
 import LandingComunidad from "../pages/LandingComunidad";
 import Sanamente from "../pages/projects/sanamente";
 import CuatroPatas from "../pages/projects/cuatroPatas";
+import Poni from "../pages/projects/poni";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ const AppRoutes = () => {
         <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas />} />
         <Route path="/proyectos/sanamente" element={<Sanamente />} />
         <Route path="/proyectos/cuatro-patas" element={<CuatroPatas />} />
+        <Route path="/proyectos/poni" element={<Poni/>} />
         <Route path="/comunidad" element={<LandingComunidad />} />
       </Routes>
     </>
