@@ -21,7 +21,7 @@ const proyecto = {
   nombre: "Sembrando Sonrisas",
   // Logo de Proyectos San Marcos (header + footer)
   logoPSM:
-    "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/1ef01d38-8916-4cf3-af98-627e17027fa2.webp",
+    "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo-white.png",
   // Logo redondo propio del proyecto
   logo: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/eabf734f-75df-4ada-9d3a-e646414113d1.webp",
 
@@ -208,9 +208,8 @@ const SembrandoSonrisas = () => {
             {actsDelAnio.map((a, i) => (
               <figure
                 key={i}
-                className={`proj-tile ${a.size === "wide" ? "proj-tile--wide" : ""} ${
-                  a.size === "tall" ? "proj-tile--tall" : ""
-                }`}
+                className={`proj-tile ${a.size === "wide" ? "proj-tile--wide" : ""} ${a.size === "tall" ? "proj-tile--tall" : ""
+                  }`}
               >
                 {a.foto ? (
                   <img src={a.foto} alt={a.texto.replace(/\*\*/g, "")} loading="lazy" />
