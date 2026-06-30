@@ -60,12 +60,7 @@ const proyecto = {
       { texto: "Edición **2025** — Compartir de **chocolate** caliente y **panetón**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/674c27ad-5364-4fce-b7aa-08e2e182c78d.webp", size: "" },
       { texto: "Edición **2025** — Juegos y **dinámicas** recreativas.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/c8ee16ec-81be-4192-b33e-8434ac9602b6.webp", size: "" },
       { texto: "Edición **2025** — Entrega de ropa o **víveres** para las **familias**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/888ccb02-5b2a-49da-901e-dabe28a6f865.webp", size: "tall" },
-    ],
-    "2026": [
-      { texto: "Edición **2026** — actividad destacada.", foto: "", size: "wide" },
-      { texto: "Edición **2026** — actividad.", foto: "", size: "" },
-      { texto: "Edición **2026** — actividad.", foto: "", size: "" },
-    ],
+    ]
   },
 
   // ── Impacto del proyecto ──
