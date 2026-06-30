@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { ArrowLeft, Users, Image as ImageIcon, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Users, Image as ImageIcon, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import ProjectTopbar from "../../components/ProjectTopbar";
+import ProjectFooter from "../../components/ProjectFooter";
 import "./poni.css";
 
 /**
@@ -238,12 +239,6 @@ const Foto = ({ src, alt = "", shape = "rect" }) => (
   </div>
 );
 
-const TikTokIcon = ({ size = 18 }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size}>
-    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z" />
-  </svg>
-);
-
 const Poni = () => {
   const { intro, introFoto, sobre, actividades, impacto, footer } = proyecto;
   const anios = Object.keys(actividades);
@@ -254,29 +249,12 @@ const Poni = () => {
     <main className="proj-page poni">
 
       {/* ===================== HEADER ===================== */}
-      <header className="proj-topbar">
-        <div className="proj-container proj-topbar__inner">
-          <Link to="/" className="proj-topbar__back">
-            <span className="proj-topbar__back-circle">
-              <ArrowLeft size={20} />
-            </span>
-            <img
-              className="proj-topbar__psm"
-              src={proyecto.logoPSM}
-              alt="Proyectos San Marcos"
-            />
-          </Link>
-          <div style={{ textAlign: "center" }}>
-            <h1 className="proj-topbar__title">{proyecto.nombre}</h1>
-            <span className="proj-topbar__badge">
-              Programa de Orientación para Nuevos Integrantes
-            </span>
-          </div>
-          <div className="proj-topbar__logo">
-            <img src={proyecto.logo} alt={`Logo ${proyecto.nombre}`} />
-          </div>
-        </div>
-      </header>
+      <ProjectTopbar
+        nombre={proyecto.nombre}
+        logo={proyecto.logo}
+        logoPSM={proyecto.logoPSM}
+        badge="Programa de Orientación para Nuevos Integrantes"
+      />
 
       {/* ===================== INTRO ===================== */}
       <section id="inicio" className="proj-section proj-dotted">
@@ -383,6 +361,7 @@ const Poni = () => {
         </div>
       </section>
 
+      <ProjectFooter footer={footer} logoPSM={proyecto.logoPSM} />
     </main>
   );
 };
