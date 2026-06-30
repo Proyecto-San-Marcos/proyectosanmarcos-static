@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Target, Image as ImageIcon, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { ArrowLeft, Target, Image as ImageIcon, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 import "./sanamente.css";
 
 const proyecto = {
@@ -125,7 +126,12 @@ const Sanamente = () => {
       {/* ===================== HEADER ===================== */}
       <header className="proj-topbar">
         <div className="proj-container proj-topbar__inner">
-          <img className="proj-topbar__psm" src={proyecto.logoPSM} alt="Proyectos San Marcos" />
+          <Link to="/" className="proj-topbar__back">
+            <span className="proj-topbar__back-circle">
+              <ArrowLeft size={20} />
+            </span>
+            <img className="proj-topbar__psm" src={proyecto.logoPSM} alt="Proyectos San Marcos" />
+          </Link>
           <h1 className="proj-topbar__title">{proyecto.nombre}</h1>
           <div className="proj-topbar__logo">
             <img src={proyecto.logo} alt={`Logo ${proyecto.nombre}`} />

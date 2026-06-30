@@ -88,6 +88,10 @@ const Navbar = () => {
     return () => (document.body.style.overflow = "");
   }, [mobileOpen]);
 
+  if (location.pathname.startsWith("/proyectos")) {
+    return null;
+  }
+
   const scrollToHash = (hash) => {
     const el = document.querySelector(hash);
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
