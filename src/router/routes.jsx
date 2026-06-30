@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import LandingCapacitaciones from "../pages/LandingCapacitaciones";
@@ -23,23 +24,27 @@ const ScrollToTop = () => {
 };
 
 const AppRoutes = () => {
+  const location = useLocation();
+
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<div>404 Not Found</div>} />
-        <Route path="/talento-humano/capacitaciones" element={<LandingCapacitaciones />} />
-        <Route path="/talento-humano/clima" element={<LandingClima />} />
-        <Route path="/talento-humano/control" element={<LandingControl />} />
-        <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento />} />
-        <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas />} />
-        <Route path="/proyectos/sanamente" element={<Sanamente />} />
-        <Route path="/proyectos/cuatro-patas" element={<CuatroPatas />} />
-        <Route path="/proyectos/poni" element={<PONI />} />
-        <Route path="/comunidad" element={<LandingComunidad />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<div>404 Not Found</div>} />
+          <Route path="/talento-humano/capacitaciones" element={<LandingCapacitaciones />} />
+          <Route path="/talento-humano/clima" element={<LandingClima />} />
+          <Route path="/talento-humano/control" element={<LandingControl />} />
+          <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento />} />
+          <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas />} />
+          <Route path="/proyectos/sanamente" element={<Sanamente />} />
+          <Route path="/proyectos/cuatro-patas" element={<CuatroPatas />} />
+          <Route path="/proyectos/poni" element={<PONI />} />
+          <Route path="/comunidad" element={<LandingComunidad />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 };

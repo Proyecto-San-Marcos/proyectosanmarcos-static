@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Users, Image as ImageIcon, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 import ProjectTopbar from "../../components/ProjectTopbar";
 import ProjectFooter from "../../components/ProjectFooter";
 import "./poni.css";
@@ -246,7 +247,13 @@ const Poni = () => {
   const actsDelAnio = actividades[anioActivo] ?? [];
 
   return (
-    <main className="proj-page poni">
+    <motion.main
+      className="proj-page poni"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
 
       {/* ===================== HEADER ===================== */}
       <ProjectTopbar
@@ -362,7 +369,7 @@ const Poni = () => {
       </section>
 
       <ProjectFooter footer={footer} logoPSM={proyecto.logoPSM} />
-    </main>
+    </motion.main>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Target, Image as ImageIcon, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 import ProjectTopbar from "../../components/ProjectTopbar";
 import ProjectFooter from "../../components/ProjectFooter";
 import "./sembrandoSonrisas.css";
@@ -129,7 +130,13 @@ const SembrandoSonrisas = () => {
   const actsDelAnio = actividades[anioActivo] ?? [];
 
   return (
-    <main className="proj-page sembrando-sonrisas">
+    <motion.main
+      className="proj-page sembrando-sonrisas"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    >
       <ProjectTopbar nombre={proyecto.nombre} logo={proyecto.logo} logoPSM={proyecto.logoPSM} />
 
       {/* ===================== INTRO ===================== */}
@@ -237,7 +244,7 @@ const SembrandoSonrisas = () => {
       </section>
 
       <ProjectFooter footer={footer} logoPSM={proyecto.logoPSM} />
-    </main>
+    </motion.main>
   );
 };
 
