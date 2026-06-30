@@ -21,26 +21,26 @@ const proyecto = {
   nombre: "Sembrando Sonrisas",
   // Logo de Proyectos San Marcos (header + footer)
   logoPSM:
-    "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/icons-psm//logo-white.png",
+    "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/1ef01d38-8916-4cf3-af98-627e17027fa2.webp",
   // Logo redondo propio del proyecto
-  logo: "https://shop.raceya.fit/wp-content/uploads/2020/11/logo-placeholder.jpg",
+  logo: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/eabf734f-75df-4ada-9d3a-e646414113d1.webp",
 
   // ── Intro ──
   intro:
     "En **Sembrando Sonrisas** logramos llevar **esperanza y sonrisas** a muchas comunidades, especialmente en **zonas rurales** como **Ayacucho**, donde entregamos canastas de víveres, **regalos** y compartimos momentos de alegría con más de **50 familias y 150 niños**. 🎁❤️",
-  introFoto: "",
+  introFoto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/674c27ad-5364-4fce-b7aa-08e2e182c78d.webp",
 
   // ── Sobre el proyecto (filas alternadas texto / foto redonda) ──
   sobre: [
     {
       texto:
         "**Sembrando Sonrisas** nace con el propósito de **brindar** un momento especial a **niños y familias** de comunidades rurales que muchas veces tienen **acceso limitado** a recursos.",
-      foto: "",
+      foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/17bea29d-d0c2-49ce-93f4-0533db2d3999.webp",
     },
     {
       texto:
         "Cada año **Sembrando Sonrisas** organiza campañas **solidarias** para recolectar **donaciones** y preparar una jornada navideña llena de **actividades**, juegos y **sorpresas** para los niños.",
-      foto: "",
+      foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/d84fa74b-faa9-4ce4-8eb1-a8b068f4edb3.webp",
     },
   ],
 
@@ -49,17 +49,17 @@ const proyecto = {
   // `size` arma el mosaico: "wide" (2 col), "tall" (2 filas) o "" (1x1).
   actividades: {
     "2024": [
-      { texto: "Entrega de **juguetes** y **regalos** para los **niños**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/sembrando_sonrisas.jpeg", size: "wide" },
-      { texto: "Compartir de **chocolate** caliente y **panetón**.", foto: "", size: "" },
-      { texto: "Juegos y **dinámicas** recreativas.", foto: "", size: "tall" },
-      { texto: "Entrega de ropa o **víveres** para las **familias**.", foto: "", size: "" },
-      { texto: "**Actividades** de integración con la **comunidad**.", foto: "", size: "wide" },
+      { texto: "Entrega de **juguetes** y **regalos** para los **niños**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/2a39981a-129c-47b1-bd70-dadb9beb237a.webp", size: "wide" },
+      { texto: "Compartir de **chocolate** caliente y **panetón**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/3ce8479a-3522-4030-8f0c-3ed99c5ea0c0.webp", size: "" },
+      { texto: "Juegos y **dinámicas** recreativas.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/fc537e71-1ab9-4640-b398-909498bd533e.webp", size: "tall" },
+      { texto: "Entrega de ropa o **víveres** para las **familias**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/5ad7eb02-058d-4db8-86df-86749da1dd00.webp", size: "" },
+      { texto: "**Actividades** de integración con la **comunidad**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/19cde529-a9fa-4826-b38a-2e7edcc0e903.webp", size: "wide" },
     ],
     "2025": [
-      { texto: "Edición **2025** — actividad destacada.", foto: "", size: "wide" },
-      { texto: "Edición **2025** — actividad.", foto: "", size: "" },
-      { texto: "Edición **2025** — actividad.", foto: "", size: "" },
-      { texto: "Edición **2025** — actividad.", foto: "", size: "tall" },
+      { texto: "Edición **2025** — Entrega de **juguetes** y **regalos** para los **niños**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/2185f334-9d91-43b0-af91-335363945d80.webp", size: "wide" },
+      { texto: "Edición **2025** — Compartir de **chocolate** caliente y **panetón**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/674c27ad-5364-4fce-b7aa-08e2e182c78d.webp", size: "" },
+      { texto: "Edición **2025** — Juegos y **dinámicas** recreativas.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/c8ee16ec-81be-4192-b33e-8434ac9602b6.webp", size: "" },
+      { texto: "Edición **2025** — Entrega de ropa o **víveres** para las **familias**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/888ccb02-5b2a-49da-901e-dabe28a6f865.webp", size: "tall" },
     ],
     "2026": [
       { texto: "Edición **2026** — actividad destacada.", foto: "", size: "wide" },
@@ -72,7 +72,7 @@ const proyecto = {
   impacto: {
     texto:
       "**Sembrando Sonrisas** permite llevar momentos de felicidad a **comunidades rurales** y fortalecer el **compromiso** social con la comunidad. Cada año se busca **beneficiar** a más **niños** y **familias**, sembrando esperanza y **alegría** en cada visita.",
-    foto: "",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/eb18766b-3461-4fec-b16f-bff30a7a5431.webp",
     cifras: [
       { num: "50+", label: "Familias beneficiadas por el proyecto" },
       { num: "150+", label: "Niños beneficiados por el proyecto" },
