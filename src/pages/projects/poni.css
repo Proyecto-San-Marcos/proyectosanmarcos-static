@@ -33,6 +33,8 @@
   font-family: var(--psm-font-body, "Montserrat", system-ui, sans-serif);
   color: var(--p-body);
   background: var(--p-bg);
+
+  overflow-x: hidden;
 }
 
 .proj-container {
