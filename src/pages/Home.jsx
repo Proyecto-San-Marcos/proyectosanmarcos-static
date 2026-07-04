@@ -191,11 +191,18 @@ const Home = () => {
                     </div>
                   ))}
                 </div>
-
-                <a href="#milestones" className="psm-btn-primary" style={{ width: "fit-content" }}>
+                <div className="psm-buttons">
+                  <a href="#milestones" className="psm-btn-primary">
                   Conoce Nuestra Historia
                   <ArrowRight size={16} />
                 </a>
+                
+                <a href="/comunidad" className="psm-btn-secondary">
+                  Conoce a Nuestra Comunidad
+                  <ArrowRight size={16} />
+                </a>
+                </div>
+                
               </div>
             </div>
 
@@ -787,7 +794,7 @@ const Home = () => {
                   title: "Rescatando Playas",
                   color: "#4158b5",
                   description: "En 𝗥𝗲𝘀𝗰𝗮𝘁𝗮𝗻𝗱𝗼 𝗣𝗹𝗮𝘆𝗮𝘀, hemos trabajado incansablemente para devolverle a nuestras costas la belleza que se merecen. Con el apoyo de más de 50 estudiantes voluntarios, hemos recolectado más de una tonelada de residuos plásticos y hemos limpiado más de 1.5 km de playas. 🌍♻️",
-                  link: "/proyectos/rescatando-playas"
+                  link: "/proyectos/rp"
                 },
                 {
                   imageUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/projects/proyecto_sembrandosonrisas.jpg",

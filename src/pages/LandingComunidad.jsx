@@ -36,16 +36,16 @@ const testimonios = [
   },
   {
     id: 3,
-    nombre: "Ana Ramírez",
-    cargo: "Coordinadora de Comunicaciones (2024)",
-    quote: "PSM me dio las herramientas para crecer profesionalmente mientras generaba un cambio real en mi comunidad.",
-    foto: "",
+    nombre: "Gerardo Pe",
+    cargo: "Influencer peruano",
+    quote: "Un gran saludo por los 15 años de PSM",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/272630322_492070995617859_7366802639801048003_n.jpg",
     stats: [
-      { num: "3", label: "Proyectos participados" },
-      { num: "1", label: "Años de contribución" },
-      { num: "0", label: "Dirección de Proyecto" },
+      { num: "+347k", label: "Followers Instagram" },
+      { num: "+468k", label: "Suscribers Youtube" },
+      { num: "1", label: "Amigo recuperado" },
     ],
-    videoUrl: "",
+    videoUrl: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/sign/video/gerardoPe.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84ZTM3NGQ4MS1lMzY2LTQwZDctYTM2MC0xNWQxZThjMDQ5MGUiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ2aWRlby9nZXJhcmRvUGUubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4MzEzMTgxMSwiZXhwIjoxODE0NjY3ODExfQ.nqS7WHCjOv8iQluogwXmQy4K7PzRqx0YETuj-wZp6fg",
   },
 ];
  
@@ -215,10 +215,10 @@ function LandingComunidad() {
             </div>
             <div>
               <h2 className="comunidad-h2">
-                <span className="comunidad-h2__accent">TESTI</span>MONIOS
+                <span className="comunidad-h2__accent">TESTI</span>MONIOS Y <span className="comunidad-h2__accent">SALU</span>DOS
               </h2>
               <p className="comunidad-subtitle">
-                Lo que significa ser parte de Proyectos San Marcos, en sus propias palabras:
+                Mensajes, recuerdos y saludos de nuestra comunidad por este 15 aniversario:
               </p>
             </div>
           </div>

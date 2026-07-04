@@ -150,12 +150,49 @@
     text-decoration: none;
     transition: background 0.2s, transform 0.15s;
 }
+.psm-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--psm-navy-mid);
+    color: var(--psm-white);
+    font-family: var(--psm-font-body);
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    border-radius: var(--psm-radius-pill);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+}
 
 .psm-btn-primary:hover {
     background: var(--psm-teal-light);
     color: var(--psm-navy-dark);
 }
+.psm-btn-secondary:hover {
+    background: var(--psm-teal-light);
+    color: var(--psm-navy-dark);
+}
+.psm-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+    .psm-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
+    .psm-buttons .psm-btn-primary,
+    .psm-buttons .psm-btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
 /* Botón secundario PSM (outline) */
 .psm-btn-outline {
     display: inline-flex;
