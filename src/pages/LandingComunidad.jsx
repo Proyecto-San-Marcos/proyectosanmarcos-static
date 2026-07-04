@@ -56,7 +56,7 @@ const voces = [
   {
     id: 1,
     nombre: "Marlon Cruzado",
-    cargo: "Gerente Talento Humano 2025/26",
+    cargo: "Gerente · Talento Humano 2025/26",
     quote: "Ser parte PSM me permitió generar nuevas amistades y mejorar para mi futuro profesional, estoy agradecido con cada miembro por su dedicación. Sigamos haciendo historia💙",
     foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/WhatsApp%20Image%202026-07-03%20at%2022.04.44.jpeg",
   },
@@ -70,7 +70,7 @@ const voces = [
   {
     id: 3,
     nombre: "Valeria Mogrovejo",
-    cargo: "Subgerenta Talento Humano 2025/26",
+    cargo: "Subgerenta · Talento Humano 2025/26",
     quote: "Ser parte de Proyectos San Marcos ha sido una experiencia que inspira y transforma. A lo largo de este camino he visto cómo el compromiso, el trabajo en equipo y las ganas de generar un impacto positivo pueden cambiar vidas. Gracias a todas las personas que forman esta gran comunidad por compartir su tiempo, conocimientos y pasión 💙",
     foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/IMG_2569%20-%20Valeria%20Alejandra%20Mogrovejo%20Romero.jpeg",
   },
@@ -80,6 +80,13 @@ const voces = [
     cargo: "Gerente · Finanzas 2025/26",
     quote: "PSM fue mucho más que un voluntariado; fue un espacio donde crecí personal y profesionalmente. Aprendí el valor del trabajo en equipo, el liderazgo y el compromiso, mientras fortalecía habilidades y conocía personas que dejaron una huella en mí. Agradezco haber iniciado este camino en Sanamente 2023 y haber tenido la oportunidad de ser DP de Sembrando Sonrisas en Ayacucho, experiencias que siempre recordaré. 💙",
     foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/IMG-20230804-WA0117%20-%20SEBASTIAN%20ANDRE%20ROJAS%20DUENAS.jpg",
+  },
+  {
+    id: 5,
+    nombre: "Xenia Aguirre",
+    cargo: "Gerenta · PMO 2025/26",
+    quote: "Ser parte de Proyectos San Marcos es descubrir que servir también transforma💙 Durante estos 15 años, cada proyecto ha dejado una huella en los 4 patitas, los niños, la comunidad universitaria y el medio ambiente, mientras formaba líderes comprometidos con generar un cambio",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/xenia%20aguirre.png",
   },
 ];
  
