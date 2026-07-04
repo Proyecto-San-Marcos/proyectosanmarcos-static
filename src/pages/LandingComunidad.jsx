@@ -76,10 +76,10 @@ const voces = [
   },
   {
     id: 4,
-    nombre: "Daniela Huanca",
-    cargo: "Jefa de área · Talento Humano",
-    quote: "PSM me enseñó que el trabajo en equipo con propósito puede mover montañas. Cada logro fue colectivo.",
-    foto: "",
+    nombre: "Sebastian Rojas",
+    cargo: "Gerente · Finanzas 2025/26",
+    quote: "PSM fue mucho más que un voluntariado; fue un espacio donde crecí personal y profesionalmente. Aprendí el valor del trabajo en equipo, el liderazgo y el compromiso, mientras fortalecía habilidades y conocía personas que dejaron una huella en mí. Agradezco haber iniciado este camino en Sanamente 2023 y haber tenido la oportunidad de ser DP de Sembrando Sonrisas en Ayacucho, experiencias que siempre recordaré. 💙",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/IMG-20230804-WA0117%20-%20SEBASTIAN%20ANDRE%20ROJAS%20DUENAS.jpg",
   },
   {
     id: 5,
@@ -279,7 +279,19 @@ function LandingComunidad() {
         <div className="voces-section__bg" />
  
         <div className="voces-section__inner">
-          <h2 className="voces-section__title">Voces de nuestra comunidad</h2>
+          <h2
+          className="voces-section__title"
+          style={{
+            background: "linear-gradient(90deg, #17C6EC 0%, #17C6EC 48%, #1E2E73 52%, #1E2E73 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            color: "transparent",
+            textTransform: "uppercase",
+          }}
+        >
+          Voces de nuestra comunidad
+        </h2>
  
           {/* Carrusel de 3 tarjetas */}
           <div className="voces-carousel">

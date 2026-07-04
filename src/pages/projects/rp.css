@@ -34,6 +34,9 @@
   font-family: var(--psm-font-body, "Montserrat", system-ui, sans-serif);
   color: var(--p-body);
   background: var(--p-bg);
+
+  /* FIX: evita que este contenedor raíz se ensanche por hijos con contenido intrínseco grande */
+  overflow-x: hidden;
 }
 
 .proj-container {
@@ -125,6 +128,9 @@
   overflow: hidden;
   background: var(--p-primary-soft);
   box-shadow: var(--p-shadow);
+  /* FIX: la caja de imagen nunca debe imponer su tamaño intrínseco al padre grid */
+  min-width: 0;
+  min-height: 0;
 }
 
 .proj-img img {
@@ -166,6 +172,11 @@
   align-items: center;
 }
 
+/* FIX: los hijos directos del grid de intro no deben crecer por el tamaño intrínseco de la imagen */
+.proj-intro > * {
+  min-width: 0;
+}
+
 .proj-intro__card {
   background: var(--p-primary);
   border-radius: var(--p-radius);
@@ -198,6 +209,11 @@
   grid-template-columns: 1fr 280px;
   gap: 30px;
   align-items: center;
+}
+
+/* FIX: idem para cada fila texto/foto */
+.proj-row > * {
+  min-width: 0;
 }
 
 .proj-row--reverse {
@@ -288,6 +304,9 @@
   overflow: hidden;
   background: var(--p-primary-soft);
   box-shadow: var(--p-shadow);
+  /* FIX: crítico para el mosaico — cada celda del grid no debe expandirse por la foto */
+  min-width: 0;
+  min-height: 0;
 }
 
 .proj-tile--wide {
@@ -346,6 +365,11 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: 30px;
   align-items: center;
+}
+
+/* FIX: idem para la sección de impacto */
+.proj-impact > * {
+  min-width: 0;
 }
 
 .proj-impact__text {
