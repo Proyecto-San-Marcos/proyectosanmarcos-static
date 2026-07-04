@@ -88,6 +88,13 @@ const voces = [
     quote: "Ser parte de Proyectos San Marcos es descubrir que servir también transforma💙 Durante estos 15 años, cada proyecto ha dejado una huella en los 4 patitas, los niños, la comunidad universitaria y el medio ambiente, mientras formaba líderes comprometidos con generar un cambio",
     foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/xenia%20aguirre.png",
   },
+  {
+    id: 6,
+    nombre: "Neyter Aylas",
+    cargo: "Gerente · Comunicaciones 2026/27",
+    quote: "Las palabras que le puedo dedicar a psm a lo largo de todos los años que he estados aquí son muchas, pero siendo simples y sinceros se pueden resumir en tres palabras: agradecimiento, crecimiento y diversión.#PSM15💙",
+    foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/Neiter%20Aylas.png",
+  },
 ];
  
 /* ─────────────────────────────────────────────
