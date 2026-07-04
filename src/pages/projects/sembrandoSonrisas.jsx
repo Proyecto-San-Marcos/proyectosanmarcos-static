@@ -54,15 +54,18 @@ const proyecto = {
     "2024": [
       { texto: "Entrega de **juguetes** y **regalos** para los **niños**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/2a39981a-129c-47b1-bd70-dadb9beb237a.webp", size: "wide" },
       { texto: "Compartir de **chocolate** caliente y **panetón**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/3ce8479a-3522-4030-8f0c-3ed99c5ea0c0.webp", size: "" },
-      { texto: "Juegos y **dinámicas** recreativas.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/fc537e71-1ab9-4640-b398-909498bd533e.webp", size: "tall" },
+      { texto: "Entrega de **juguetes** para los **niños** de la comunidad.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/20241215_130343.jpg", size: "tall" },
       { texto: "Entrega de ropa o **víveres** para las **familias**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/5ad7eb02-058d-4db8-86df-86749da1dd00.webp", size: "" },
+      { texto: "Juegos y dinámicas **colectivas**", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/fc537e71-1ab9-4640-b398-909498bd533e.webp", size: "" },
       { texto: "**Actividades** de integración con la **comunidad**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/19cde529-a9fa-4826-b38a-2e7edcc0e903.webp", size: "wide" },
     ],
     "2025": [
+      { texto: "Edición **2025** — Entrega de **ropa** para las **familias**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/888ccb02-5b2a-49da-901e-dabe28a6f865.webp", size: "tall" },
       { texto: "Edición **2025** — Entrega de **juguetes** y **regalos** para los **niños**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/2185f334-9d91-43b0-af91-335363945d80.webp", size: "wide" },
       { texto: "Edición **2025** — Compartir de **chocolate** caliente y **panetón**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/674c27ad-5364-4fce-b7aa-08e2e182c78d.webp", size: "" },
       { texto: "Edición **2025** — Juegos y **dinámicas** recreativas.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/c8ee16ec-81be-4192-b33e-8434ac9602b6.webp", size: "" },
-      { texto: "Edición **2025** — Entrega de ropa o **víveres** para las **familias**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/proyectos/sembrandosonrisas/888ccb02-5b2a-49da-901e-dabe28a6f865.webp", size: "tall" },
+      { texto: "Edición **2025** — Entrega de **víveres** para las **familias**.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/20251220_173121.jpg", size: "" },
+      { texto: "Edición **2025** — Show **Navideño** realizado por nuestros voluntarios.", foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/20251220_152430.jpg", size: "wide" },
     ]
   },
 
