@@ -81,13 +81,6 @@ const voces = [
     quote: "PSM fue mucho más que un voluntariado; fue un espacio donde crecí personal y profesionalmente. Aprendí el valor del trabajo en equipo, el liderazgo y el compromiso, mientras fortalecía habilidades y conocía personas que dejaron una huella en mí. Agradezco haber iniciado este camino en Sanamente 2023 y haber tenido la oportunidad de ser DP de Sembrando Sonrisas en Ayacucho, experiencias que siempre recordaré. 💙",
     foto: "https://uvsnieedcxndpdlyemgn.supabase.co/storage/v1/object/public/photos/IMG-20230804-WA0117%20-%20SEBASTIAN%20ANDRE%20ROJAS%20DUENAS.jpg",
   },
-  {
-    id: 5,
-    nombre: "Rodrigo Cárdenas",
-    cargo: "Ex presidente · 2022-2023",
-    quote: "Llevo PSM en el corazón. Formamos proyectos, pero sobre todo formamos personas que quieren cambiar el mundo.",
-    foto: "",
-  },
 ];
  
 /* ─────────────────────────────────────────────
