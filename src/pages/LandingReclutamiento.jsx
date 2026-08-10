@@ -1,194 +1,305 @@
-import React from "react";
-import { UserPlus, Users, ClipboardCheck, Sparkles, ArrowRight } from "lucide-react";
+import {
+    ArrowRight,
+    ClipboardCheck,
+    FileCheck2,
+    FileText,
+    Megaphone,
+    Network,
+    UserRoundCheck,
+    UsersRound,
+} from "lucide-react";
+import PropTypes from "prop-types";
 import Footer from "../components/Footer";
 import "./LandingReclutamiento.css";
 
-const LandingReclutamiento = () => {
-    const funciones = [
-        {
-            title: "Convocatorias y difusión",
-            desc:
-                "Publicamos convocatorias y comunicamos oportunidades para atraer perfiles alineados al voluntariado.",
-            icon: Sparkles,
-            tone: "mint",
-        },
-        {
-            title: "Selección y evaluación",
-            desc:
-                "Revisamos postulaciones con criterios claros y evaluamos competencias para un ingreso ordenado.",
-            icon: ClipboardCheck,
-            tone: "teal",
-        },
-        {
-            title: "Onboarding e integración",
-            desc:
-                "Acompañamos el ingreso para que los nuevos miembros se integren rápido y con claridad.",
-            icon: Users,
-            tone: "green",
-        },
-        {
-            title: "Gestión de postulaciones",
-            desc:
-                "Centralizamos postulaciones, damos seguimiento y mantenemos la trazabilidad del proceso.",
-            icon: UserPlus,
-            tone: "slate",
-        },
-    ];
+const responsibilities = [
+    {
+        number: "01",
+        title: "Gestión de requerimientos",
+        description:
+            "Recibimos y aprobamos las solicitudes de los distintos procesos de selección, respetando el cronograma de convocatoria.",
+        icon: ClipboardCheck,
+        tone: "berry",
+    },
+    {
+        number: "02",
+        title: "Convocatorias externas",
+        description:
+            "Gestionamos la convocatoria masiva y la convocatoria de referidos según los requerimientos y necesidades de la organización.",
+        icon: Megaphone,
+        tone: "pink",
+    },
+    {
+        number: "03",
+        title: "Cambio interno",
+        description:
+            "Coordinamos con las gerencias la selección de miembros que desean cambiar de área y la disponibilidad de vacantes.",
+        icon: Network,
+        tone: "lilac",
+    },
+    {
+        number: "04",
+        title: "Gestión documental",
+        description:
+            "Elaboramos y actualizamos el MOF, los criterios de evaluación, el manual de competencias y otros documentos de gestión.",
+        icon: FileText,
+        tone: "plum",
+    },
+];
 
-    const servicios = [
-        {
-            title: "Convocatoria activa",
-            desc:
-                "Publicación de la convocatoria, requisitos y canales oficiales de postulación.",
-        },
-        {
-            title: "Evaluación de perfiles",
-            desc:
-                "Filtro inicial, entrevistas y evaluación por competencias según el área.",
-        },
-        {
-            title: "Ingreso y bienvenida",
-            desc:
-                "Ruta de ingreso, inducción y acompañamiento para una integración efectiva.",
-        },
-    ];
+const processSteps = [
+    {
+        step: "Paso 01",
+        title: "Requerimiento",
+        description:
+            "Recibimos la solicitud del área y validamos las necesidades del proceso de selección.",
+        icon: ClipboardCheck,
+        tone: "berry",
+    },
+    {
+        step: "Paso 02",
+        title: "Planificación",
+        description:
+            "Organizamos la convocatoria de acuerdo con el cronograma y las vacantes disponibles.",
+        icon: FileCheck2,
+        tone: "pink",
+    },
+    {
+        step: "Paso 03",
+        title: "Reclutamiento y selección",
+        description:
+            "Desarrollamos el proceso correspondiente para incorporar o movilizar talento dentro de la organización.",
+        icon: UserRoundCheck,
+        tone: "lilac",
+    },
+    {
+        step: "Paso 04",
+        title: "Actualización",
+        description:
+            "Mantenemos actualizados los documentos que orientan y respaldan cada proceso de selección.",
+        icon: FileText,
+        tone: "plum",
+    },
+];
 
-    const pasos = [
-        { title: "Postula", desc: "Completa tu registro y adjunta tu información." },
-        { title: "Evaluación", desc: "Revisión y entrevista según el área." },
-        { title: "Ingreso", desc: "Confirmación + onboarding e integración." },
-    ];
+const recruitmentModes = [
+    {
+        eyebrow: "ALCANCE EXTERNO",
+        title: "Convocatoria masiva",
+        description:
+            "Proceso dirigido a atraer nuevos perfiles para cubrir los requerimientos de las gerencias y los futuros equipos de proyecto.",
+        icon: UsersRound,
+    },
+    {
+        eyebrow: "TALENTO REFERIDO",
+        title: "Convocatoria de referidos",
+        description:
+            "Modalidad externa que incorpora candidatos referidos, manteniendo los criterios y necesidades definidos por la organización.",
+        icon: Megaphone,
+    },
+    {
+        eyebrow: "MOVILIDAD INTERNA",
+        title: "Cambio interno",
+        description:
+            "Proceso para miembros que cambian de gerencia, coordinado según las vacantes disponibles en cada área.",
+        icon: Network,
+    },
+];
+
+const SectionHeader = ({ eyebrow, title, description, align = "left", light = false, titleId }) => (
+    <div className={`rec-sectionHeader rec-sectionHeader--${align} ${light ? "rec-sectionHeader--light" : ""}`}>
+        {eyebrow && <p className="rec-eyebrow">{eyebrow}</p>}
+        <h2 className="rec-sectionTitle" id={titleId}>
+            {title}
+        </h2>
+        {description && <p className="rec-sectionText">{description}</p>}
+    </div>
+);
+
+const ResponsibilityCard = ({ item }) => {
+    const Icon = item.icon;
 
     return (
-        <main className="rec-page">
-            {/* ================= HERO ================= */}
-            <section className="rec-hero" aria-label="Hero">
-                <div className="rec-hero__bg" />
-                <div className="rec-hero__overlay" />
-
-                <div className="rec-hero__content">
-                    <div className="rec-hero__titleBox">
-                        <h1 className="rec-hero__title">Área de Reclutamiento</h1>
-                        <p className="rec-hero__subtitle">
-                            Conectamos talento con propósito: un proceso claro, humano y organizado para sumar nuevos voluntarios.
-                        </p>
-
-                        <div className="rec-hero__actions">
-                            <button className="rec-btn rec-btn--primary" type="button">
-                                Quiero postular <ArrowRight size={16} />
-                            </button>
-                            <button className="rec-btn rec-btn--ghost" type="button">
-                                Ver proceso
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* barra de color */}
-                <div className="rec-colorbar" />
-            </section>
-
-            {/* ================= FUNCIONES ================= */}
-            <section className="rec-section rec-funciones" aria-label="Funciones">
-                <div className="rec-container">
-                    <div className="rec-funciones__head">
-                        <h2 className="rec-h2">
-                            ¿Qué hace el <span className="rec-h2__accent">Área de Reclutamiento</span>?
-                        </h2>
-                        <p className="rec-p">
-                            Un flujo ordenado para atraer, evaluar e integrar nuevos miembros con transparencia.
-                        </p>
-                    </div>
-
-                    <div className="rec-miniGrid">
-                        {funciones.map((f) => {
-                            const Icon = f.icon;
-                            return (
-                                <div key={f.title} className="rec-miniCard">
-                                    <div className={`rec-miniCard__icon rec-miniCard__icon--${f.tone}`}>
-                                        <Icon size={18} />
-                                    </div>
-                                    <div>
-                                        <h3 className="rec-miniCard__title">{f.title}</h3>
-                                        <p className="rec-miniCard__desc">{f.desc}</p>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </section>
-
-            {/* ================= PROCESO ================= */}
-            <section className="rec-section rec-proceso" aria-label="Proceso">
-                <div className="rec-container">
-                    <div className="rec-proceso__grid">
-                        <div>
-                            <h2 className="rec-h2">
-                                Proceso de <span className="rec-h2__accent">postulación</span>
-                            </h2>
-                            <p className="rec-p">
-                                Claro y rápido. Te avisamos en cada etapa para que siempre sepas en qué punto estás.
-                            </p>
-
-                            <div className="rec-steps">
-                                {pasos.map((p, idx) => (
-                                    <div className="rec-step" key={p.title}>
-                                        <div className="rec-step__num">{idx + 1}</div>
-                                        <div>
-                                            <div className="rec-step__title">{p.title}</div>
-                                            <div className="rec-step__desc">{p.desc}</div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="rec-proceso__panel">
-                            <div className="rec-panel__badge">Convocatoria</div>
-                            <div className="rec-panel__title">Abierta</div>
-                            <div className="rec-panel__desc">
-                                Completa tu postulación y elige el área de interés. Nuestro equipo te contactará para la evaluación.
-                            </div>
-
-                            <button className="rec-btn rec-btn--primary rec-panel__btn" type="button">
-                                Postular ahora <ArrowRight size={16} />
-                            </button>
-
-                            <div className="rec-panel__note">
-                                Tiempo estimado: 3–7 días (según disponibilidad y número de postulantes).
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ================= SERVICIOS ================= */}
-            <section className="rec-section rec-servicios" aria-label="Servicios">
-                <div className="rec-container">
-                    <h2 className="rec-h2 rec-h2--center">Servicios del Área</h2>
-                    <p className="rec-p rec-p--center">
-                        Acciones concretas para que el reclutamiento sea consistente y escalable.
-                    </p>
-
-                    <div className="rec-servicesGrid">
-                        {servicios.map((s) => (
-                            <article className="rec-serviceCard" key={s.title}>
-                                <h3 className="rec-serviceCard__title">{s.title}</h3>
-                                <p className="rec-serviceCard__desc">{s.desc}</p>
-
-                                <button className="rec-btn rec-btn--outline rec-serviceCard__btn" type="button">
-                                    Más información <ArrowRight size={16} />
-                                </button>
-                            </article>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <Footer />
-        </main>
+        <article className={`rec-responsibilityCard rec-responsibilityCard--${item.tone}`}>
+            <span className="rec-responsibilityCard__number">{item.number}</span>
+            <div className="rec-responsibilityCard__icon" aria-hidden="true">
+                <Icon size={23} strokeWidth={2.2} />
+            </div>
+            <h3>{item.title}</h3>
+            <span className="rec-responsibilityCard__line" aria-hidden="true" />
+            <p>{item.description}</p>
+        </article>
     );
 };
+
+const ProcessStep = ({ item }) => {
+    const Icon = item.icon;
+
+    return (
+        <article className={`rec-processStep rec-processStep--${item.tone}`}>
+            <div className="rec-processStep__marker" aria-hidden="true">
+                <Icon size={20} strokeWidth={2.3} />
+            </div>
+            <div className="rec-processStep__card">
+                <span>{item.step}</span>
+                <h3>{item.title}</h3>
+                <i aria-hidden="true" />
+                <p>{item.description}</p>
+            </div>
+        </article>
+    );
+};
+
+const RecruitmentModeCard = ({ item }) => {
+    const Icon = item.icon;
+
+    return (
+        <article className="rec-modeCard">
+            <div className="rec-modeCard__icon" aria-hidden="true">
+                <Icon size={26} strokeWidth={2.1} />
+            </div>
+            <span>{item.eyebrow}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+        </article>
+    );
+};
+
+SectionHeader.propTypes = {
+    eyebrow: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    align: PropTypes.oneOf(["left", "center"]),
+    light: PropTypes.bool,
+    titleId: PropTypes.string.isRequired,
+};
+
+ResponsibilityCard.propTypes = {
+    item: PropTypes.shape({
+        number: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        icon: PropTypes.elementType.isRequired,
+        tone: PropTypes.string.isRequired,
+    }).isRequired,
+};
+
+ProcessStep.propTypes = {
+    item: PropTypes.shape({
+        step: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        icon: PropTypes.elementType.isRequired,
+        tone: PropTypes.string.isRequired,
+    }).isRequired,
+};
+
+RecruitmentModeCard.propTypes = {
+    item: PropTypes.shape({
+        eyebrow: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        icon: PropTypes.elementType.isRequired,
+    }).isRequired,
+};
+
+const LandingReclutamiento = () => (
+    <main className="rec-page">
+        <section className="rec-hero" id="inicio" aria-labelledby="rec-hero-title">
+            <div className="rec-hero__image" aria-hidden="true" />
+            <div className="rec-hero__overlay" aria-hidden="true" />
+            <div className="rec-container rec-hero__content">
+                <p className="rec-hero__eyebrow">TALENTO HUMANO</p>
+                <h1 id="rec-hero-title">Reclutamiento, Selección y Planificación del Talento Humano</h1>
+                <p>
+                    Gestionamos procesos de selección para incorporar talento a las gerencias y a los futuros
+                    equipos de proyecto de Proyectos San Marcos.
+                </p>
+                <div className="rec-hero__actions" aria-label="Acciones principales">
+                    <a className="rec-btn rec-btn--primary" href="#mision">
+                        Conoce el área
+                    </a>
+                    <a className="rec-btn rec-btn--ghost" href="#funciones">
+                        Ver funciones <ArrowRight size={18} />
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section className="rec-section rec-mission" id="mision" aria-labelledby="rec-mission-title">
+            <div className="rec-container rec-mission__grid">
+                <div className="rec-mission__content">
+                    <SectionHeader
+                        titleId="rec-mission-title"
+                        eyebrow="NUESTRA MISIÓN"
+                        title="Conectamos las necesidades de la organización con el talento adecuado"
+                        description="Somos el área encargada de gestionar los procesos de selección de miembros para los futuros equipos de proyecto e incorporar miembros a las gerencias dentro de Proyectos San Marcos."
+                    />
+                </div>
+
+                <div className="rec-mission__media" aria-label="Espacio reservado para una imagen del área">
+                    <div className="rec-mission__mediaGlow" aria-hidden="true" />
+                    <div className="rec-mission__mediaIcon" aria-hidden="true">
+                        <UsersRound size={46} strokeWidth={1.7} />
+                    </div>
+                    <span>Imagen del equipo</span>
+                </div>
+            </div>
+        </section>
+
+        <section className="rec-section rec-responsibilities" id="funciones" aria-labelledby="rec-functions-title">
+            <div className="rec-container rec-responsibilities__grid">
+                <SectionHeader
+                    titleId="rec-functions-title"
+                    eyebrow="FUNCIONES DEL ÁREA"
+                    title="Responsabilidades que sostienen cada selección"
+                    description="Coordinamos los requerimientos, las convocatorias y la documentación necesaria para desarrollar procesos de reclutamiento y selección de manera adecuada."
+                    light
+                />
+                <div className="rec-responsibilities__cards">
+                    {responsibilities.map((item) => (
+                        <ResponsibilityCard key={item.number} item={item} />
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section className="rec-section rec-process" id="proceso" aria-labelledby="rec-process-title">
+            <div className="rec-container">
+                <SectionHeader
+                    titleId="rec-process-title"
+                    eyebrow="NUESTRO PROCESO"
+                    title="Cómo organizamos la selección"
+                    description="Un recorrido que parte de las necesidades de cada gerencia y mantiene alineados el cronograma, las vacantes y los documentos de gestión."
+                    align="center"
+                />
+                <div className="rec-process__timeline">
+                    {processSteps.map((item) => (
+                        <ProcessStep key={item.step} item={item} />
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section className="rec-section rec-modes" id="modalidades" aria-labelledby="rec-modes-title">
+            <div className="rec-container">
+                <SectionHeader
+                    titleId="rec-modes-title"
+                    eyebrow="MODALIDADES"
+                    title="Convocatorias que gestionamos"
+                    description="Atendemos tanto la incorporación de nuevos miembros como la movilidad del talento dentro de Proyectos San Marcos."
+                    align="center"
+                />
+                <div className="rec-modes__grid">
+                    {recruitmentModes.map((item) => (
+                        <RecruitmentModeCard key={item.title} item={item} />
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <Footer />
+    </main>
+);
 
 export default LandingReclutamiento;
