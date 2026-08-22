@@ -5,6 +5,10 @@ import LandingCapacitaciones from "../pages/LandingCapacitaciones";
 import LandingClima from "../pages/LandingClima";
 import LandingControl from "../pages/LandingControl";
 import LandingReclutamiento from "../pages/LandingReclutamiento";
+import ActivitiesPage from "../pages/reclutamiento/ActivitiesPage";
+import BasesPage from "../pages/reclutamiento/BasesPage";
+import ProcessesPage from "../pages/reclutamiento/ProcessesPage";
+import RequestsPage from "../pages/reclutamiento/RequestsPage";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +20,10 @@ const AppRoutes = () => {
       <Route path="/talento-humano/clima" element={<LandingClima/>} />
       <Route path="/talento-humano/control" element={<LandingControl/>} />
       <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento/>} />
+      <Route path="/talento-humano/reclutamiento/procesos" element={<ProcessesPage/>} />
+      <Route path="/talento-humano/reclutamiento/bases" element={<BasesPage/>} />
+      <Route path="/talento-humano/reclutamiento/solicitudes" element={<RequestsPage/>} />
+      <Route path="/talento-humano/reclutamiento/actividades" element={<ActivitiesPage/>} />
     </Routes>
   );
 };

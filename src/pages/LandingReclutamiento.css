@@ -610,6 +610,68 @@
 }
 
 /* =============================
+   Recursos
+   ============================= */
+
+.rec-resources {
+    background: var(--rec-white);
+}
+
+.rec-resources__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 48px;
+}
+
+.rec-resourceCard {
+    display: flex;
+    min-height: 220px;
+    flex-direction: column;
+    padding: 26px 23px;
+    border: 1px solid rgba(122, 47, 117, 0.14);
+    border-radius: 20px;
+    color: var(--rec-ink);
+    text-decoration: none;
+    background: var(--rec-white);
+    box-shadow: var(--rec-shadow-soft);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.rec-resourceCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--rec-pink);
+    box-shadow: var(--rec-shadow);
+}
+
+.rec-resourceCard > svg {
+    color: var(--rec-plum);
+}
+
+.rec-resourceCard h3 {
+    margin: 20px 0 0;
+    font-size: 1.12rem;
+}
+
+.rec-resourceCard p {
+    margin: 10px 0 0;
+    color: var(--rec-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.rec-resourceCard span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 18px;
+    color: var(--rec-plum);
+    font-size: 0.88rem;
+    font-weight: 900;
+}
+
+/* =============================
    Responsive
    ============================= */
 
@@ -692,7 +754,8 @@
 
     .rec-responsibilities__cards,
     .rec-process__timeline,
-    .rec-modes__grid {
+    .rec-modes__grid,
+    .rec-resources__grid {
         grid-template-columns: 1fr;
     }
 

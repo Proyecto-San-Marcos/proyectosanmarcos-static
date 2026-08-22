@@ -9,6 +9,7 @@ import {
     UsersRound,
 } from "lucide-react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import "./LandingReclutamiento.css";
 
@@ -104,6 +105,13 @@ const recruitmentModes = [
             "Proceso para miembros que cambian de gerencia, coordinado según las vacantes disponibles en cada área.",
         icon: Network,
     },
+];
+
+const resources = [
+    { title: "Procesos", description: "Conoce el recorrido de cada convocatoria.", href: "/talento-humano/reclutamiento/procesos", icon: ClipboardCheck },
+    { title: "Bases", description: "Revisa los lineamientos de selección.", href: "/talento-humano/reclutamiento/bases", icon: FileCheck2 },
+    { title: "Solicitudes", description: "Canal interno para requerimientos de equipos.", href: "/talento-humano/reclutamiento/solicitudes", icon: FileText },
+    { title: "Actividades", description: "Explora los momentos del área.", href: "/talento-humano/reclutamiento/actividades", icon: UsersRound },
 ];
 
 const SectionHeader = ({ eyebrow, title, description, align = "left", light = false, titleId }) => (
@@ -294,6 +302,31 @@ const LandingReclutamiento = () => (
                     {recruitmentModes.map((item) => (
                         <RecruitmentModeCard key={item.title} item={item} />
                     ))}
+                </div>
+            </div>
+        </section>
+
+        <section className="rec-section rec-resources" aria-labelledby="rec-resources-title">
+            <div className="rec-container">
+                <SectionHeader
+                    titleId="rec-resources-title"
+                    eyebrow="RECURSOS DEL ÁREA"
+                    title="Encuentra la información que necesitas"
+                    description="Explora los espacios de consulta del área de Reclutamiento, Selección y Planificación del Talento Humano."
+                    align="center"
+                />
+                <div className="rec-resources__grid">
+                    {resources.map((resource) => {
+                        const Icon = resource.icon;
+                        return (
+                            <Link className="rec-resourceCard" to={resource.href} key={resource.title}>
+                                <Icon size={25} aria-hidden="true" />
+                                <h3>{resource.title}</h3>
+                                <p>{resource.description}</p>
+                                <span>Explorar <ArrowRight size={16} /></span>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </section>
