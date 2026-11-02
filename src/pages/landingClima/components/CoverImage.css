@@ -1,0 +1,43 @@
+/* Placeholder de imagen con identidad de marca */
+.clCover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    overflow: hidden;
+    color: #fff;
+    background:
+        radial-gradient(90% 80% at 80% 10%, rgba(59, 190, 204, 0.55) 0%, transparent 60%),
+        linear-gradient(160deg, #0E3243 0%, #07202B 100%);
+}
+
+.clCover__ring {
+    position: absolute;
+    width: 62%;
+    aspect-ratio: 1 / 1;
+    border-radius: 42% 58% 60% 40% / 58% 42% 58% 42%;
+    border: 1.5px dashed rgba(59, 190, 204, 0.5);
+    animation: clCoverSpin 36s linear infinite;
+}
+
+@keyframes clCoverSpin {
+    to { transform: rotate(360deg); }
+}
+
+.clCover svg {
+    position: relative;
+    color: #8FDCE5;
+}
+
+.clCover__label {
+    position: relative;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}

@@ -1,0 +1,259 @@
+/* ============================================================
+   Detalle de integración — mosaico + dinámicas
+   ============================================================ */
+
+.mosaic__hint {
+    padding-bottom: 8px;
+    white-space: nowrap;
+}
+
+/* ---------- Mosaico asimétrico ---------- */
+.mosaic__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: clamp(110px, 12vw, 168px);
+    gap: clamp(10px, 1.2vw, 16px);
+}
+
+.mosaic__cell {
+    position: relative;
+    padding: 0;
+    border: none;
+    background: var(--cl-wash);
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--cl-shadow-sm);
+    transition: transform var(--cl-fast), box-shadow var(--cl-fast), border-radius var(--cl-slow);
+}
+
+/* Patrón editorial: piezas de distintos tamaños (se asigna por clase desde el componente) */
+.mosaic__cell--big  { grid-column: span 3; grid-row: span 2; }
+.mosaic__cell--wide { grid-column: span 3; grid-row: span 1; }
+.mosaic__cell--tall { grid-column: span 2; grid-row: span 2; }
+.mosaic__cell--sq   { grid-column: span 2; grid-row: span 1; }
+
+/* dense rellena los huecos que deja el patrón al terminar */
+.mosaic__grid {
+    grid-auto-flow: dense;
+}
+
+.mosaic__cell .clCover {
+    position: absolute;
+    inset: 0;
+}
+
+.mosaic__cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s var(--cl-ease), filter var(--cl-fast);
+}
+
+.mosaic__cell:hover:not(:disabled) {
+    transform: translateY(-5px);
+    box-shadow: var(--cl-shadow-lg);
+    border-radius: 22px 22px 22px 56px;
+}
+
+.mosaic__cell:disabled {
+    cursor: default;
+}
+
+.mosaic__cell:hover img {
+    transform: scale(1.08);
+}
+
+/* Superposición de marca al pasar el mouse */
+.mosaic__hover {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: linear-gradient(160deg, rgba(59, 190, 204, 0.72), rgba(28, 135, 149, 0.78));
+    opacity: 0;
+    transition: opacity var(--cl-fast);
+}
+
+.mosaic__hover svg {
+    transform: scale(0.7);
+    transition: transform var(--cl-fast);
+}
+
+.mosaic__cell:hover .mosaic__hover {
+    opacity: 1;
+}
+
+.mosaic__cell:hover .mosaic__hover svg {
+    transform: scale(1);
+}
+
+.mosaic__note {
+    text-align: center;
+    margin-top: clamp(22px, 2.6vw, 34px);
+}
+
+/* ---------- Lightbox ---------- */
+.mosaic__lightbox {
+    max-width: 860px;
+    width: min(92vw, 860px);
+    max-height: 86vh;
+    border-radius: 26px;
+}
+
+.mosaic__lightbox .card-modal__img-wrap {
+    flex: 1 1 100%;
+    max-height: 86vh;
+    background: var(--cl-ink);
+}
+
+.mosaic__lightbox .card-modal__body {
+    display: none;
+}
+
+/* ---------- Dinámicas ---------- */
+.dyn__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 2.6vw, 34px);
+}
+
+.dyn__panel {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(30px, 3.4vw, 46px);
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: var(--cl-shadow-sm);
+    transition: transform var(--cl-fast), box-shadow var(--cl-fast);
+}
+
+/* La segunda se desplaza → asimetría */
+.dyn__panel:nth-child(2) {
+    margin-top: clamp(0px, 3vw, 44px);
+    background: linear-gradient(155deg, var(--cl-brand) 0%, var(--cl-brand-700) 100%);
+    box-shadow: var(--cl-shadow-brand);
+}
+
+.dyn__panel:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--cl-shadow-lg);
+}
+
+/* Número gigante de fondo */
+.dyn__num {
+    position: absolute;
+    top: -18px;
+    right: 8px;
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    font-size: clamp(96px, 11vw, 168px);
+    line-height: 1;
+    color: var(--cl-wash);
+    pointer-events: none;
+    user-select: none;
+}
+
+.dyn__panel:nth-child(2) .dyn__num {
+    color: rgba(255, 255, 255, 0.16);
+}
+
+.dyn__panel > *:not(.dyn__num) {
+    position: relative;
+    z-index: 1;
+}
+
+.dyn__ico {
+    margin-bottom: 20px;
+}
+
+.dyn__panel:nth-child(2) .dyn__ico {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+
+.dyn__title {
+    max-width: 16ch;
+}
+
+.dyn__desc {
+    margin-top: 14px;
+    max-width: 46ch;
+}
+
+.dyn__panel:nth-child(2) .dyn__title {
+    color: #fff;
+}
+
+.dyn__panel:nth-child(2) .dyn__desc {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------- Estado vacío (edición sin galería) ---------- */
+.empty {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: clamp(48px, 6vw, 84px) clamp(24px, 4vw, 60px);
+    border-radius: 34px;
+    background: linear-gradient(180deg, var(--cl-wash-2) 0%, #fff 100%);
+    outline: 1px solid var(--cl-line);
+    outline-offset: -1px;
+}
+
+.empty__ring {
+    position: absolute;
+    z-index: -1;
+    width: 420px;
+    height: 420px;
+    border-radius: 42% 58% 60% 40% / 58% 42% 58% 42%;
+    border: 1.5px dashed var(--cl-brand-200);
+    top: -160px;
+    right: -120px;
+    animation: emptySpin 48s linear infinite;
+}
+
+@keyframes emptySpin {
+    to { transform: rotate(360deg); }
+}
+
+.empty__ico {
+    margin-bottom: 24px;
+}
+
+.empty__title {
+    max-width: 18ch;
+}
+
+.empty__desc {
+    margin: 18px 0 30px;
+    max-width: 50ch;
+}
+
+@media (max-width: 900px) {
+    .mosaic__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .mosaic__cell--big  { grid-column: span 4; grid-row: span 2; }
+    .mosaic__cell--wide { grid-column: span 2; grid-row: span 1; }
+    .mosaic__cell--tall { grid-column: span 2; grid-row: span 2; }
+    .mosaic__cell--sq   { grid-column: span 2; grid-row: span 1; }
+
+    .dyn__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dyn__panel:nth-child(2) {
+        margin-top: 0;
+    }
+
+    .mosaic__hint {
+        white-space: normal;
+    }
+}

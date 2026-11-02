@@ -1,0 +1,203 @@
+/* ============================================================
+   Documentos importantes
+   ============================================================ */
+
+.docs__list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 4vw, 52px);
+}
+
+.docs__row {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
+    padding: clamp(26px, 3.2vw, 44px);
+    background: #fff;
+    border-radius: 32px;
+    box-shadow: var(--cl-shadow-sm);
+    transition: transform var(--cl-fast), box-shadow var(--cl-fast);
+}
+
+.docs__row:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--cl-shadow-lg);
+}
+
+/* Alterna el lado de la ilustración → asimetría */
+.docs__row:nth-child(even) {
+    grid-template-columns: 1fr 260px;
+}
+
+.docs__row:nth-child(even) .docs__art {
+    order: 2;
+}
+
+/* ---------- Pila de hojas ---------- */
+.docs__art {
+    position: relative;
+    height: 220px;
+    display: grid;
+    place-items: center;
+}
+
+.docs__sheet {
+    position: absolute;
+    width: 148px;
+    height: 196px;
+    border-radius: 14px;
+    transition: transform 0.5s var(--cl-ease);
+}
+
+.docs__sheet--back {
+    background: var(--cl-brand-200);
+    transform: rotate(-11deg) translate(-14px, 6px);
+}
+
+.docs__sheet--mid {
+    background: var(--cl-brand-300);
+    transform: rotate(-5deg) translate(-6px, 3px);
+}
+
+.docs__sheet--front {
+    position: relative;
+    background: linear-gradient(160deg, var(--cl-brand) 0%, var(--cl-brand-700) 100%);
+    box-shadow: var(--cl-shadow-brand);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 26px 22px;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Esquina doblada */
+.docs__fold {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(225deg, rgba(255, 255, 255, 0.9) 50%, transparent 50%);
+    opacity: 0.35;
+}
+
+.docs__lines {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.docs__lines i {
+    display: block;
+    height: 5px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.docs__lines i:nth-child(1) { width: 100%; }
+.docs__lines i:nth-child(2) { width: 76%; }
+.docs__lines i:nth-child(3) { width: 52%; }
+
+.docs__row:hover .docs__sheet--back {
+    transform: rotate(-16deg) translate(-24px, 8px);
+}
+
+.docs__row:hover .docs__sheet--mid {
+    transform: rotate(-9deg) translate(-13px, 4px);
+}
+
+.docs__row:hover .docs__sheet--front {
+    transform: translateY(-6px) rotate(2deg);
+}
+
+/* ---------- Cuerpo ---------- */
+.docs__body {
+    position: relative;
+}
+
+.docs__num {
+    position: absolute;
+    top: -14px;
+    right: 0;
+    font-size: clamp(48px, 5vw, 76px);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.docs__title {
+    max-width: 18ch;
+}
+
+.docs__desc {
+    margin-top: 14px;
+    max-width: 54ch;
+}
+
+.docs__meta {
+    margin-top: 14px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.docs__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+/* ---------- Modal de vista previa ---------- */
+.docPreview {
+    max-width: 860px;
+    width: min(92vw, 860px);
+    border-radius: 26px;
+}
+
+.docPreview__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    padding-right: 44px; /* espacio para el botón cerrar */
+}
+
+.docPreview__title {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #07202B;
+    margin: 0;
+}
+
+.docPreview__frame {
+    width: 100%;
+    height: 68vh;
+    border: 1px solid #E1EDF0;
+    border-radius: 18px;
+    background: #F6FBFC;
+}
+
+@media (max-width: 900px) {
+    .docs__row,
+    .docs__row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .docs__row:nth-child(even) .docs__art {
+        order: 0;
+    }
+
+    .docs__num {
+        position: static;
+        display: block;
+        margin-bottom: 6px;
+    }
+}

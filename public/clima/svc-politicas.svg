@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Políticas y valores">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#103B4D"/>
+      <stop offset="1" stop-color="#06202B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.14" r="0.75">
+      <stop offset="0" stop-color="#3BBECC" stop-opacity="0.48"/>
+      <stop offset="1" stop-color="#3BBECC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5FD2DE"/>
+      <stop offset="1" stop-color="#1C8795"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <rect width="400" height="300" fill="url(#glow)"/>
+  <circle cx="68" cy="246" r="66" fill="none" stroke="#3BBECC" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="6 9"/>
+
+  <!-- hojas apiladas -->
+  <rect x="96" y="44" width="150" height="206" rx="14" fill="#2BA6B4" opacity="0.35" transform="rotate(-8 171 147)"/>
+  <rect x="112" y="40" width="152" height="210" rx="14" fill="#9FD9E2" opacity="0.5" transform="rotate(-3.5 188 145)"/>
+
+  <!-- hoja principal -->
+  <rect x="126" y="36" width="156" height="216" rx="14" fill="#F2FBFC"/>
+  <rect x="150" y="68" width="74" height="9" rx="4.5" fill="#3BBECC"/>
+  <rect x="150" y="96" width="108" height="7" rx="3.5" fill="#BBD8DF"/>
+  <rect x="150" y="114" width="96" height="7" rx="3.5" fill="#CFE5EA"/>
+  <rect x="150" y="132" width="104" height="7" rx="3.5" fill="#CFE5EA"/>
+  <rect x="150" y="150" width="70" height="7" rx="3.5" fill="#CFE5EA"/>
+
+  <!-- escudo con check -->
+  <path d="M258 150 L316 170 L316 216 C316 244 290 262 258 272 C226 262 200 244 200 216 L200 170 Z" fill="url(#shield)"/>
+  <path d="M231 212 L251 232 L288 192" fill="none" stroke="#06202B" stroke-opacity="0.85" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M231 212 L251 232 L288 192" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

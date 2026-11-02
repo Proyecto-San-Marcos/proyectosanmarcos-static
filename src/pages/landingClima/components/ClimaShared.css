@@ -1,0 +1,184 @@
+/* ============================================================
+   Clima — piezas compartidas por las vistas internas
+   Depende de clima-theme.css
+   ============================================================ */
+
+/* ══════════════ Encabezado editorial ══════════════ */
+.clHead {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(64px, 8vw, 104px) 0 clamp(96px, 11vw, 148px);
+    background:
+        radial-gradient(110% 90% at 82% 6%, #114050 0%, transparent 56%),
+        linear-gradient(158deg, #06202B 0%, #072936 50%, #05161F 100%);
+}
+
+.clHead__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.clHead__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.04);
+}
+
+/* Superposición de color de marca sobre la foto */
+.clHead--photo .clHead__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(6, 32, 43, 0.72) 0%, rgba(6, 32, 43, 0.88) 100%),
+        linear-gradient(115deg, rgba(28, 135, 149, 0.55) 0%, rgba(7, 32, 43, 0.2) 62%);
+}
+
+.clHead__orb--1 {
+    width: 480px;
+    height: 480px;
+    background: rgba(59, 190, 204, 0.32);
+    top: -220px;
+    right: -120px;
+}
+
+.clHead__orb--2 {
+    width: 360px;
+    height: 360px;
+    background: rgba(28, 135, 149, 0.34);
+    bottom: -190px;
+    left: -110px;
+}
+
+.clHead__inner {
+    max-width: 900px;
+}
+
+.clHead__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px 9px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: background var(--cl-fast), color var(--cl-fast), transform var(--cl-fast);
+}
+
+.clHead__back:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform: translateX(-3px);
+}
+
+.clHead__back svg {
+    transition: transform var(--cl-fast);
+}
+
+.clHead__back:hover svg {
+    transform: translateX(-3px);
+}
+
+.clHead__kicker {
+    margin-bottom: 18px;
+}
+
+.clHead__title {
+    font-size: clamp(38px, 6.2vw, 82px);
+    color: #fff;
+    max-width: 16ch;
+}
+
+.clHead__lead {
+    margin: 26px 0 0;
+    max-width: 54ch;
+    font-size: clamp(15px, 1.3vw, 18px);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ══════════════ Bloque de texto introductorio ══════════════ */
+.clIntro {
+    position: relative;
+}
+
+.clIntro__grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: start;
+}
+
+/* Comilla decorativa gigante */
+.clIntro__glyph {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    font-size: clamp(72px, 10vw, 150px);
+    line-height: 0.72;
+    color: var(--cl-brand-200);
+    user-select: none;
+}
+
+.clIntro__body p {
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.9;
+    color: var(--cl-body);
+    margin: 0;
+    max-width: 68ch;
+}
+
+.clIntro__body p + p {
+    margin-top: 22px;
+}
+
+/* ══════════════ Cabecera de sección reutilizable ══════════════ */
+.clSec__head {
+    margin-bottom: clamp(34px, 4vw, 56px);
+}
+
+.clSec__head--center {
+    text-align: center;
+    max-width: 640px;
+    margin-inline: auto;
+}
+
+.clSec__head--center .cl-eyebrow {
+    justify-content: center;
+}
+
+.clSec__head--split {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 36px;
+}
+
+.clSec__lead {
+    margin-top: 18px;
+    max-width: 56ch;
+}
+
+.clSec__head--center .clSec__lead {
+    margin-inline: auto;
+}
+
+@media (max-width: 860px) {
+    .clIntro__grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .clSec__head--split {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+}

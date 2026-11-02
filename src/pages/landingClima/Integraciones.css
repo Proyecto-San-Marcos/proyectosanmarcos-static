@@ -1,0 +1,307 @@
+/* ============================================================
+   Integraciones — índice por año
+   ============================================================ */
+
+.integra__count {
+    text-align: right;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.integra__count strong {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    font-size: 30px;
+    color: var(--cl-brand);
+    line-height: 1;
+    margin-right: 4px;
+}
+
+/* ---------- Edición destacada ---------- */
+.integra__hero {
+    position: relative;
+    display: block;
+    aspect-ratio: 21 / 9;
+    min-height: 300px;
+    border-radius: 34px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: var(--cl-shadow-md);
+    margin-bottom: clamp(24px, 3vw, 40px);
+    transition: transform var(--cl-fast), box-shadow var(--cl-fast);
+}
+
+.integra__hero:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--cl-shadow-lg);
+}
+
+.integra__hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s var(--cl-ease);
+}
+
+.integra__hero:hover img {
+    transform: scale(1.05);
+}
+
+.integra__veil {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(7, 32, 43, 0.86) 0%, rgba(7, 32, 43, 0.34) 58%, transparent 100%),
+        linear-gradient(180deg, transparent 40%, rgba(7, 32, 43, 0.6) 100%);
+    transition: background var(--cl-fast);
+}
+
+.integra__hero:hover .integra__veil {
+    background:
+        linear-gradient(90deg, rgba(28, 135, 149, 0.9) 0%, rgba(7, 32, 43, 0.42) 62%, transparent 100%),
+        linear-gradient(180deg, transparent 40%, rgba(7, 32, 43, 0.62) 100%);
+}
+
+.integra__stamp {
+    position: absolute;
+    top: 22px;
+    left: 26px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--cl-brand);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow: var(--cl-shadow-brand);
+}
+
+.integra__heroBody {
+    position: absolute;
+    left: clamp(24px, 3.4vw, 52px);
+    bottom: clamp(24px, 3vw, 44px);
+    right: 24px;
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(18px, 2.4vw, 32px);
+}
+
+.integra__heroYear {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    font-size: clamp(56px, 8vw, 116px);
+    line-height: 0.82;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.7);
+    transition: color var(--cl-fast), -webkit-text-stroke-color var(--cl-fast);
+}
+
+.integra__hero:hover .integra__heroYear {
+    color: #fff;
+    -webkit-text-stroke-color: transparent;
+}
+
+.integra__heroTitle {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    text-transform: uppercase;
+    font-size: clamp(20px, 2.2vw, 30px);
+    line-height: 1.1;
+    color: #fff;
+    margin: 0 0 12px;
+}
+
+.integra__heroGo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding-bottom: 3px;
+    border-bottom: 2px solid var(--cl-brand);
+}
+
+.integra__heroGo svg {
+    transition: transform var(--cl-fast);
+}
+
+.integra__hero:hover .integra__heroGo svg {
+    transform: translate(4px, -4px);
+}
+
+/* ---------- Rejilla de ediciones ---------- */
+.integra__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: clamp(18px, 2.2vw, 30px);
+}
+
+.integra__tile {
+    display: block;
+    text-decoration: none;
+    transition: transform var(--cl-fast);
+}
+
+/* Escalonado sutil */
+.integra__tile:nth-child(even) {
+    margin-top: clamp(16px, 2.4vw, 36px);
+}
+
+.integra__tile:hover {
+    transform: translateY(-8px);
+}
+
+.integra__thumb {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: var(--cl-shadow-sm);
+    transition: box-shadow var(--cl-fast), border-radius var(--cl-slow);
+}
+
+.integra__tile:hover .integra__thumb {
+    box-shadow: var(--cl-shadow-lg);
+    border-radius: 26px 26px 26px 68px;
+}
+
+.integra__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.3);
+    transition: transform 0.7s var(--cl-ease), filter var(--cl-fast);
+}
+
+.integra__tile:hover .integra__thumb img {
+    transform: scale(1.07);
+    filter: grayscale(0);
+}
+
+.integra__tileVeil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 32, 43, 0.05) 40%, rgba(7, 32, 43, 0.7) 100%);
+    transition: background var(--cl-fast);
+}
+
+.integra__tile:hover .integra__tileVeil {
+    background: linear-gradient(180deg, rgba(59, 190, 204, 0.24) 20%, rgba(7, 32, 43, 0.76) 100%);
+}
+
+.integra__year {
+    position: absolute;
+    left: 18px;
+    bottom: 14px;
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    font-size: clamp(34px, 3.4vw, 46px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.6px rgba(255, 255, 255, 0.82);
+    transition: color var(--cl-fast), -webkit-text-stroke-color var(--cl-fast);
+}
+
+.integra__tile:hover .integra__year {
+    color: #fff;
+    -webkit-text-stroke-color: transparent;
+}
+
+.integra__tileBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 6px 0;
+}
+
+.integra__tileTitle {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--cl-ink);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.integra__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: var(--cl-wash);
+    color: var(--cl-brand-700);
+    font-size: 12.5px;
+    font-weight: 700;
+    transition: background var(--cl-fast), color var(--cl-fast);
+}
+
+.integra__tile:hover .integra__pill {
+    background: var(--cl-brand);
+    color: #fff;
+}
+
+/* Estados sin galería */
+.integra__hero .clCover,
+.integra__thumb .clCover {
+    position: absolute;
+    inset: 0;
+}
+
+.integra__tile--muted .integra__thumb {
+    box-shadow: none;
+    outline: 1px solid var(--cl-line);
+    outline-offset: -1px;
+}
+
+.integra__tile--muted:hover .integra__thumb {
+    border-radius: 26px;
+    box-shadow: var(--cl-shadow-md);
+}
+
+.integra__pill--soft {
+    background: transparent;
+    color: var(--cl-muted);
+    outline: 1px solid var(--cl-line);
+    outline-offset: -1px;
+}
+
+.integra__tile--muted:hover .integra__pill--soft {
+    background: var(--cl-wash);
+    color: var(--cl-brand-700);
+    outline-color: transparent;
+}
+
+.integra__note {
+    text-align: center;
+    margin-top: clamp(28px, 3vw, 44px);
+}
+
+@media (max-width: 860px) {
+    .integra__count {
+        text-align: left;
+    }
+
+    .integra__hero {
+        aspect-ratio: 4 / 3;
+    }
+
+    .integra__heroBody {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 560px) {
+    .integra__grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-inline: auto;
+    }
+
+    .integra__tile:nth-child(even) {
+        margin-top: 0;
+    }
+}
