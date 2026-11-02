@@ -18,7 +18,7 @@ const CardProject = ({ imageUrl, title, description, link, className = "", color
         onClick={handleClick}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        style={{ cursor: "pointer", position: "relative", borderRadius: "0.75rem", overflow: "hidden", boxShadow: "var(--psm-shadow-card)", transition: "box-shadow 0.3s", boxShadow: hovered ? "0 12px 40px rgba(0,180,216,0.25)" : "var(--psm-shadow-card)" }}
+        style={{ cursor: "pointer", position: "relative", borderRadius: "0.75rem", overflow: "hidden", transition: "box-shadow 0.3s", boxShadow: hovered ? "0 12px 40px rgba(0,180,216,0.25)" : "var(--psm-shadow-card)" }}
       >
         {/* Imagen */}
         <div className="card-project__img-wrap" style={{ position: "relative", overflow: "hidden" }}>

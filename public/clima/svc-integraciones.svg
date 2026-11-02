@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Integraciones">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#103B4D"/>
+      <stop offset="1" stop-color="#06202B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#3BBECC" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#3BBECC" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <rect width="400" height="300" fill="url(#glow)"/>
+
+  <!-- confeti -->
+  <g opacity="0.95">
+    <rect x="48" y="44" width="11" height="11" rx="2.5" fill="#8FDCE5" transform="rotate(22 53 49)"/>
+    <rect x="124" y="26" width="9" height="9" rx="2" fill="#3BBECC" transform="rotate(-18 128 30)"/>
+    <rect x="276" y="34" width="10" height="10" rx="2.5" fill="#BDEBF1" transform="rotate(32 281 39)"/>
+    <rect x="344" y="78" width="9" height="9" rx="2" fill="#3BBECC" transform="rotate(-25 348 82)"/>
+    <circle cx="86" cy="104" r="5" fill="#3BBECC"/>
+    <circle cx="330" cy="150" r="5.5" fill="#8FDCE5"/>
+    <circle cx="204" cy="34" r="4.5" fill="#BDEBF1"/>
+  </g>
+
+  <!-- arco de union -->
+  <path d="M74 206 C120 148 280 148 326 206" fill="none" stroke="#3BBECC" stroke-opacity="0.35" stroke-width="2.5" stroke-dasharray="7 10"/>
+
+  <!-- persona izquierda -->
+  <circle cx="92" cy="166" r="27" fill="#2BA6B4"/>
+  <path d="M46 262 C46 226 68 206 92 206 C116 206 138 226 138 262 Z" fill="#2BA6B4"/>
+
+  <!-- persona derecha -->
+  <circle cx="308" cy="166" r="27" fill="#1C8795"/>
+  <path d="M262 262 C262 226 284 206 308 206 C332 206 354 226 354 262 Z" fill="#1C8795"/>
+
+  <!-- persona central -->
+  <circle cx="200" cy="146" r="36" fill="#8FDCE5"/>
+  <path d="M138 266 C138 218 166 192 200 192 C234 192 262 218 262 266 Z" fill="#8FDCE5"/>
+</svg>

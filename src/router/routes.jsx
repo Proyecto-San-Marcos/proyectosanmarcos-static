@@ -4,7 +4,13 @@ import { AnimatePresence } from "framer-motion";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import LandingCapacitaciones from "../pages/LandingCapacitaciones";
-import LandingClima from "../pages/LandingClima";
+import LandingClima from "../pages/landingClima/LandingClima";
+import Documentos from "../pages/landingClima/Documentos";
+import Integraciones from "../pages/landingClima/Integraciones";
+import IntegracionDetalle from "../pages/landingClima/IntegracionDetalle";
+import EvaluacionClima from "../pages/landingClima/EvaluacionClima";
+import BuzonClima from "../pages/landingClima/BuzonClima";
+import Reconocimiento from "../pages/landingClima/Reconocimiento";
 import LandingControl from "../pages/LandingControl";
 import LandingReclutamiento from "../pages/LandingReclutamiento";
 import SembrandoSonrisas from "../pages/projects/sembrandoSonrisas";
@@ -36,6 +42,12 @@ const AppRoutes = () => {
           <Route path="*" element={<div>404 Not Found</div>} />
           <Route path="/talento-humano/capacitaciones" element={<LandingCapacitaciones />} />
           <Route path="/talento-humano/clima" element={<LandingClima />} />
+          <Route path="/talento-humano/clima/documentos" element={<Documentos />} />
+          <Route path="/talento-humano/clima/integraciones" element={<Integraciones />} />
+          <Route path="/talento-humano/clima/integraciones/:year" element={<IntegracionDetalle />} />
+          <Route path="/talento-humano/clima/evaluacion" element={<EvaluacionClima />} />
+          <Route path="/talento-humano/clima/buzon" element={<BuzonClima />} />
+          <Route path="/talento-humano/clima/reconocimiento" element={<Reconocimiento />} />
           <Route path="/talento-humano/control" element={<LandingControl />} />
           <Route path="/talento-humano/reclutamiento" element={<LandingReclutamiento />} />
           <Route path="/proyectos/sembrando-sonrisas" element={<SembrandoSonrisas />} />

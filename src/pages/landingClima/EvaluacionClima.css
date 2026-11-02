@@ -1,0 +1,351 @@
+/* ============================================================
+   Evaluación Clima
+   ============================================================ */
+
+/* ---------- Indicadores (stepper) ---------- */
+.evalInd__track {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(12px, 1.6vw, 24px);
+}
+
+/* Línea que conecta los pasos */
+.evalInd__track::before {
+    content: "";
+    position: absolute;
+    top: 37px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--cl-brand-200) 0 10px,
+        transparent 10px 20px
+    );
+}
+
+.evalInd__step {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.evalInd__ring {
+    position: relative;
+    width: 74px;
+    height: 74px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    color: var(--cl-brand-700);
+    box-shadow: 0 0 0 2px var(--cl-brand-200), var(--cl-shadow-sm);
+    margin-bottom: 20px;
+    transition: transform var(--cl-fast), background var(--cl-fast), color var(--cl-fast), box-shadow var(--cl-fast);
+}
+
+.evalInd__step:hover .evalInd__ring {
+    background: var(--cl-brand);
+    color: #fff;
+    transform: translateY(-6px) scale(1.06);
+    box-shadow: 0 0 0 2px var(--cl-brand), var(--cl-shadow-brand);
+}
+
+.evalInd__badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: var(--cl-ink);
+    color: #fff;
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    font-size: 12px;
+    transition: background var(--cl-fast);
+}
+
+.evalInd__step:hover .evalInd__badge {
+    background: var(--cl-brand-700);
+}
+
+.evalInd__label {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    text-transform: uppercase;
+    font-size: 14.5px;
+    line-height: 1.25;
+    color: var(--cl-ink);
+    margin: 0;
+}
+
+.evalInd__hint {
+    margin: 8px 0 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--cl-muted);
+    max-width: 20ch;
+}
+
+/* ---------- Escala de calificadores ---------- */
+.evalScale__wrap {
+    position: relative;
+    padding: clamp(30px, 4vw, 52px) clamp(20px, 3vw, 44px);
+    background: #fff;
+    border-radius: 34px;
+    box-shadow: var(--cl-shadow-md);
+}
+
+/* Barra degradada roja → verde */
+.evalScale__bar {
+    position: absolute;
+    top: clamp(60px, 6.4vw, 88px);
+    left: clamp(46px, 9vw, 118px);
+    right: clamp(46px, 9vw, 118px);
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #E4574C 0%, #F0913E 25%, #EFC63F 50%, #7FCB6B 75%, #2FA75F 100%);
+    opacity: 0.28;
+}
+
+.evalScale__list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: clamp(10px, 1.4vw, 20px);
+}
+
+.evalScale__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+}
+
+.evalScale__face {
+    width: clamp(58px, 6vw, 76px);
+    height: clamp(58px, 6vw, 76px);
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    border: 4px solid #fff;
+    transition: transform var(--cl-fast), box-shadow var(--cl-fast);
+}
+
+.evalScale__item--r1 .evalScale__face { background: #E4574C; box-shadow: 0 10px 22px rgba(228, 87, 76, 0.34); }
+.evalScale__item--r2 .evalScale__face { background: #F0913E; box-shadow: 0 10px 22px rgba(240, 145, 62, 0.34); }
+.evalScale__item--r3 .evalScale__face { background: #EFC63F; box-shadow: 0 10px 22px rgba(239, 198, 63, 0.34); }
+.evalScale__item--r4 .evalScale__face { background: #7FCB6B; box-shadow: 0 10px 22px rgba(127, 203, 107, 0.34); }
+.evalScale__item--r5 .evalScale__face { background: #2FA75F; box-shadow: 0 10px 22px rgba(47, 167, 95, 0.34); }
+
+.evalScale__item:hover .evalScale__face {
+    transform: translateY(-8px) scale(1.08);
+}
+
+.evalScale__label {
+    font-size: 12.5px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--cl-ink);
+    max-width: 14ch;
+}
+
+/* ---------- Resultados ---------- */
+.evalRes {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(56px, 7vw, 100px) 0;
+    background:
+        radial-gradient(100% 90% at 88% 10%, #114050 0%, transparent 58%),
+        linear-gradient(155deg, #06202B 0%, #072936 52%, #05161F 100%);
+}
+
+.evalRes__orb {
+    width: 480px;
+    height: 480px;
+    background: rgba(59, 190, 204, 0.3);
+    top: -220px;
+    left: -120px;
+}
+
+.evalRes__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(32px, 5vw, 70px);
+    align-items: center;
+}
+
+.evalRes__title {
+    color: #fff;
+}
+
+.evalRes__desc {
+    margin: 20px 0 0;
+    max-width: 42ch;
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+/* ---------- Línea de periodos ---------- */
+.evalPer {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: min(100%, 420px);
+}
+
+.evalPer__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 22px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: background var(--cl-fast), border-color var(--cl-fast), transform var(--cl-fast);
+}
+
+.evalPer__item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(59, 190, 204, 0.5);
+    transform: translateX(6px);
+}
+
+/* Barra lateral que indica el estado */
+.evalPer__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18%;
+    bottom: 18%;
+    width: 3px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.evalPer__item--open::before { background: var(--cl-brand); box-shadow: 0 0 14px var(--cl-brand); }
+.evalPer__item--soon::before { background: var(--cl-brand-300); }
+
+.evalPer__item--open {
+    background: rgba(59, 190, 204, 0.14);
+    border-color: rgba(59, 190, 204, 0.5);
+}
+
+.evalPer__num {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    font-size: 28px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.3px rgba(255, 255, 255, 0.45);
+}
+
+.evalPer__item--open .evalPer__num {
+    color: var(--cl-brand);
+    -webkit-text-stroke-color: transparent;
+}
+
+.evalPer__mes {
+    font-family: var(--psm-font-heading, "Oswald", sans-serif);
+    text-transform: uppercase;
+    font-size: 19px;
+    line-height: 1;
+    color: #fff;
+    margin: 0 0 7px;
+}
+
+.evalPer__estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.evalPer__item--open .evalPer__estado { color: var(--cl-brand-300); }
+.evalPer__item--soon .evalPer__estado { color: var(--cl-brand-200); }
+
+.evalPer__btn {
+    padding: 11px 18px;
+    font-size: 12.5px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .evalInd__track {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 34px 18px;
+    }
+
+    .evalInd__track::before {
+        display: none;
+    }
+
+    .evalScale__bar {
+        display: none;
+    }
+
+    .evalScale__list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px 14px;
+    }
+
+    .evalRes__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .evalPer {
+        min-width: 0;
+    }
+
+    .evalPer__item:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .evalPer__item {
+        grid-template-columns: auto 1fr;
+    }
+
+    .evalPer__btn {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .evalInd__track {
+        grid-template-columns: 1fr;
+    }
+
+    .evalInd__hint {
+        max-width: 30ch;
+    }
+
+    .evalScale__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Buzón Clima">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#103B4D"/>
+      <stop offset="1" stop-color="#06202B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.76" cy="0.12" r="0.75">
+      <stop offset="0" stop-color="#3BBECC" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#3BBECC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="env" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5FD2DE"/>
+      <stop offset="1" stop-color="#2BA6B4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <rect width="400" height="300" fill="url(#glow)"/>
+  <circle cx="330" cy="58" r="74" fill="none" stroke="#3BBECC" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="6 9"/>
+
+  <!-- carta entrando -->
+  <g transform="rotate(-7 200 108)">
+    <rect x="136" y="48" width="128" height="86" rx="10" fill="#EAF8FA"/>
+    <rect x="152" y="68" width="78" height="7" rx="3.5" fill="#9CC3CE"/>
+    <rect x="152" y="86" width="96" height="7" rx="3.5" fill="#C2DDE4"/>
+    <rect x="152" y="104" width="58" height="7" rx="3.5" fill="#C2DDE4"/>
+  </g>
+
+  <!-- sobre -->
+  <rect x="104" y="124" width="192" height="130" rx="18" fill="url(#env)"/>
+  <path d="M104 142 L200 212 L296 142 L296 160 L200 230 L104 160 Z" fill="#12707D" opacity="0.55"/>
+  <path d="M104 142 L200 212 L296 142" fill="none" stroke="#0B4E58" stroke-opacity="0.45" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- indicador activo -->
+  <circle cx="296" cy="132" r="17" fill="#07202B"/>
+  <circle cx="296" cy="132" r="10" fill="#8FDCE5"/>
+</svg>
